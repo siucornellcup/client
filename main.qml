@@ -9,14 +9,14 @@ Rectangle {
 
     BorderImage {
         id: background
-        source: "UI_BackgroundColor.jpg"
+        source: "images/UI_BackgroundColor.jpg"
         anchors.fill: parent
         border.left: 5; border.top: 5
         border.right: 5; border.bottom: 5
     }
     Image {
         id: backTabs
-        source: "UI_Tab1_tabs.jpg"
+        source: "images/tabs/UI_Tab1_tabs.jpg"
         anchors.fill: parent
 
         Text {
@@ -113,12 +113,12 @@ Rectangle {
             x: 97
             y: 260
             visible: false
-            source: "UI_NursePortal_Patient_Btn.png"
+            source: "images/nurseportal/UI_NursePortal_Patient_Btn.png"
             MouseArea {
                 id: nursePortalPatientMouse
                 anchors.fill: parent
-                onPressed: nursePortalPatient.source = "UI_NursePortal_Patient_Active_Btn.png"
-                onReleased: nursePortalPatient.source = "UI_NursePortal_Patient_Btn.png"
+                onPressed: nursePortalPatient.source = "images/nurseportal/UI_NursePortal_Patient_Active_Btn.png"
+                onReleased: nursePortalPatient.source = "images/nurseportal/UI_NursePortal_Patient_Btn.png"
                 onClicked: page.state = 'profileState'
             }
         }
@@ -127,12 +127,12 @@ Rectangle {
             x: 388
             y: 260
             visible: false
-            source: "UI_NursePortal_Calendar_Btn.png"
+            source: "images/nurseportal/UI_NursePortal_Calendar_Btn.png"
             MouseArea {
                 id: nursePortalCalendarMouse
                 anchors.fill: parent
-                onPressed: nursePortalCalendar.source = "UI_NursePortal_Calendar_Active_Btn.png"
-                onReleased: nursePortalCalendar.source = "UI_NursePortal_Calendar_Btn.png"
+                onPressed: nursePortalCalendar.source = "images/nurseportal/UI_NursePortal_Calendar_Active_Btn.png"
+                onReleased: nursePortalCalendar.source = "images/nurseportal/UI_NursePortal_Calendar_Btn.png"
                 onClicked: page.state = 'calendarState'
             }
         }
@@ -143,12 +143,12 @@ Rectangle {
             x: 388
             y: 260
             visible: false
-            source: "UI_NursePortal_Mail_Btn.png"
+            source: "images/nurseportal/UI_NursePortal_Mail_Btn.png"
             MouseArea {
                 id: nursePortalMailMouse
                 anchors.fill: parent
-                onPressed: nursePortalMail.source = "UI_NursePortal_Mail_Active_Btn.png"
-                onReleased: nursePortalMail.source = "UI_NursePortal_Mail_Btn.png"
+                onPressed: nursePortalMail.source = "images/nurseportal/UI_NursePortal_Mail_Active_Btn.png"
+                onReleased: nursePortalMail.source = "images/nurseportal/UI_NursePortal_Mail_Btn.png"
             }
         }
 
@@ -157,7 +157,7 @@ Rectangle {
 
     Image {
         id:loginBack
-        source: "UI_Tab1_login_back.png"
+        source: "images/tabs/UI_Tab1_login_back.png"
         anchors.centerIn: parent
         visible: true
 
@@ -165,7 +165,7 @@ Rectangle {
             id: userNameInput
             x: 49
             y: 59
-            source: "UI_tab1_login_textinput.png"
+            source: "images/tabs/UI_Tab1_login_textinput.png"
 
 
         }
@@ -174,7 +174,7 @@ Rectangle {
             id: password
             x: 49
             y: 143
-            source: "UI_tab1_login_textinput.png"
+            source: "images/tabs/UI_Tab1_login_textinput.png"
 
         }
 
@@ -182,14 +182,14 @@ Rectangle {
             id: enter
             x: 162
             y: 234
-            source: "UI_Enter_Btn.png"
+            source: "images/UI_Enter_Btn.png"
             anchors.centerIn: parent
 
             MouseArea {
                 id: enterMouse
                 anchors.fill: parent
-                onPressed: enter.source = "UI_Enter_Active_Btn.png"
-                onReleased: enter.source = "UI_Enter_Btn.png"
+                onPressed: enter.source = "images/UI_Enter_Active_Btn.png"
+                onReleased: enter.source = "images/UI_Enter_Btn.png"
                 onClicked: {
                              nurse.userpass_login(name.text)
                              page.state = 'nursePortal'
@@ -233,7 +233,7 @@ Rectangle {
 
         Image {
             id: finger
-            source: "UI_fingerprint_Btn.png"
+            source: "images/UI_fingerprint_Btn.png"
             x: 166
             y: 343
             MouseArea {
@@ -253,7 +253,7 @@ Rectangle {
         id: navBar
         x: 0
         y: 689
-        source: "UI_NavBar.png"
+        source: "images/navbar/UI_NavBar.png"
         anchors.bottom: page.bottom
         anchors.left: page.left
         visible: true
@@ -274,13 +274,13 @@ Rectangle {
         id: leftArrow
         x: 30
         y: 709
-        source: "UI_NavBar_Left_Btn.png"
+        source: "images/navbar/UI_NavBar_Left_Btn.png"
         visible: true
         MouseArea {
             id: leftArrowMouse
             anchors.fill: parent
-            onPressed: leftArrow.source = "UI_NavBar_Left_Active_Btn.png"
-            onReleased: leftArrow.source = "UI_NavBar_Left_Btn.png"
+            onPressed: leftArrow.source = "images/navbar/UI_NavBar_Left_Active_Btn.png"
+            onReleased: leftArrow.source = "images/navbar/UI_NavBar_Left_Btn.png"
         }
     }
 
@@ -290,7 +290,7 @@ Rectangle {
         y: 709
         width: 60
         height: 51
-        source: "UI_NavBar_BlPressure_Btn.png"
+        source: "images/navbar/UI_NavBar_BlPressure_Btn.png"
         visible: true
         MouseArea {
             id: heartMonitorMouse
@@ -307,7 +307,7 @@ Rectangle {
         y: 709
         width: 28
         height: 51
-        source: "UI_NavBar_Temp_Btn.png"
+        source: "images/navbar/UI_NavBar_Temp_Btn.png"
         visible: true
         MouseArea {
             id: tempMouse
@@ -323,7 +323,7 @@ Rectangle {
         y: 709
         width: 60
         height: 51
-        source: "UI_NavBar_Weight_Btn.png"
+        source: "images/navbar/UI_NavBar_Weight_Btn.png"
         visible: true
         MouseArea {
             id: weightMouse
@@ -340,7 +340,7 @@ Rectangle {
         y: 709
         width: 60
         height: 51
-        source: "UI_NavBar_Stetho_Btn.png"
+        source: "images/navbar/UI_NavBar_Stetho_Btn.png"
         visible: true
         MouseArea {
             id: stethoMouse
@@ -367,7 +367,7 @@ Rectangle {
         y: 705
         width: 64
         height: 59
-        source: "UI_NavBar_Signal0_Btn.png"
+        source: "images/navbar/UI_NavBar_Signal0_Btn.png"
         visible: true
     }
     Image {
@@ -376,7 +376,7 @@ Rectangle {
         y: 712
         width: 100
         height: 46
-        source: "UI_NavBar_Battery5_Btn.png"
+        source: "images/navbar/UI_NavBar_Battery5_Btn.png"
         visible: true
     }
 
@@ -384,7 +384,7 @@ Rectangle {
         id: patientPageBack
         anchors.centerIn: parent
         visible: false
-        source: 'UI_PatientPage_back.png'
+        source: 'images/patientpage/UI_PatientPage_back.png'
     }
 
 
@@ -393,7 +393,7 @@ Rectangle {
         x: 198
         y: 85
         visible: false
-        source: "UI_Tab2_Profile_back.png"
+        source: "images/tabs/UI_Tab2_Profile_back.png"
         Text {
             id: newPatient
             x: 50
@@ -410,7 +410,7 @@ Rectangle {
             y: 81
             width: 353
             height: 57
-            source: "UI_Profile_TextInsert.png"
+            source: "images/profile/UI_Profile_TextInsert.png"
             opacity: 1
             
             TextInput {
@@ -426,7 +426,7 @@ Rectangle {
         }
         Image {
             id: villageInput
-            source: "UI_Profile_TextInsert.png"
+            source: "images/profile/UI_Profile_TextInsert.png"
             opacity: 1
             x: 37
             y: 144
@@ -447,7 +447,7 @@ Rectangle {
             width: 138
             height: 63
             opacity: 1
-            source: "UI_Profile_Gender_Btn.png"
+            source: "images/profile/UI_Profile_Gender_Btn.png"
 
             MouseArea {
                 id: maleSelect
@@ -482,7 +482,7 @@ Rectangle {
             width: 72
             height: 63
             opacity: 1
-            source: "UI_Profile_Gender_Active_Btn.png"
+            source: "images/profile/UI_Profile_Gender_Active_Btn.png"
         }
         Image {
             id: genderMaleSelected
@@ -490,7 +490,7 @@ Rectangle {
             y: 223
             width: 72
             height: 63
-            source: "UI_Profile_Gender_Active_Btn.png"
+            source: "images/profile/UI_Profile_Gender_Active_Btn.png"
         }
 
         Image {
@@ -500,7 +500,7 @@ Rectangle {
             width: 32
             height: 32
             opacity: 1
-            source: "UI_Profile_Gender_Male.png"
+            source: "images/profile/UI_Profile_Gender_Male.png"
         }
 
         Image {
@@ -510,18 +510,18 @@ Rectangle {
             width: 22
             height: 37
             opacity: 1
-            source: "UI_Profile_Gender_Female.png"
+            source: "images/profile/UI_Profile_Gender_Female.png"
         }
 
         Image {
             id: diabeticCheck
             x: 77
             y: 435
-            source: "UI_Profile_ConditionsSelect.png"
+            source: "images/profile/UI_Profile_ConditionsSelect.png"
             MouseArea {
                 id: diabeticMouse
                 anchors.fill: parent
-                onClicked: diabeticCheck.source = "UI_Profile_ConditionsSelected_Active.png"
+                onClicked: diabeticCheck.source = "images/profile/UI_Profile_ConditionsSelected_Active.png"
             }
 
         }
@@ -530,11 +530,11 @@ Rectangle {
             id: asthmaticCheck
             x: 77
             y: 475
-            source: "UI_Profile_ConditionsSelect.png"
+            source: "images/profile/UI_Profile_ConditionsSelect.png"
             MouseArea {
                 id: asthmaticMouse
                 anchors.fill: parent
-                onClicked: asthmaticCheck.source = "UI_Profile_ConditionsSelected_Active.png"
+                onClicked: asthmaticCheck.source = "images/profile/UI_Profile_ConditionsSelected_Active.png"
             }
         }
 
@@ -542,77 +542,77 @@ Rectangle {
             id: typhoidCheck
             x: 77
             y: 515
-            source: "UI_Profile_ConditionsSelect.png"
+            source: "images/profile/UI_Profile_ConditionsSelect.png"
             MouseArea {
                 id: typhoidMouse
                 anchors.fill: parent
-                onClicked: typhoidCheck.source = "UI_Profile_ConditionsSelected_Active.png"
+                onClicked: typhoidCheck.source = "images/profile/UI_Profile_ConditionsSelected_Active.png"
             }
         }
         Image {
             id: peanutAllergyCheck
             x: 227
             y: 435
-            source: "UI_Profile_ConditionsSelect.png"
+            source: "images/profile/UI_Profile_ConditionsSelect.png"
             MouseArea {
                 id: peanutAllergy
                 anchors.fill: parent
-                onClicked: peanutAllergyCheck.source = "UI_Profile_ConditionsSelected_Active.png"
+                onClicked: peanutAllergyCheck.source = "images/profile/UI_Profile_ConditionsSelected_Active.png"
             }
         }
         Image {
             id: hepatitisACheck
             x: 227
             y: 475
-            source: "UI_Profile_ConditionsSelect.png"
+            source: "images/profile/UI_Profile_ConditionsSelect.png"
             MouseArea {
                 id: hepatitisAMouse
                 anchors.fill: parent
-                onClicked: hepatitisACheck.source = "UI_Profile_ConditionsSelected_Active.png"
+                onClicked: hepatitisACheck.source = "images/profile/UI_Profile_ConditionsSelected_Active.png"
             }
         }
         Image {
             id: hepatitisBCheck
             x: 227
             y: 515
-            source: "UI_Profile_ConditionsSelect.png"
+            source: "images/profile/UI_Profile_ConditionsSelect.png"
             MouseArea {
                 id: hepatitisBMouse
                 anchors.fill: parent
-                onClicked: hepatitisBCheck.source = "UI_Profile_ConditionsSelected_Active.png"
+                onClicked: hepatitisBCheck.source = "images/profile/UI_Profile_ConditionsSelected_Active.png"
             }
         }
         Image {
             id: rabiesCheck
             x: 377
             y: 435
-            source: "UI_Profile_ConditionsSelect.png"
+            source: "images/profile/UI_Profile_ConditionsSelect.png"
             MouseArea {
                 id: rabiesMouse
                 anchors.fill: parent
-                onClicked: rabiesCheck.source = "UI_Profile_ConditionsSelected_Active.png"
+                onClicked: rabiesCheck.source = "images/profile/UI_Profile_ConditionsSelected_Active.png"
             }
         }
         Image {
             id: malariaCheck
             x: 377
             y: 475
-            source: "UI_Profile_ConditionsSelect.png"
+            source: "images/profile/UI_Profile_ConditionsSelect.png"
             MouseArea {
                 id: malariaMouse
                 anchors.fill: parent
-                onClicked: malariaCheck.source = "UI_Profile_ConditionsSelected_Active.png"
+                onClicked: malariaCheck.source = "images/profile/UI_Profile_ConditionsSelected_Active.png"
             }
         }
         Image {
             id: yellowFeverCheck
             x: 377
             y: 515
-            source: "UI_Profile_ConditionsSelect.png"
+            source: "images/profile/UI_Profile_ConditionsSelect.png"
             MouseArea {
                 id: yellowFeverMouse
                 anchors.fill: parent
-                onClicked: yellowFeverCheck.source = "UI_Profile_ConditionsSelected_Active.png"
+                onClicked: yellowFeverCheck.source = "images/profile/UI_Profile_ConditionsSelected_Active.png"
 
             }
         }
@@ -693,13 +693,13 @@ Rectangle {
 
         Image {
             id: ethnicityDrop
-            source: "UI_Profile_Ethnicity_Closed.png"
+            source: "images/profile/UI_Profile_Ethnicity_Closed.png"
             x: 250
             y: 234
             MouseArea {
                 id: ethnicityMouse
                 anchors.fill: parent
-                onClicked: ethnicityDrop.source = "UI_Profile_Ethnicity_Dropdown.png"
+                onClicked: ethnicityDrop.source = "images/profile/UI_Profile_Ethnicity_Dropdown.png"
             }
         }
 
@@ -707,12 +707,12 @@ Rectangle {
             id: monthDrop
             x: 50
             y: 324
-            source: "UI_Profile_MonYearDropdown_Closed.png"
+            source: "images/profile/UI_Profile_MonYearDropdown_Closed.png"
             MouseArea {
                 id: monthMouse
                 anchors.fill: parent
                 onClicked: {
-                    monthDrop.source = "UI_Profile_MonYearDropdown.png"
+                    monthDrop.source = "images/profile/UI_Profile_MonYearDropdown.png"
                     //monthDrop.height = 176
                 }
 
@@ -723,22 +723,22 @@ Rectangle {
             id: dayDrop
             x: 214
             y: 324
-            source: "UI_Profile_DayDropdown_Closed.png"
+            source: "images/profile/UI_Profile_DayDropdown_Closed.png"
             MouseArea {
                 id: dayDropMouse
                 anchors.fill: parent
-                onClicked: dayDrop.source = "UI_Profile_DayDropdown.png"
+                onClicked: dayDrop.source = "images/profile/UI_Profile_DayDropdown.png"
             }
         }
         Image {
             id: yearDrop
             x: 347
             y: 324
-            source: "UI_Profile_MonYearDropdown_Closed.png"
+            source: "images/profile/UI_Profile_MonYearDropdown_Closed.png"
             MouseArea {
                 id: yearDropMouse
                 anchors.fill: parent
-                onClicked: yearDrop.source = "UI_Profile_MonYearDropdown.png"
+                onClicked: yearDrop.source = "images/profile/UI_Profile_MonYearDropdown.png"
             }
         }
 
@@ -746,12 +746,12 @@ Rectangle {
             id: saveButton
             x: 630
             y: 470
-            source: "UI_Profile_Save_Btn.png"
+            source: "images/profile/UI_Profile_Save_Btn.png"
             MouseArea {
                 id: saveButtonMouse
                 anchors.fill: parent
-                onPressed: saveButton.source = "UI_Profile_Save_Active_Btn.png"
-                onReleased: saveButton.source = "UI_Profile_Save_Btn.png"
+                onPressed: saveButton.source = "images/profile/UI_Profile_Save_Active_Btn.png"
+                onReleased: saveButton.source = "images/profile/UI_Profile_Save_Btn.png"
             }
         }
     }
@@ -762,7 +762,7 @@ Rectangle {
         y: 276
         width: 130
         height: 118
-        source: "UI_fingerprint_Btn.png"
+        source: "images/UI_fingerprint_Btn.png"
         visible: false
         MouseArea {
             id: fingerProfileMouse
@@ -779,7 +779,7 @@ Rectangle {
         width: 130
         height: 118
         visible: false
-        source: "UI_Profile_Photo_Btn.png"
+        source: "images/profile/UI_Profile_Photo_Btn.png"
         MouseArea {
             id: cameraButtonMouse
             anchors.fill: parent
@@ -792,7 +792,7 @@ Rectangle {
         id: calendarBack
         anchors.centerIn: parent
         visible: false
-        source: "UI_Calendar_back.png"
+        source: "images/calendar/UI_Calendar_back.png"
 
         Text {
             id: calendarText
@@ -830,7 +830,7 @@ Rectangle {
                 target: finger
                 x: 160
                 y: 335
-                source: "UI_fingerprint_Active_Btn.png"
+                source: "images/UI_fingerprint_Active_Btn.png"
             }
         },
         State {
@@ -841,7 +841,7 @@ Rectangle {
                 anchors.bottomMargin: 0
                 anchors.leftMargin: 6
                 anchors.topMargin: 0
-                source: "UI_Tab2_tabs.jpg"
+                source: "images/tabs/UI_Tab2_tabs.jpg"
             }
             PropertyChanges {
                 target: profileBack
@@ -919,11 +919,11 @@ Rectangle {
                 width: 140
                 height: 132
                 visible: true
-                source: "UI_fingerprint_Active_Btn.png"
+                source: "images/UI_fingerprint_Active_Btn.png"
             }
             PropertyChanges {
                 target: backTabs
-                source: "UI_Tab2_tabs.jpg"
+                source: "images/tabs/UI_Tab2_tabs.jpg"
             }
             PropertyChanges {
                 target: cameraButton
@@ -943,7 +943,7 @@ Rectangle {
             PropertyChanges {
                 target: cameraButton
                 visible: true
-                source: "UI_Profile_Photo_Active_Btn.png"
+                source: "images/profile/UI_Profile_Photo_Active_Btn.png"
             }
             PropertyChanges {
                 target: profileBack
@@ -951,7 +951,7 @@ Rectangle {
             }
             PropertyChanges {
                 target: backTabs
-                source: "UI_Tab2_tabs.jpg"
+                source: "images/tabs/UI_Tab2_tabs.jpg"
             }
             PropertyChanges {
                 target: fingerProfile
@@ -966,14 +966,7 @@ Rectangle {
                 visible: false
             }
         },
-        State{
-            name: 'loggedIn'
-            PropertyChanges {
-                target: name
-                text: nurse.n_name
-            }
 
-        },
         State {
             name: 'nursePortal'
             PropertyChanges {
@@ -1005,28 +998,28 @@ Rectangle {
             name: 'heartActive'
             PropertyChanges {
                 target: heartMonitor
-                source: "UI_NavBar_BlPressure_Active_Btn.png"
+                source: "images/navbar/UI_NavBar_BlPressure_Active_Btn.png"
             }
         },
         State {
             name: 'tempActive'
             PropertyChanges {
                 target: tempMonitor
-                source: "UI_NavBar_Temp_Active_Btn.png"
+                source: "images/navbar/UI_NavBar_Temp_Active_Btn.png"
             }
         },
         State {
             name: 'weightActive'
             PropertyChanges {
                 target: weightMonitor
-                source: "UI_NavBar_Weight_Active_Btn.png"
+                source: "images/navbar/UI_NavBar_Weight_Active_Btn.png"
             }
         },
         State {
             name: 'stethoActive'
             PropertyChanges {
                 target: stethoMonitor
-                source: "UI_NavBar_Stetho_Active_Btn.png"
+                source: "images/navbar/UI_NavBar_Stetho_Active_Btn.png"
             }
         },
         State {
@@ -1041,7 +1034,7 @@ Rectangle {
             }
             PropertyChanges {
                 target: backTabs
-                source: "UI_Tab2_tabs.jpg"
+                source: "images/tabs/UI_Tab2_tabs.jpg"
             }
             PropertyChanges {
                 target: profileBack
@@ -1068,7 +1061,7 @@ Rectangle {
             }
             PropertyChanges {
                 target: backTabs
-                source: "UI_Tab2_tabs.jpg"
+                source: "images/tabs/UI_Tab2_tabs.jpg"
             }
             PropertyChanges {
                 target: cameraButton
