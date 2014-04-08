@@ -1,10 +1,12 @@
-import QtQuick 2.0
+import QtQuick 1.0
 Rectangle {
     id: page
     width: 1024
     height: 768
     color: 'white'
     state: 'base state'
+
+
     BorderImage {
         id: background
         source: "UI_BackgroundColor.jpg"
@@ -105,6 +107,52 @@ Rectangle {
             width: 197
             height: 60
         }
+
+        Image {
+            id: nursePortalPatient
+            x: 97
+            y: 260
+            visible: false
+            source: "UI_NursePortal_Patient_Btn.png"
+            MouseArea {
+                id: nursePortalPatientMouse
+                anchors.fill: parent
+                onPressed: nursePortalPatient.source = "UI_NursePortal_Patient_Active_Btn.png"
+                onReleased: nursePortalPatient.source = "UI_NursePortal_Patient_Btn.png"
+                onClicked: page.state = 'profileState'
+            }
+        }
+        Image {
+            id: nursePortalCalendar
+            x: 388
+            y: 260
+            visible: false
+            source: "UI_NursePortal_Calendar_Btn.png"
+            MouseArea {
+                id: nursePortalCalendarMouse
+                anchors.fill: parent
+                onPressed: nursePortalCalendar.source = "UI_NursePortal_Calendar_Active_Btn.png"
+                onReleased: nursePortalCalendar.source = "UI_NursePortal_Calendar_Btn.png"
+                onClicked: page.state = 'calendarState'
+            }
+        }
+
+        Image {
+            id: nursePortalMail
+
+            x: 388
+            y: 260
+            visible: false
+            source: "UI_NursePortal_Mail_Btn.png"
+            MouseArea {
+                id: nursePortalMailMouse
+                anchors.fill: parent
+                onPressed: nursePortalMail.source = "UI_NursePortal_Mail_Active_Btn.png"
+                onReleased: nursePortalMail.source = "UI_NursePortal_Mail_Btn.png"
+            }
+        }
+
+
     }
 
     Image {
@@ -140,11 +188,14 @@ Rectangle {
             MouseArea {
                 id: enterMouse
                 anchors.fill: parent
-                onPressed: page.state = 'enterActive'
-                onReleased: page.state = 'profileState'
+                onPressed: enter.source = "UI_Enter_Active_Btn.png"
+                onReleased: enter.source = "UI_Enter_Btn.png"
+                onClicked: {
+                             nurse.userpass_login(name.text)
+                             page.state = 'nursePortal'
+                }
+            }
         }
-        }
-
         TextInput {
             id: passwordInput
             x: 67
@@ -165,7 +216,7 @@ Rectangle {
             y: 74
             width: 342
             height: 47
-            text: qsTr("Username")
+            text: qsTr("Name")
             cursorVisible: true
             font.pointSize: 16
             horizontalAlignment: TextInput.AlignLeft
@@ -190,6 +241,9 @@ Rectangle {
                 anchors.fill: parent
                 onPressed: page.state = 'fingerActive'
                 onReleased: page.state = 'base state'
+                onClicked: {nurse.fp_login("00372a6fb1a467b54992df4daf0dfa49")
+                            page.state = 'nursePortal'
+                            name.text = nurse.n_name}
             }
         }
 
@@ -225,8 +279,8 @@ Rectangle {
         MouseArea {
             id: leftArrowMouse
             anchors.fill: parent
-            onPressed: page.state = 'arrowActive'
-            onReleased: page.state = 'base state'
+            onPressed: leftArrow.source = "UI_NavBar_Left_Active_Btn.png"
+            onReleased: leftArrow.source = "UI_NavBar_Left_Btn.png"
         }
     }
 
@@ -325,6 +379,15 @@ Rectangle {
         source: "UI_NavBar_Battery5_Btn.png"
         visible: true
     }
+
+    Image {
+        id: patientPageBack
+        anchors.centerIn: parent
+        visible: false
+        source: 'UI_PatientPage_back.png'
+    }
+
+
     Image {
         id: profileBack
         x: 198
@@ -349,6 +412,17 @@ Rectangle {
             height: 57
             source: "UI_Profile_TextInsert.png"
             opacity: 1
+            
+            TextInput {
+                id: textInput2
+                x: 50
+                y: 17
+                width: 80
+                height: 20
+                text: qsTr("Text Input")
+                opacity: 0
+                font.pixelSize: 12
+            }
         }
         Image {
             id: villageInput
@@ -356,6 +430,15 @@ Rectangle {
             opacity: 1
             x: 37
             y: 144
+        }
+        TextInput {
+            id: txt_villageInput
+            text: qsTr("village")
+            cursorVisible: true
+            font.pointSize: 16
+            horizontalAlignment: TextInput.AlignLeft
+            transformOrigin: Item.Center
+
         }
         Image {
             id: genderSelection
@@ -438,7 +521,7 @@ Rectangle {
             MouseArea {
                 id: diabeticMouse
                 anchors.fill: parent
-                onClicked: page.state = 'diabeticActive'
+                onClicked: diabeticCheck.source = "UI_Profile_ConditionsSelected_Active.png"
             }
 
         }
@@ -451,7 +534,7 @@ Rectangle {
             MouseArea {
                 id: asthmaticMouse
                 anchors.fill: parent
-                onClicked: page.state = 'asthmaticActive'
+                onClicked: asthmaticCheck.source = "UI_Profile_ConditionsSelected_Active.png"
             }
         }
 
@@ -463,7 +546,7 @@ Rectangle {
             MouseArea {
                 id: typhoidMouse
                 anchors.fill: parent
-                onClicked: page.state = 'typhoidActive'
+                onClicked: typhoidCheck.source = "UI_Profile_ConditionsSelected_Active.png"
             }
         }
         Image {
@@ -474,7 +557,7 @@ Rectangle {
             MouseArea {
                 id: peanutAllergy
                 anchors.fill: parent
-                onClicked: page.state = 'peanutAllergyActive'
+                onClicked: peanutAllergyCheck.source = "UI_Profile_ConditionsSelected_Active.png"
             }
         }
         Image {
@@ -485,7 +568,7 @@ Rectangle {
             MouseArea {
                 id: hepatitisAMouse
                 anchors.fill: parent
-                onClicked: page.state = 'hepatitisAActive'
+                onClicked: hepatitisACheck.source = "UI_Profile_ConditionsSelected_Active.png"
             }
         }
         Image {
@@ -496,7 +579,7 @@ Rectangle {
             MouseArea {
                 id: hepatitisBMouse
                 anchors.fill: parent
-                onClicked: page.state = 'hepatitisBActive'
+                onClicked: hepatitisBCheck.source = "UI_Profile_ConditionsSelected_Active.png"
             }
         }
         Image {
@@ -507,7 +590,7 @@ Rectangle {
             MouseArea {
                 id: rabiesMouse
                 anchors.fill: parent
-                onClicked: page.state = 'rabiesActive'
+                onClicked: rabiesCheck.source = "UI_Profile_ConditionsSelected_Active.png"
             }
         }
         Image {
@@ -518,7 +601,7 @@ Rectangle {
             MouseArea {
                 id: malariaMouse
                 anchors.fill: parent
-                onClicked: page.state = 'malariaActive'
+                onClicked: malariaCheck.source = "UI_Profile_ConditionsSelected_Active.png"
             }
         }
         Image {
@@ -529,7 +612,8 @@ Rectangle {
             MouseArea {
                 id: yellowFeverMouse
                 anchors.fill: parent
-                onClicked: page.state = 'yellowFeverActive'
+                onClicked: yellowFeverCheck.source = "UI_Profile_ConditionsSelected_Active.png"
+
             }
         }
 
@@ -605,6 +689,71 @@ Rectangle {
             font.pixelSize: 12
         }
 
+
+
+        Image {
+            id: ethnicityDrop
+            source: "UI_Profile_Ethnicity_Closed.png"
+            x: 250
+            y: 234
+            MouseArea {
+                id: ethnicityMouse
+                anchors.fill: parent
+                onClicked: ethnicityDrop.source = "UI_Profile_Ethnicity_Dropdown.png"
+            }
+        }
+
+        Image {
+            id: monthDrop
+            x: 50
+            y: 324
+            source: "UI_Profile_MonYearDropdown_Closed.png"
+            MouseArea {
+                id: monthMouse
+                anchors.fill: parent
+                onClicked: {
+                    monthDrop.source = "UI_Profile_MonYearDropdown.png"
+                    //monthDrop.height = 176
+                }
+
+            }
+        }
+
+        Image {
+            id: dayDrop
+            x: 214
+            y: 324
+            source: "UI_Profile_DayDropdown_Closed.png"
+            MouseArea {
+                id: dayDropMouse
+                anchors.fill: parent
+                onClicked: dayDrop.source = "UI_Profile_DayDropdown.png"
+            }
+        }
+        Image {
+            id: yearDrop
+            x: 347
+            y: 324
+            source: "UI_Profile_MonYearDropdown_Closed.png"
+            MouseArea {
+                id: yearDropMouse
+                anchors.fill: parent
+                onClicked: yearDrop.source = "UI_Profile_MonYearDropdown.png"
+            }
+        }
+
+        Image {
+            id: saveButton
+            x: 630
+            y: 470
+            source: "UI_Profile_Save_Btn.png"
+            MouseArea {
+                id: saveButtonMouse
+                anchors.fill: parent
+                onPressed: saveButton.source = "UI_Profile_Save_Active_Btn.png"
+                onReleased: saveButton.source = "UI_Profile_Save_Btn.png"
+            }
+        }
     }
 
     Image {
@@ -639,18 +788,42 @@ Rectangle {
         }
     }
 
+    Image {
+        id: calendarBack
+        anchors.centerIn: parent
+        visible: false
+        source: "UI_Calendar_back.png"
 
+        Text {
+            id: calendarText
+            x: 60
+            y: 50
+            text: qsTr("Calendar")
+            font.pointSize: 19
+        }
 
+        Text {
+            id: upcomingText
+            x: 785
+            y: 58
+            text: qsTr("Upcoming")
+            font.pointSize: 22
+        }
+
+        TextInput {
+            id: textInput1
+            x: 294
+            y: 153
+            width: 80
+            height: 20
+            text: qsTr("Text Input")
+            opacity: 0
+            font.pixelSize: 12
+        }
+    }
 
     states:
         [
-        State {
-            name: "enterActive"
-            PropertyChanges {
-                target: enter
-                source: "UI_Enter_Active_Btn.png"
-            }
-        },
         State {
             name: "fingerActive"
             PropertyChanges {
@@ -663,39 +836,11 @@ Rectangle {
         State {
             name: 'profileState'
             PropertyChanges {
-                target: loginBack
-                visible: false
-            }
-            PropertyChanges {
-                target: finger
-                visible: false
-            }
-            PropertyChanges {
-                target: enter
-                visible: false
-            }
-            PropertyChanges {
-                target: or
-                visible: false
-            }
-            PropertyChanges {
-                target: userNameInput
-                visible: false
-            }
-            PropertyChanges {
-                target: password
-                visible: false
-            }
-            PropertyChanges {
-                target: name
-                visible: false
-            }
-            PropertyChanges {
-                target: passwordInput
-                visible: false
-            }
-            PropertyChanges {
                 target: backTabs
+                anchors.rightMargin: -6
+                anchors.bottomMargin: 0
+                anchors.leftMargin: 6
+                anchors.topMargin: 0
                 source: "UI_Tab2_tabs.jpg"
             }
             PropertyChanges {
@@ -725,78 +870,45 @@ Rectangle {
             }
 
             PropertyChanges {
-                target: text1
-                x: 106
-                y: 440
-                text: qsTr("Diabetic")
+                target: txt_villageInput
+                x: 50
+                y: 156
+                width: 331
+                height: 34
+                text: qsTr("village")
+                visible: true
+                clip: false
+                selectionColor: "#2f8bc5"
+            }
+
+            PropertyChanges {
+                target: textInput1
+                x: 217
+                y: 139
+                width: 340
+                height: 40
+                selectionColor: "#2f8bc5"
                 opacity: 1
             }
 
             PropertyChanges {
-                target: text2
-                x: 106
-                y: 480
-                text: qsTr("Asthmatic")
-                opacity: 1
+                target: calendarBack
+                x: 27
+                y: 96
+                anchors.verticalCenterOffset: 0
+                anchors.horizontalCenterOffset: 4
             }
 
             PropertyChanges {
-                target: text3
-                x: 106
-                y: 520
-                text: qsTr("Typhoid")
+                target: textInput2
+                x: 8
+                y: 17
+                width: 337
+                height: 32
+                text: qsTr("Patient Name")
+                font.pixelSize: 19
                 opacity: 1
             }
-
-            PropertyChanges {
-                target: text4
-                x: 256
-                y: 440
-                text: qsTr("Peanut Allergy")
-                opacity: 1
-            }
-
-            PropertyChanges {
-                target: text5
-                x: 256
-                y: 480
-                text: qsTr("Hepatits A")
-                opacity: 1
-            }
-
-            PropertyChanges {
-                target: text6
-                x: 256
-                y: 520
-                text: qsTr("Hepatitis B")
-                opacity: 1
-            }
-
-            PropertyChanges {
-                target: text7
-                x: 406
-                y: 440
-                text: qsTr("Rabies")
-                opacity: 1
-            }
-
-            PropertyChanges {
-                target: text8
-                x: 406
-                y: 480
-                text: qsTr("Malaria")
-                opacity: 1
-            }
-
-            PropertyChanges {
-                target: text9
-                x: 406
-                y: 520
-                text: qsTr("Yellow Fever")
-                opacity: 1
-            }
-
-
         },
         State {
             name: 'fingerProfileActive'
@@ -854,13 +966,41 @@ Rectangle {
                 visible: false
             }
         },
-        State {
-            name: 'arrowActive'
+        State{
+            name: 'loggedIn'
             PropertyChanges {
-                target: leftArrow
-                source: "UI_NavBar_Left_Active_Btn.png"
+                target: name
+                text: nurse.n_name
+            }
+
+        },
+        State {
+            name: 'nursePortal'
+            PropertyChanges {
+                target: loginBack
+                visible: false
+            }
+            PropertyChanges {
+                target: nursePortalPatient
+                visible: true
+            }
+            PropertyChanges {
+                target: nursePortalCalendar
+                visible: true
+            }
+            PropertyChanges {
+                target: nursePortalMail
+                visible: true
             }
         },
+        State {
+            name: 'calendarState'
+            PropertyChanges {
+                target: calendarBack
+                visible: true
+            }
+        },
+
         State {
             name: 'heartActive'
             PropertyChanges {
@@ -942,288 +1082,6 @@ Rectangle {
                 target: profileBack
                 visible: true
             }
-        },
-        State {
-            name: 'diabeticActive'
-            PropertyChanges {
-                target: diabeticCheck
-                source: "UI_Profile_ConditionsSelected_Active.png"
-            }
-            PropertyChanges {
-                target: loginBack
-                visible: false
-            }
-            PropertyChanges {
-                target: backTabs
-                source: "UI_Tab2_tabs.jpg"
-            }
-
-            PropertyChanges {
-                target: profileBack
-                visible: true
-            }
-            PropertyChanges {
-                target: fingerProfile
-                visible: true
-            }
-            PropertyChanges {
-                target: cameraButton
-                visible: true
-            }
-        },
-        State {
-            name: 'asthmaticActive'
-            PropertyChanges {
-                target: asthmaticCheck
-                source: "UI_Profile_ConditionsSelected_Active.png"
-            }
-            PropertyChanges {
-                target: loginBack
-                visible: false
-            }
-            PropertyChanges {
-                target: backTabs
-                source: "UI_Tab2_tabs.jpg"
-            }
-
-            PropertyChanges {
-                target: profileBack
-                visible: true
-            }
-            PropertyChanges {
-                target: profileBack
-                visible: true
-            }
-            PropertyChanges {
-                target: fingerProfile
-                visible: true
-            }
-            PropertyChanges {
-                target: cameraButton
-                visible: true
-            }
-        },
-        State {
-            name: 'typhoidActive'
-            PropertyChanges {
-                target: typhoidCheck
-                source: "UI_Profile_ConditionsSelected_Active.png"
-            }
-            PropertyChanges {
-                target: loginBack
-                visible: false
-            }
-            PropertyChanges {
-                target: backTabs
-                source: "UI_Tab2_tabs.jpg"
-            }
-
-            PropertyChanges {
-                target: profileBack
-                visible: true
-            }
-            PropertyChanges {
-                target: fingerProfile
-                visible: true
-            }
-            PropertyChanges {
-                target: cameraButton
-                visible: true
-            }
-        },
-        State {
-            name: 'peanutAllergyActive'
-            PropertyChanges {
-                target: peanutAllergyCheck
-                source: "UI_Profile_ConditionsSelected_Active.png"
-            }
-            PropertyChanges {
-                target: loginBack
-                visible: false
-            }
-            PropertyChanges {
-                target: backTabs
-                source: "UI_Tab2_tabs.jpg"
-            }
-
-            PropertyChanges {
-                target: profileBack
-                visible: true
-            }
-            PropertyChanges {
-                target: profileBack
-                visible: true
-            }
-            PropertyChanges {
-                target: fingerProfile
-                visible: true
-            }
-            PropertyChanges {
-                target: cameraButton
-                visible: true
-            }
-        },
-        State {
-            name: 'hepatitisAActive'
-            PropertyChanges {
-                target: hepatitisACheck
-                source: "UI_Profile_ConditionsSelected_Active.png"
-            }
-            PropertyChanges {
-                target: loginBack
-                visible: false
-            }
-            PropertyChanges {
-                target: backTabs
-                source: "UI_Tab2_tabs.jpg"
-            }
-
-            PropertyChanges {
-                target: profileBack
-                visible: true
-            }
-            PropertyChanges {
-                target: profileBack
-                visible: true
-            }
-            PropertyChanges {
-                target: fingerProfile
-                visible: true
-            }
-            PropertyChanges {
-                target: cameraButton
-                visible: true
-            }
-        },
-        State {
-            name: 'hepatitisBActive'
-            PropertyChanges {
-                target: hepatitisBCheck
-                source: "UI_Profile_ConditionsSelected_Active.png"
-            }
-            PropertyChanges {
-                target: loginBack
-                visible: false
-            }
-            PropertyChanges {
-                target: backTabs
-                source: "UI_Tab2_tabs.jpg"
-            }
-
-            PropertyChanges {
-                target: profileBack
-                visible: true
-            }
-            PropertyChanges {
-                target: profileBack
-                visible: true
-            }
-            PropertyChanges {
-                target: fingerProfile
-                visible: true
-            }
-            PropertyChanges {
-                target: cameraButton
-                visible: true
-            }
-        },
-        State {
-            name: 'rabiesActive'
-            PropertyChanges {
-                target: rabiesCheck
-                source: "UI_Profile_ConditionsSelected_Active.png"
-            }
-            PropertyChanges {
-                target: loginBack
-                visible: false
-            }
-            PropertyChanges {
-                target: backTabs
-                source: "UI_Tab2_tabs.jpg"
-            }
-
-            PropertyChanges {
-                target: profileBack
-                visible: true
-            }
-            PropertyChanges {
-                target: profileBack
-                visible: true
-            }
-            PropertyChanges {
-                target: fingerProfile
-                visible: true
-            }
-            PropertyChanges {
-                target: cameraButton
-                visible: true
-            }
-        },
-        State {
-            name: 'malariaActive'
-            PropertyChanges {
-                target: malariaCheck
-                source: "UI_Profile_ConditionsSelected_Active.png"
-            }
-            PropertyChanges {
-                target: loginBack
-                visible: false
-            }
-            PropertyChanges {
-                target: backTabs
-                source: "UI_Tab2_tabs.jpg"
-            }
-
-            PropertyChanges {
-                target: profileBack
-                visible: true
-            }
-            PropertyChanges {
-                target: profileBack
-                visible: true
-            }
-            PropertyChanges {
-                target: fingerProfile
-                visible: true
-            }
-            PropertyChanges {
-                target: cameraButton
-                visible: true
-            }
-        },
-        State {
-            name: 'yellowFeverActive'
-            PropertyChanges {
-                target: yellowFeverCheck
-                source: "UI_Profile_ConditionsSelected_Active.png"
-            }
-            PropertyChanges {
-                target: loginBack
-                visible: false
-            }
-            PropertyChanges {
-                target: backTabs
-                source: "UI_Tab2_tabs.jpg"
-            }
-
-            PropertyChanges {
-                target: profileBack
-                visible: true
-            }
-            PropertyChanges {
-                target: profileBack
-                visible: true
-            }
-            PropertyChanges {
-                target: fingerProfile
-                visible: true
-            }
-            PropertyChanges {
-                target: cameraButton
-                visible: true
-            }
         }
-
     ]
 }
-
