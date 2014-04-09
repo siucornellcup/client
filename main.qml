@@ -426,18 +426,18 @@ Rectangle {
             height: 57
             source: "images/profile/UI_Profile_TextInsert.png"
             opacity: 1
-        }  
-        TextInput {
+          
+            TextInput {
                 id: txt_profileNameInput
                 x: 50
                 y: 17
-                width: 80
-                height: 20
+                width: parent.width
+                height: parent.height
                 text: qsTr("Patient Name")
                 opacity: 0
                 font.pixelSize: 12
+            }
         }
-        
         Image {
             id: villageInput
             source: "images/profile/UI_Profile_TextInsert.png"
@@ -781,8 +781,8 @@ Rectangle {
         MouseArea {
             id: fingerProfileMouse
             anchors.fill: parent
-            onPressed: page.state = 'fingerProfileActive'
-            onReleased: page.state = 'profileState'
+            onPressed: parent.source = "images/UI_fingerprint_Active_Btn.png"
+            onReleased: parent.source = "images/UI_fingerprint_Btn.png"
         }
     }
 
@@ -1017,7 +1017,7 @@ Rectangle {
                 source: "images/tabs/UI_Tab2_tabs.jpg"
             }
             PropertyChanges {
-                target: profileBack
+               target: profileBack
                 visible: true
             }
             PropertyChanges {
@@ -1025,7 +1025,7 @@ Rectangle {
                 visible: true
             }
             PropertyChanges {
-                target: cameraButton
+               target: cameraButton
                 visible: true
             }
         },
