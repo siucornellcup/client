@@ -25,6 +25,7 @@ Rectangle {
             y: 17
             text: qsTr("Nurse")
             font.pixelSize: 34
+            font.family:"DroidSans"
         }
 
         Text {
@@ -34,6 +35,7 @@ Rectangle {
             text: qsTr("Profile")
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
+            font.family:"DroidSans"
             font.pixelSize: 34
         }
 
@@ -45,6 +47,7 @@ Rectangle {
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize: 34
+            font.family:"DroidSans"
         }
 
         Text {
@@ -55,6 +58,7 @@ Rectangle {
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize: 34
+            font.family:"DroidSans"
         }
 
         Text {
@@ -65,6 +69,7 @@ Rectangle {
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize: 34
+            font.family:"DroidSans"
         }
 
 
@@ -110,7 +115,9 @@ Rectangle {
 
         Image {
             id: nursePortalPatient
-            x: 97
+            //x: 97
+            //image width is 243
+            x: 122
             y: 260
             visible: false
             source: "images/nurseportal/UI_NursePortal_Patient_Btn.png"
@@ -124,7 +131,8 @@ Rectangle {
         }
         Image {
             id: nursePortalCalendar
-            x: 388
+            //image width is 243
+            x: 425
             y: 260
             visible: false
             source: "images/nurseportal/UI_NursePortal_Calendar_Btn.png"
@@ -139,8 +147,8 @@ Rectangle {
 
         Image {
             id: nursePortalMail
-
-            x: 388
+            //image width is 243
+            x: 728
             y: 260
             visible: false
             source: "images/nurseportal/UI_NursePortal_Mail_Btn.png"
@@ -154,7 +162,7 @@ Rectangle {
 
 
     }
-
+//LOGIN
     Image {
         id:loginBack
         source: "images/tabs/UI_Tab1_login_back.png"
@@ -205,6 +213,7 @@ Rectangle {
             text: qsTr("Password");
             cursorVisible: false
             font.pointSize: 16
+            font.family:"DroidSans"
             horizontalAlignment: TextInput.AlignLeft
             echoMode: TextInput.Password
 
@@ -219,6 +228,7 @@ Rectangle {
             text: qsTr("Name")
             cursorVisible: true
             font.pointSize: 16
+            font.family:"DroidSans"
             horizontalAlignment: TextInput.AlignLeft
             transformOrigin: Item.Center
         }
@@ -229,6 +239,7 @@ Rectangle {
             y: 321
             color: "#000000"
             text: qsTr("OR")
+            font.family:"DroidSans"
         }
 
         Image {
@@ -239,14 +250,15 @@ Rectangle {
             MouseArea {
                 id: fingerMouse
                 anchors.fill: parent
-                onPressed: page.state = 'fingerActive'
-                onReleased: page.state = 'base state'
+
+                onPressed: finger.source = "images/UI_fingerprint_Active_Btn.png"
+                onReleased: finger.source = "images/UI_fingerprint_Btn.png"
                 onClicked: {nurse.fp_login("00372a6fb1a467b54992df4daf0dfa49")
                             page.state = 'nursePortal'
                             name.text = nurse.n_name}
             }
         }
-
+//NAVBAR
     }
 
     Image {
@@ -267,6 +279,7 @@ Rectangle {
             color: "#ffffff"
             text: qsTr("Devices")
             font.pointSize: 16
+            font.family:"DroidSans"
         }
     }
 
@@ -358,6 +371,7 @@ Rectangle {
         color: "#ffffff"
         text: qsTr("Signal")
         font.pointSize: 16
+        font.family:"DroidSans"
         visible: true
     }
 
@@ -402,6 +416,7 @@ Rectangle {
             height: 26
             text: qsTr("New Patient")
             font.pointSize: 22
+            font.family:"DroidSans"
             opacity: 1
         }
         Image {
@@ -412,18 +427,18 @@ Rectangle {
             height: 57
             source: "images/profile/UI_Profile_TextInsert.png"
             opacity: 1
-            
-            TextInput {
-                id: textInput2
+        }  
+        TextInput {
+                id: txt_profileNameInput
                 x: 50
                 y: 17
                 width: 80
                 height: 20
-                text: qsTr("Text Input")
+                text: qsTr("Patient Name")
                 opacity: 0
                 font.pixelSize: 12
-            }
         }
+        
         Image {
             id: villageInput
             source: "images/profile/UI_Profile_TextInsert.png"
@@ -825,15 +840,6 @@ Rectangle {
     states:
         [
         State {
-            name: "fingerActive"
-            PropertyChanges {
-                target: finger
-                x: 160
-                y: 335
-                source: "images/UI_fingerprint_Active_Btn.png"
-            }
-        },
-        State {
             name: 'profileState'
             PropertyChanges {
                 target: backTabs
@@ -892,22 +898,18 @@ Rectangle {
             }
 
             PropertyChanges {
+                target: txt_profileNameInput
+                visible: true
+                clip: false
+                selectionColor: "#2f8bc5"
+            }
+
+            PropertyChanges {
                 target: calendarBack
                 x: 27
                 y: 96
                 anchors.verticalCenterOffset: 0
                 anchors.horizontalCenterOffset: 4
-            }
-
-            PropertyChanges {
-                target: textInput2
-                x: 8
-                y: 17
-                width: 337
-                height: 32
-                text: qsTr("Patient Name")
-                font.pixelSize: 19
-                opacity: 1
             }
         },
         State {
