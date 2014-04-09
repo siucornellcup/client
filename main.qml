@@ -797,8 +797,8 @@ Rectangle {
         MouseArea {
             id: cameraButtonMouse
             anchors.fill: parent
-            onPressed: page.state = 'cameraButtonActive'
-            onReleased: page.state = 'profileState'
+            onPressed: parent.source = "images/profile/UI_Profile_Photo_Active_Btn.png"
+            onReleased: parent.source = "images/profile/UI_Profile_Photo_Btn.png"
         }
     }
 
@@ -890,63 +890,6 @@ Rectangle {
                 anchors.horizontalCenterOffset: 4
             }
         },
-        State {
-            name: 'fingerProfileActive'
-            PropertyChanges {
-                target: fingerProfile
-                x: 37
-                y: 266
-                width: 140
-                height: 132
-                visible: true
-                source: "images/UI_fingerprint_Active_Btn.png"
-            }
-            PropertyChanges {
-                target: backTabs
-                source: "images/tabs/UI_Tab2_tabs.jpg"
-            }
-            PropertyChanges {
-                target: cameraButton
-                visible: true
-            }
-            PropertyChanges {
-                target: profileBack
-                visible: true
-            }
-            PropertyChanges {
-                target: genderFemaleSelected
-                visible: true
-            }
-        },
-        State {
-            name: 'cameraButtonActive'
-            PropertyChanges {
-                target: cameraButton
-                visible: true
-                source: "images/profile/UI_Profile_Photo_Active_Btn.png"
-            }
-            PropertyChanges {
-                target: profileBack
-                visible: true
-            }
-            PropertyChanges {
-                target: backTabs
-                source: "images/tabs/UI_Tab2_tabs.jpg"
-            }
-            PropertyChanges {
-                target: fingerProfile
-                visible: true
-            }
-            PropertyChanges {
-                target: genderFemaleSelected
-                visible: true
-            }
-            PropertyChanges {
-                target: genderMaleSelected
-                visible: false
-            }
-        },
-
         State {
             name: 'nursePortal'
             PropertyChanges {
