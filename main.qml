@@ -115,7 +115,6 @@ Rectangle {
 
         Image {
             id: nursePortalPatient
-            //x: 97
             //image width is 243
             x: 122
             y: 260
@@ -824,17 +823,6 @@ Rectangle {
             text: qsTr("Upcoming")
             font.pointSize: 22
         }
-
-        TextInput {
-            id: textInput1
-            x: 294
-            y: 153
-            width: 80
-            height: 20
-            text: qsTr("Text Input")
-            opacity: 0
-            font.pixelSize: 12
-        }
     }
 
     states:
@@ -885,16 +873,6 @@ Rectangle {
                 visible: true
                 clip: false
                 selectionColor: "#2f8bc5"
-            }
-
-            PropertyChanges {
-                target: textInput1
-                x: 217
-                y: 139
-                width: 340
-                height: 40
-                selectionColor: "#2f8bc5"
-                opacity: 1
             }
 
             PropertyChanges {
