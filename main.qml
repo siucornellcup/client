@@ -389,34 +389,40 @@ import QtQuick 1.0
                 width: 353
                 height: 57
                 source: "images/profile/UI_Profile_TextInsert.png"
-                opacity: 1
               
                 TextInput {
                     id: txt_profileNameInput
+                    x: 13
+                    y: 17
                     anchors.fill: parent
-                    width: parent.width
-                    height: parent.height
-                    visible: true
+                    anchors.leftMargin: 10
+                    anchors.topMargin: 10
+                    horizontalAlignment: TextInput.AlignLeft
+                    transformOrigin: Item.Center
                     text: qsTr("Patient Name")
-                    opacity: 0
-                    font.pixelSize: 12
+                    font.pointSize: 16
                 }
             }
             Image {
                 id: villageInput
                 source: "images/profile/UI_Profile_TextInsert.png"
-                opacity: 1
                 x: 37
                 y: 144
-            }
-            TextInput {
-                id: txt_villageInput
-                text: qsTr("village")
-                cursorVisible: true
-                font.pointSize: 16
-                horizontalAlignment: TextInput.AlignLeft
-                transformOrigin: Item.Center
+                width: 353
+                height: 57
 
+                TextInput {
+                    id: txt_villageInput
+                    anchors.fill: parent
+                    anchors.topMargin: 10
+                    anchors.leftMargin: 10
+                    x: 13
+                    y: 17
+                    text: qsTr("Village")
+                    font.pointSize: 16
+                    horizontalAlignment: TextInput.AlignLeft
+                    transformOrigin: Item.Center
+                }
             }
             Image {
                 id: genderSelection
