@@ -161,7 +161,7 @@ import QtQuick 1.0
                 }
             }
         }
-    //LOGIN
+//LOGIN
         Image {
             id:loginBack
             source: "images/tabs/UI_Tab1_login_back.png"
@@ -268,7 +268,6 @@ import QtQuick 1.0
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.right: parent.right
-            visible: true
 
             Text {
                 id: device
@@ -281,99 +280,90 @@ import QtQuick 1.0
                 font.pointSize: 16
                 font.family:"DroidSans"
             }
-        }
-
-        Image {
-            id: leftArrow
-            x: 30
-            y: 709
-            source: "images/navbar/UI_NavBar_Left_Btn.png"
-            visible: true
-            MouseArea {
-                id: leftArrowMouse
-                anchors.fill: parent
-                onPressed: leftArrow.source = "images/navbar/UI_NavBar_Left_Active_Btn.png"
-                onReleased: leftArrow.source = "images/navbar/UI_NavBar_Left_Btn.png"
+        
+            Image {
+                id: leftArrow
+                x: 30
+                y: 25
+                source: "images/navbar/UI_NavBar_Left_Btn.png"
+                MouseArea {
+                    id: leftArrowMouse
+                    anchors.fill: parent
+                    onPressed: leftArrow.source = "images/navbar/UI_NavBar_Left_Active_Btn.png"
+                    onReleased: leftArrow.source = "images/navbar/UI_NavBar_Left_Btn.png"
+                }
             }
-        }
+    
+            Image {
+                id: heartMonitor
+                x: 236
+                y: 20
+                width: 60
+                height: 51
+                source: "images/navbar/UI_NavBar_BlPressure_Btn.png"
+                visible: true
+            }
 
-        Image {
-            id: heartMonitor
-            x: 236
-            y: 709
-            width: 60
-            height: 51
-            source: "images/navbar/UI_NavBar_BlPressure_Btn.png"
-            visible: true
-        }
+            Image {
+                id: tempMonitor
+                x: 334
+                y: 20
+                width: 28
+                height: 51
+                source: "images/navbar/UI_NavBar_Temp_Btn.png"
+                visible: true
 
-        Image {
-            id: tempMonitor
-            x: 334
-            y: 709
-            width: 28
-            height: 51
-            source: "images/navbar/UI_NavBar_Temp_Btn.png"
-            visible: true
+            }
+            Image {
+                id: weightMonitor
+                x: 402
+                y: 20
+                width: 60
+                height: 51
+                source: "images/navbar/UI_NavBar_Weight_Btn.png"
+                visible: true
+            }
+    
+            Image {
+                id: stethoMonitor
+                x: 482
+                y: 20
+                width: 60
+                height: 51
+                source: "images/navbar/UI_NavBar_Stetho_Btn.png"
+                visible: true
+            }
+    
+            Text {
+                id: signalText
+                x: 748
+                y: 36
+                color: "#ffffff"
+                text: qsTr("Signal")
+                font.pointSize: 16
+                font.family:"DroidSans"
+                visible: true
+            }
 
-        }
-        Image {
-            id: weightMonitor
-            x: 402
-            y: 709
-            width: 60
-            height: 51
-            source: "images/navbar/UI_NavBar_Weight_Btn.png"
-            visible: true
-        }
-
-        Image {
-            id: stethoMonitor
-            x: 482
-            y: 709
-            width: 60
-            height: 51
-            source: "images/navbar/UI_NavBar_Stetho_Btn.png"
-            visible: true
-        }
-
-        Text {
-            id: signalText
-            x: 748
-            y: 725
-            color: "#ffffff"
-            text: qsTr("Signal")
-            font.pointSize: 16
-            font.family:"DroidSans"
-            visible: true
-        }
-
-        Image {
-            id: signal
-            x: 818
-            y: 705
-            width: 64
-            height: 59
-            source: "images/navbar/UI_NavBar_Signal0_Btn.png"
-            visible: true
-        }
-        Image {
-            id: battery
-            x: 610
-            y: 712
-            width: 100
-            height: 46
-            source: "images/navbar/UI_NavBar_Battery5_Btn.png"
-            visible: true
-        }
-
-        Image {
-            id: patientPageBack
-            anchors.centerIn: parent
-            visible: false
-            source: 'images/patientpage/UI_PatientPage_back.png'
-        }
-
+            Image {
+                id: signal
+                x: 818
+                y: 16
+                width: 64
+                height: 59
+                source: "images/navbar/UI_NavBar_Signal0_Btn.png"
+                visible: true
+            }
+            Image {
+                id: battery
+                x: 610
+                y: 23
+                width: 100
+                height: 46
+                source: "images/navbar/UI_NavBar_Battery5_Btn.png"
+                visible: true
+            }
+    }
 
         Image {
             id: profileBack
