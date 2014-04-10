@@ -284,7 +284,7 @@ import QtQuick 1.0
             Image {
                 id: leftArrow
                 x: 30
-                y: 25
+                y: 20
                 source: "images/navbar/UI_NavBar_Left_Btn.png"
                 MouseArea {
                     id: leftArrowMouse
