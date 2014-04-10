@@ -1,13 +1,4 @@
 import QtQuick 1.0
-/*Rectangle {
-    id: loginPage
-    width: 1024
-    height: 768
-    color: 'white'
-
-}
-*/
-
 
     Rectangle {
         id: page
@@ -24,6 +15,7 @@ import QtQuick 1.0
             border.left: 5; border.top: 5
             border.right: 5; border.bottom: 5
         }
+//TABS
         Image {
             id: backTabs
             source: "images/tabs/UI_Tab1_tabs.jpg"
@@ -124,7 +116,7 @@ import QtQuick 1.0
                 height: 60
                 onClicked: page.state = "nursePortal" 
             }
-
+//DASHBOARD (nursePortal)
             Image {
                 id: nursePortalPatient
                 //image width is 243
@@ -269,7 +261,7 @@ import QtQuick 1.0
                                 name.text = nurse.n_name}
                 }
             }
-    //NAVBAR
+//NAVBAR
         }
 
         Image {
@@ -316,13 +308,6 @@ import QtQuick 1.0
             height: 51
             source: "images/navbar/UI_NavBar_BlPressure_Btn.png"
             visible: true
-            MouseArea {
-                id: heartMonitorMouse
-                anchors.fill: parent
-                onPressed: page.state = 'heartActive'
-                //Except this will not be clickable, instead will have to read when this sensor is connected, then switch states
-                onReleased: page.state = 'loginPage'
-            }
         }
 
         Image {
@@ -333,13 +318,7 @@ import QtQuick 1.0
             height: 51
             source: "images/navbar/UI_NavBar_Temp_Btn.png"
             visible: true
-            MouseArea {
-                id: tempMouse
-                anchors.fill: parent
-                //Except this will not be clickable, instead will have to read when this sensor is connected, then switch states
-                onPressed: page.state = 'tempActive'
-                onReleased: page.state = 'loginPage'
-            }
+
         }
         Image {
             id: weightMonitor
@@ -349,13 +328,6 @@ import QtQuick 1.0
             height: 51
             source: "images/navbar/UI_NavBar_Weight_Btn.png"
             visible: true
-            MouseArea {
-                id: weightMouse
-                anchors.fill: parent
-                //Except this will not be clickable, instead will have to read when this sensor is connected, then switch states
-                onPressed: page.state = 'weightActive'
-                onReleased: page.state = 'loginPage'
-            }
         }
 
         Image {
@@ -366,13 +338,6 @@ import QtQuick 1.0
             height: 51
             source: "images/navbar/UI_NavBar_Stetho_Btn.png"
             visible: true
-            MouseArea {
-                id: stethoMouse
-                anchors.fill: parent
-                //Except this will not be clickable, instead will have to read when this sensor is connected, then switch states
-                onPressed: page.state = 'stethoActive'
-                onReleased: page.state = 'loginPage'
-            }
         }
 
         Text {
@@ -926,35 +891,6 @@ import QtQuick 1.0
                 PropertyChanges {
                     target: calendarBack
                     visible: true
-                }
-            },
-
-            State {
-                name: 'heartActive'
-                PropertyChanges {
-                    target: heartMonitor
-                    source: "images/navbar/UI_NavBar_BlPressure_Active_Btn.png"
-                }
-            },
-            State {
-                name: 'tempActive'
-                PropertyChanges {
-                    target: tempMonitor
-                    source: "images/navbar/UI_NavBar_Temp_Active_Btn.png"
-                }
-            },
-            State {
-                name: 'weightActive'
-                PropertyChanges {
-                    target: weightMonitor
-                    source: "images/navbar/UI_NavBar_Weight_Active_Btn.png"
-                }
-            },
-            State {
-                name: 'stethoActive'
-                PropertyChanges {
-                    target: stethoMonitor
-                    source: "images/navbar/UI_NavBar_Stetho_Active_Btn.png"
                 }
             },
             State {
