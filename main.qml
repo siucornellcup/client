@@ -5,8 +5,6 @@ import QtQuick 1.0
         width: 1024
         height: 768
         color: 'white'
-        state: 'loginPage'
-
 
         BorderImage {
             id: background
@@ -162,8 +160,6 @@ import QtQuick 1.0
                     onReleased: nursePortalMail.source = "images/nurseportal/UI_NursePortal_Mail_Btn.png"
                 }
             }
-
-
         }
     //LOGIN
         Image {
@@ -264,13 +260,14 @@ import QtQuick 1.0
 //NAVBAR
         }
 
-        Image {
+        BorderImage {
             id: navBar
             x: 0
             y: 689
             source: "images/navbar/UI_NavBar.png"
-            anchors.bottom: page.bottom
-            anchors.left: page.left
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
             visible: true
 
             Text {
@@ -801,9 +798,8 @@ import QtQuick 1.0
                 font.pointSize: 22
             }
         }
-
-        states:
-            [
+//STATES
+        states: [
             State {
                 name: 'profileState'
                 PropertyChanges {
