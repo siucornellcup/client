@@ -725,7 +725,7 @@ import QtQuick 1.0
                     onClicked: yearDrop.source = "images/profile/UI_Profile_MonYearDropdown.png"
                 }
             }
-
+//PATIENT PAGE SAVE BUTTON
             Image {
                 id: saveButton
                 x: 630
@@ -755,6 +755,7 @@ import QtQuick 1.0
                 anchors.fill: parent
                 onPressed: parent.source = "images/UI_fingerprint_Active_Btn.png"
                 onReleased: parent.source = "images/UI_fingerprint_Btn.png"
+                onClicked: patient.create_patient_fp()
             }
         }
 
@@ -840,7 +841,7 @@ import QtQuick 1.0
                     y: 156
                     width: 331
                     height: 34
-                    text: qsTr("village")
+                    text: qsTr("Village")
                     visible: true
                     clip: false
                     selectionColor: "#2f8bc5"

@@ -1,11 +1,21 @@
-from PySide.QtCore import QObject, Signal, Property
+from PySide.QtCore import QObject, Signal, Property, Slot
+from faker import Factory
+
+
 
 class Patient(QObject):
 	def __init__(self):
 		self.name = None
 		self.village = None
 		self.dob = None
+		self.fingerprint = None
 		QObject.__init__(self)
+
+	@Slot()
+	def create_patient_fp(self):
+		fake = Factory.create()
+		self.fingerprint = fake.md5(raw_output=False)
+		print self.fingerprint
 
 	def set_name(self, name):
 		self.name = name
