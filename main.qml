@@ -736,6 +736,8 @@ import QtQuick 1.0
                     anchors.fill: parent
                     onPressed: saveButton.source = "images/profile/UI_Profile_Save_Active_Btn.png"
                     onReleased: saveButton.source = "images/profile/UI_Profile_Save_Btn.png"
+                    onClicked: {patient.p_name = txt_profileNameInput.text
+                                patient.p_village = txt_villageInput.text}
                 }
             }
         }
