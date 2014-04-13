@@ -381,7 +381,7 @@ import QtQuick 1.0
                 }
             }
 
-            GenderSelect {}
+            GenderSelect {id: genderSelector}
 
             Text {
                 id: notes
@@ -476,7 +476,7 @@ import QtQuick 1.0
                     onReleased: saveButton.source = "images/profile/UI_Profile_Save_Btn.png"
                     onClicked: {patient.p_name = txt_profileNameInput.text
                                 patient.p_village = txt_villageInput.text
-                                patient.p_gender = GenderSelect.gender}
+                                patient.p_gender = genderSelector.gender}
                 }
             }
         }
