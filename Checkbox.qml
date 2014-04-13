@@ -2,7 +2,7 @@ import QtQuick 1.0
 
 
 Item{
-id: my_cont
+id: checkboxContainer
 property alias text: checkText.text
 
 	Image {
@@ -17,8 +17,9 @@ property alias text: checkText.text
 	    id: checkText
 	    anchors.left: parent.right
 	    anchors.verticalCenter: parent.verticalCenter
-	    text: qsTr("Asthmatic")
+	    text: qsTr("Condition")
 	    font.pixelSize: 12
+	    font.family:"DroidSans"
 		}
 	}
 }
