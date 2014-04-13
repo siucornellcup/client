@@ -497,183 +497,24 @@ import QtQuick 1.0
                 source: "images/profile/UI_Profile_Gender_Female.png"
             }
 
-            Image {
-                id: diabeticCheck
-                x: 77
-                y: 435
-                source: "images/profile/UI_Profile_ConditionsSelect.png"
-                MouseArea {
-                    id: diabeticMouse
-                    anchors.fill: parent
-                    onClicked: diabeticCheck.source = "images/profile/UI_Profile_ConditionsSelected_Active.png"
-                }
 
-            }
+            Checkbox {text: "Asthma"; y:475; x:77}
 
-            Image {
-                id: asthmaticCheck
-                x: 77
-                y: 475
-                source: "images/profile/UI_Profile_ConditionsSelect.png"
-                MouseArea {
-                    id: asthmaticMouse
-                    anchors.fill: parent
-                    onClicked: asthmaticCheck.source = "images/profile/UI_Profile_ConditionsSelected_Active.png"
-                }
-            }
+            Checkbox {text: "Typhoid"; x: 77; y:515}
 
-            Image {
-                id: typhoidCheck
-                x: 77
-                y: 515
-                source: "images/profile/UI_Profile_ConditionsSelect.png"
-                MouseArea {
-                    id: typhoidMouse
-                    anchors.fill: parent
-                    onClicked: typhoidCheck.source = "images/profile/UI_Profile_ConditionsSelected_Active.png"
-                }
-            }
-            Image {
-                id: peanutAllergyCheck
-                x: 227
-                y: 435
-                source: "images/profile/UI_Profile_ConditionsSelect.png"
-                MouseArea {
-                    id: peanutAllergy
-                    anchors.fill: parent
-                    onClicked: peanutAllergyCheck.source = "images/profile/UI_Profile_ConditionsSelected_Active.png"
-                }
-            }
-            Image {
-                id: hepatitisACheck
-                x: 227
-                y: 475
-                source: "images/profile/UI_Profile_ConditionsSelect.png"
-                MouseArea {
-                    id: hepatitisAMouse
-                    anchors.fill: parent
-                    onClicked: hepatitisACheck.source = "images/profile/UI_Profile_ConditionsSelected_Active.png"
-                }
-            }
-            Image {
-                id: hepatitisBCheck
-                x: 227
-                y: 515
-                source: "images/profile/UI_Profile_ConditionsSelect.png"
-                MouseArea {
-                    id: hepatitisBMouse
-                    anchors.fill: parent
-                    onClicked: hepatitisBCheck.source = "images/profile/UI_Profile_ConditionsSelected_Active.png"
-                }
-            }
-            Image {
-                id: rabiesCheck
-                x: 377
-                y: 435
-                source: "images/profile/UI_Profile_ConditionsSelect.png"
-                MouseArea {
-                    id: rabiesMouse
-                    anchors.fill: parent
-                    onClicked: rabiesCheck.source = "images/profile/UI_Profile_ConditionsSelected_Active.png"
-                }
-            }
-            Image {
-                id: malariaCheck
-                x: 377
-                y: 475
-                source: "images/profile/UI_Profile_ConditionsSelect.png"
-                MouseArea {
-                    id: malariaMouse
-                    anchors.fill: parent
-                    onClicked: malariaCheck.source = "images/profile/UI_Profile_ConditionsSelected_Active.png"
-                }
-            }
-            Image {
-                id: yellowFeverCheck
-                x: 377
-                y: 515
-                source: "images/profile/UI_Profile_ConditionsSelect.png"
-                MouseArea {
-                    id: yellowFeverMouse
-                    anchors.fill: parent
-                    onClicked: yellowFeverCheck.source = "images/profile/UI_Profile_ConditionsSelected_Active.png"
+            Checkbox {text: "Medication Allergy"; x: 227; y: 435}
 
-                }
-            }
+            Checkbox {text: "Hepatitus A"; x: 227; y: 475}
 
-            Text {
-                id: diabetesText
-                anchors.left: diabeticCheck.right
-                anchors.verticalCenter: diabeticCheck.verticalCenter
-                text: qsTr("Diabetes")
-                font.pixelSize: 12
-            }
+            Checkbox {text: "Hepatitus B"; x: 227; y: 515}
 
-            Text {
-                id: asthmaticText
-                anchors.left: asthmaticCheck.right
-                anchors.verticalCenter: asthmaticCheck.verticalCenter
-                text: qsTr("Asthmatic")
-                font.pixelSize: 12
-            }
+            Checkbox {text: "Rabies"; x: 377; y: 435}
 
-            Text {
-                id: typhoidText
-                anchors.verticalCenter: typhoidCheck.verticalCenter
-                anchors.left: typhoidCheck.right
-                text: qsTr("Typhoid")
-                font.pixelSize: 12
-            }
+            Checkbox {text: "Malaria"; x: 377; y: 475}
 
-            Text {
-                id: peanutAllergyText
-                anchors.left: peanutAllergyCheck.right
-                anchors.verticalCenter: peanutAllergyCheck.verticalCenter
-                text: qsTr("Peanut Allergy")
-                font.pixelSize: 12
-            }
+            Checkbox {text: "Yellow Fever"; x: 377; y: 515}
 
-            Text {
-                id: hepatitisAText
-                anchors.left: hepatitisACheck.right
-                anchors.verticalCenter: hepatitisACheck.verticalCenter
-                text: qsTr("Hepatitis A")
-                font.pixelSize: 12
-            }
-
-            Text {
-                id: hepatitisBText
-                anchors.left: hepatitisBCheck.right
-                anchors.verticalCenter: hepatitisBCheck.verticalCenter
-                text: qsTr("Hepatitis B")
-                font.pixelSize: 12
-            }
-
-            Text {
-                id: rabiesText
-                anchors.left: rabiesCheck.right
-                anchors.verticalCenter: rabiesCheck.verticalCenter
-                text: qsTr("Rabies")
-                font.pixelSize: 12
-            }
-
-            Text {
-                id: malariaText
-                anchors.left: malariaCheck.right
-                anchors.verticalCenter: malariaCheck.verticalCenter
-                text: qsTr("Malaria")
-                font.pixelSize: 12
-            }
-
-            Text {
-                id: yellowFeverText
-                anchors.left: yellowFeverCheck.right
-                anchors.verticalCenter: yellowFeverCheck.verticalCenter
-                text: qsTr("Yellow Fever")
-                font.pixelSize: 12
-            }
-
-
+            Checkbox {text: "Diabetes"; x: 77; y: 435}
 
             Image {
                 id: ethnicityDrop
