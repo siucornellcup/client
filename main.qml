@@ -19,59 +19,15 @@ import QtQuick 1.0
             source: "images/tabs/UI_Tab1_tabs.jpg"
             anchors.fill: parent
 
-            Text {
-                id: nurseTabText
-                x: 49
-                y: 17
-                text: qsTr("Nurse")
-                font.pixelSize: 34
-                font.family:"DroidSans"
-            }
+            Tabtext {text: "Nurse"; x: 49; y: 17}
 
-            Text {
-                id: profileTabText
-                x: 251
-                y: 17
-                text: qsTr("Profile")
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-                font.family:"DroidSans"
-                font.pixelSize: 34
-            }
+            Tabtext {text: "Profile"; x: 251; y: 17}
 
-            Text {
-                id: vitalsTabText
-                x: 467
-                y: 17
-                text: qsTr("Vitals")
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-                font.pixelSize: 34
-                font.family:"DroidSans"
-            }
+            Tabtext {text: "Vitals"; x: 467; y: 17}
 
-            Text {
-                id: symptomsTabText
-                x: 631
-                y: 17
-                text: qsTr("Symptoms")
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-                font.pixelSize: 34
-                font.family:"DroidSans"
-            }
+            Tabtext {text: "Symptoms"; x: 631; y: 17}
 
-            Text {
-                id: diagnosisTabText
-                x: 837
-                y: 17
-                text: qsTr("Diagnosis")
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-                font.pixelSize: 34
-                font.family:"DroidSans"
-            }
-
+            Tabtext {text: "Diagnosis"; x: 837; y: 17}
 
             MouseArea {
                 id: profileTabMouse
