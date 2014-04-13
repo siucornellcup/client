@@ -2,6 +2,7 @@ import QtQuick 1.0
 
 Item {
     id: genderSelectItem
+    property string gender: "Male"
     Image {
         id: genderSelection
         x: 37
@@ -75,6 +76,10 @@ Item {
                     target: genderMaleSelected
                     visible: false
                 }
+                PropertyChanges{
+                    target: genderSelectItem
+                    gender: "Female"
+                }               
         },
         State {
                 name: 'maleSelected'
@@ -85,6 +90,10 @@ Item {
                 PropertyChanges {
                     target: genderFemaleSelected
                     visible: false
+                }
+                PropertyChanges{
+                    target: genderSelectItem
+                    gender: "Male"
                 }
         }
     ]  

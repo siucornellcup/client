@@ -405,7 +405,7 @@ import QtQuick 1.0
 
             Checkbox {text: "Hepatitus B"; x: 227; y: 515}
 
-            Checkbox {text: "Rabies"; x: 377; y: 435}
+            Checkbox {text: "Peanut Allergy"; x: 377; y: 435}
 
             Checkbox {text: "Malaria"; x: 377; y: 475}
 
@@ -475,7 +475,8 @@ import QtQuick 1.0
                     onPressed: saveButton.source = "images/profile/UI_Profile_Save_Active_Btn.png"
                     onReleased: saveButton.source = "images/profile/UI_Profile_Save_Btn.png"
                     onClicked: {patient.p_name = txt_profileNameInput.text
-                                patient.p_village = txt_villageInput.text}
+                                patient.p_village = txt_villageInput.text
+                                patient.p_gender = GenderSelect.gender}
                 }
             }
         }
@@ -563,14 +564,6 @@ import QtQuick 1.0
                 PropertyChanges {
                     target: cameraButtonMouse
                     enabled: true
-                }
-                PropertyChanges {
-                    target: genderFemaleSelected
-                    visible: true
-                }
-                PropertyChanges {
-                    target: genderMaleSelected
-                    visible: false
                 }
 
                 PropertyChanges {

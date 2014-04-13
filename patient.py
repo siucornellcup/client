@@ -37,6 +37,7 @@ class Patient(QObject):
 
 	def set_gender(self, gender):
 		self.gender = gender
+		print self.gender
 	def get_gender(self):
 		return self.gender
 
