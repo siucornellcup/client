@@ -413,17 +413,7 @@ import QtQuick 1.0
 
             Checkbox {text: "Diabetes"; x: 77; y: 435}
 
-            Image {
-                id: ethnicityDrop
-                source: "images/profile/UI_Profile_Ethnicity_Closed.png"
-                x: 250
-                y: 234
-                MouseArea {
-                    id: ethnicityMouse
-                    anchors.fill: parent
-                    onClicked: ethnicityDrop.source = "images/profile/UI_Profile_Ethnicity_Dropdown.png"
-                }
-            }
+            EthnicityDropDown {}
 
             Image {
                 id: monthDrop
@@ -437,7 +427,15 @@ import QtQuick 1.0
                         monthDrop.source = "images/profile/UI_Profile_MonYearDropdown.png"
                         //monthDrop.height = 176
                     }
-
+                Text {
+                    anchors.fill: parent
+                    anchors.rightMargin: 12
+                    text: "Month"
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    font.family: "DroidSans"
+                    font.pointSize: 12
+                }
                 }
             }
 
@@ -451,6 +449,15 @@ import QtQuick 1.0
                     anchors.fill: parent
                     onClicked: dayDrop.source = "images/profile/UI_Profile_DayDropdown.png"
                 }
+                Text {
+                    anchors.fill: parent
+                    anchors.rightMargin: 12
+                    text: "Day"
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    font.family: "DroidSans"
+                    font.pointSize: 12
+                }            
             }
             Image {
                 id: yearDrop
@@ -462,6 +469,15 @@ import QtQuick 1.0
                     anchors.fill: parent
                     onClicked: yearDrop.source = "images/profile/UI_Profile_MonYearDropdown.png"
                 }
+                Text {
+                    anchors.fill: parent
+                    anchors.rightMargin: 12
+                    text: "Year"
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    font.family: "DroidSans"
+                    font.pointSize: 12
+                }       
             }
 //PATIENT PAGE SAVE BUTTON
             Image {
