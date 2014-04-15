@@ -4,7 +4,6 @@ import QtQuick 1.0
         id: page
         width: 1024
         height: 768
-        color: 'white'
 
         BorderImage {
             id: background
@@ -27,64 +26,6 @@ import QtQuick 1.0
             id: backTabs
         }
 
-  /*      Image {
-            id: backTabs
-            source: "images/tabs/UI_Tab1_tabs.jpg"
-            anchors.fill: parent
-
-            Tabtext {text: "Nurse"; x: 49; y: 17}
-
-            Tabtext {text: "Profile"; x: 251; y: 17}
-
-            Tabtext {text: "Vitals"; x: 467; y: 17}
-
-            Tabtext {text: "Symptoms"; x: 631; y: 17}
-
-            Tabtext {text: "Diagnosis"; x: 837; y: 17}
-
-            MouseArea {
-                id: profileTabMouse
-                x: 203
-                y: 8
-                width: 201
-                height: 60
-                onClicked: page.state = "profileState" 
-            }
-
-            MouseArea {
-                id: vitalsTabMouse
-                x: 410
-                y: 8
-                width: 202
-                height: 60
-                onClicked: page.state = "vitalsTab"
-            }
-
-            MouseArea {
-                id: symptomsTabMouse
-                x: 618
-                y: 8
-                width: 203
-                height: 60
-            }
-
-            MouseArea {
-                id: diagnosisTabMouse
-                x: 827
-                y: 8
-                width: 189
-                height: 60
-            }
-
-            MouseArea {
-                id: nurseTabMouse
-                x: 0
-                y: 8
-                width: 197
-                height: 60
-                onClicked: page.state = "nursePortal" 
-            }
-//DASHBOARD (nursePortal)
             Image {
                 id: nursePortalPatient
                 //image width is 243
@@ -130,7 +71,7 @@ import QtQuick 1.0
                     onReleased: nursePortalMail.source = "images/nurseportal/UI_NursePortal_Mail_Btn.png"
                 }
             }
-        } */
+         
 //LOGIN
         Image {
             id:loginBack

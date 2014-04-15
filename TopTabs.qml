@@ -57,50 +57,5 @@ Image {
         height: 60
         onClicked: page.state = "nursePortal"
     }
-//DASHBOARD (nursePortal)
-    Image {
-        id: nursePortalPatient
-        //image width is 243
-        x: 122
-        y: 260
-        visible: false
-        source: "images/nurseportal/UI_NursePortal_Patient_Btn.png"
-        MouseArea {
-            id: nursePortalPatientMouse
-            anchors.fill: parent
-            onPressed: nursePortalPatient.source = "images/nurseportal/UI_NursePortal_Patient_Active_Btn.png"
-            onReleased: nursePortalPatient.source = "images/nurseportal/UI_NursePortal_Patient_Btn.png"
-            onClicked: page.state = 'profileState'
-        }
-    }
-    Image {
-        id: nursePortalCalendar
-        //image width is 243
-        x: 425
-        y: 260
-        visible: false
-        source: "images/nurseportal/UI_NursePortal_Calendar_Btn.png"
-        MouseArea {
-            id: nursePortalCalendarMouse
-            anchors.fill: parent
-            onPressed: nursePortalCalendar.source = "images/nurseportal/UI_NursePortal_Calendar_Active_Btn.png"
-            onReleased: nursePortalCalendar.source = "images/nurseportal/UI_NursePortal_Calendar_Btn.png"
-            onClicked: page.state = 'calendarState'
-        }
-    }
-
-    Image {
-        id: nursePortalMail
-        //image width is 243
-        x: 728
-        y: 260
-        visible: false
-        source: "images/nurseportal/UI_NursePortal_Mail_Btn.png"
-        MouseArea {
-            id: nursePortalMailMouse
-            anchors.fill: parent
-            onPressed: nursePortalMail.source = "images/nurseportal/UI_NursePortal_Mail_Active_Btn.png"
-            onReleased: nursePortalMail.source = "images/nurseportal/UI_NursePortal_Mail_Btn.png"
-        }
-    }
 }
+

@@ -14,7 +14,9 @@ class Courier(QDeclarativeView):
 def main():
 	app = QApplication(sys.argv)
 	nurse1 = nurse.Nurse()
+	patient1 = patient.Patient()
 	view = Courier()
+	view.rootContext().setContextProperty('patient', patient1)
 	view.rootContext().setContextProperty('nurse', nurse1) #this needs to happen before setsource or errors get thrown
 	view.setSource('main.qml')
 	view.show()
