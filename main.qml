@@ -13,7 +13,11 @@ import QtQuick 1.0
             border.left: 5; border.top: 5
             border.right: 5; border.bottom: 5
         }
-//TABS
+//TABS  
+        VitalsTab {
+            id: vitalsTab
+        }
+
         Image {
             id: backTabs
             source: "images/tabs/UI_Tab1_tabs.jpg"
@@ -44,6 +48,7 @@ import QtQuick 1.0
                 y: 8
                 width: 202
                 height: 60
+                onClicked: page.state = "vitalsTab"
             }
 
             MouseArea {
@@ -607,6 +612,24 @@ import QtQuick 1.0
                     y: 96
                     anchors.verticalCenterOffset: 0
                     anchors.horizontalCenterOffset: 4
+                }
+            },
+            State {
+                name: 'vitalsTab'
+                PropertyChanges {
+                    target: vitalsTab
+                    visible: true
+                    z: 1
+                }
+                PropertyChanges{
+                    target: backTabs
+                    anchors.topMargin: 0
+                    visible: true
+                    z: 0
+                }
+                PropertyChanges {
+                    target: loginBack
+                    visible: false
                 }
             },
             State {
