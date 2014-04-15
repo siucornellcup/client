@@ -1,8 +1,7 @@
 import QtQuick 1.0
 
-	Image {
+    Item {
 		id: img_vitalsTab
-		source: "images/tabs/UI_Tab1_tabs.jpg"
         anchors.fill: parent
 		Image {
             id: sensorTabs
