@@ -22,6 +22,10 @@ import QtQuick 1.0
             id: vitalsTab
         }
 
+        DiagnosisTab {
+            id: diagnosisTab
+        }
+
         TopTabs {
             id: backTabs
         }
@@ -479,7 +483,35 @@ import QtQuick 1.0
                     target: loginBack
                     visible: false
                 }
+                PropertyChanges {
+                    target: diagnosisTab
+                    visible: false
+                }
             },
+            State {
+                name: 'diagnosisTab'
+                PropertyChanges {
+                    target: vitalsTab
+                    visible: false
+                    anchors.bottomMargin: 63
+                    z: 1
+                }
+                PropertyChanges{
+                    target: backTabs
+                    anchors.topMargin: 0
+                    visible: true
+                    z: 0
+                }
+                PropertyChanges {
+                    target: loginBack
+                    visible: false
+                }
+                PropertyChanges {
+                    target: diagnosisTab
+                    visible: true
+                }
+            },
+
             State {
                 name: 'nursePortal'
                 PropertyChanges {

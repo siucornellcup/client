@@ -47,6 +47,7 @@ Image {
         y: 8
         width: 189
         height: 60
+        onClicked: page.state = "diagnosisTab"
     }
 
     MouseArea {
