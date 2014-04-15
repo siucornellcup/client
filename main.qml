@@ -13,6 +13,11 @@ import QtQuick 1.0
             border.left: 5; border.top: 5
             border.right: 5; border.bottom: 5
         }
+
+        NavBar {
+            z: 100
+        }
+
 //TABS  
         VitalsTab {
             id: vitalsTab
@@ -220,7 +225,7 @@ import QtQuick 1.0
             }
 
         }
-    NavBar {}
+
 
         Image {
             id: profileBack
@@ -453,6 +458,7 @@ import QtQuick 1.0
                 font.pointSize: 22
             }
         }
+
 //STATES
         states: [
             State {
@@ -514,6 +520,7 @@ import QtQuick 1.0
                 name: 'vitalsTab'
                 PropertyChanges {
                     target: vitalsTab
+                    anchors.bottomMargin: 63
                     visible: true
                     z: 1
                 }
