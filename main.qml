@@ -23,7 +23,11 @@ import QtQuick 1.0
             id: vitalsTab
         }
 
-        Image {
+        TopTabs {
+            id: backTabs
+        }
+
+  /*      Image {
             id: backTabs
             source: "images/tabs/UI_Tab1_tabs.jpg"
             anchors.fill: parent
@@ -126,7 +130,7 @@ import QtQuick 1.0
                     onReleased: nursePortalMail.source = "images/nurseportal/UI_NursePortal_Mail_Btn.png"
                 }
             }
-        }
+        } */
 //LOGIN
         Image {
             id:loginBack
