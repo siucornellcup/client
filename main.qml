@@ -348,7 +348,8 @@ import QtQuick 1.0
                     onClicked: {patient.p_name = txt_profileNameInput.text
                                 patient.p_village = txt_villageInput.text
                                 patient.p_gender = genderSelector.gender
-                                patient.create_record()}
+                                patient.create_record()
+                                page.state = 'vitalsTab'}
                 }
             }
         }
@@ -468,6 +469,10 @@ import QtQuick 1.0
             },
             State {
                 name: 'vitalsTab'
+                PropertyChanges{
+                    target: backTabs
+                    source: "images/tab_vitals/UI_Tab3_tabs.jpg"
+                }
                 PropertyChanges {
                     target: vitalsTab
                     anchors.bottomMargin: 63
