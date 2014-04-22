@@ -9,9 +9,9 @@ Item {
     text: qsTr("Tab text")
     verticalAlignment: Text.AlignVCenter
     horizontalAlignment: Text.AlignHCenter
-    font.pixelSize: 25
+    font.pointSize: 15
     font.family:"DroidSans"
-    
+    color: "#404040"
 	}
 
 

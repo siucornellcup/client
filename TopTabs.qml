@@ -5,15 +5,15 @@ Image {
     source: "images/tabs/UI_Tab1_tabs.jpg"
     anchors.fill: parent
 
-    Tabtext {text: "Nurse"; x: 49; y: 17}
+    Tabtext {text: "Nurse"; x: 49; y: 25}
 
-    Tabtext {text: "Profile"; x: 251; y: 17}
+    Tabtext {text: "Profile"; x: 251; y: 25}
 
-    Tabtext {text: "Vitals"; x: 467; y: 17}
+    Tabtext {text: "Vitals"; x: 470; y: 25}
 
-    Tabtext {text: "Symptoms"; x: 631; y: 17}
+    Tabtext {text: "Symptoms"; x: 670; y: 25}
 
-    Tabtext {text: "Diagnosis"; x: 837; y: 17}
+    Tabtext {text: "Diagnosis"; x: 870; y: 25}
 
     MouseArea {
         id: profileTabMouse
