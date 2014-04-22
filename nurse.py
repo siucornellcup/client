@@ -101,6 +101,11 @@ class Nurse(QObject):
 		print "Welcome",self.name #debugging
 		print "From the village of",self.village #debugging
 
+	@Slot(str)
+	def net_fp_login(self, fingerprint):
+		print "Remote Fingerprint Login Initiated" #debugging
+		self.fingerprint_hash = fingerprint
+		
 
 	n_name = Property(unicode, get_name, set_name, notify=name_changed)
 	n_village = Property(unicode, get_village, set_village, notify=village_changed)
