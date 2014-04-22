@@ -23,7 +23,7 @@ num_records = 1000
 id_photo = open("test_img.jpg","rb").read()
 
 def dblogin():
-	conn = psycopg2.connect("dbname=postgres user=postgres password=hi host=localhost port=4532")
+	conn = psycopg2.connect("dbname=postgres user=postgres password=hi host=localhost port=5432")
 	cur = conn.cursor()
 	return conn, cur
 
@@ -124,6 +124,12 @@ def nurse_userpass_lookup(name):
 	else:
 		return None
 
-
+def create_patient(name, village, gender, fingerprint):
+	conn, cur = dblogin()
+	cur.execute("""INSERT INTO clinic.patients(name, village, gender, fingerprint_hash) 
+					VALUES (%s, %s, %s, %s)""", (name, village, gender, fingerprint,)) 
+	conn.commit()
+	cur.close()
+	conn.close()
 #Dummy fingerprint: 00372a6fb1a467b54992df4daf0dfa49
 #Dummy username: Dane Haag

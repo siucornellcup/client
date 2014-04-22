@@ -1,6 +1,6 @@
 from PySide.QtCore import QObject, Signal, Property, Slot
 from faker import Factory
-
+from dbTools import create_patient
 
 
 class Patient(QObject):
@@ -17,6 +17,11 @@ class Patient(QObject):
 		fake = Factory.create()
 		self.fingerprint = fake.md5(raw_output=False)
 		print self.fingerprint
+
+	@Slot()
+	def create_record(self):
+		create_patient(self.name, self.village, self.gender, self.fingerprint)
+
 
 	def set_name(self, name):
 		self.name = name
