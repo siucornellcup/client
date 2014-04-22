@@ -6,11 +6,11 @@ import QtQuick 1.0
 		Image {
             id: sensorTabs
             anchors.right: parent.right
-            anchors.rightMargin: 0
+            anchors.rightMargin: 34
             anchors.left: parent.left
-            anchors.leftMargin: 0
+            anchors.leftMargin: 34
             anchors.bottom: parent.bottom
-            anchors.bottomMargin: 47
+            anchors.bottomMargin: 34
             source: "images/tab_vitals/UI_Vitals_Tab1.png"
 
            MouseArea {
