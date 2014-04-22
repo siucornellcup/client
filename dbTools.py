@@ -23,7 +23,7 @@ num_records = 1000
 id_photo = open("test_img.jpg","rb").read()
 
 def dblogin():
-	conn = psycopg2.connect("dbname=postgres user=postgres password=hi host=localhost")
+	conn = psycopg2.connect("dbname=postgres user=postgres password=hi host=localhost port=4532")
 	cur = conn.cursor()
 	return conn, cur
 
