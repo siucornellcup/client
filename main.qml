@@ -4,7 +4,7 @@ import QtQuick 1.0
         id: page
         width: 1024
         height: 768
-
+        state: 'login'
         BorderImage {
             id: background
             source: "images/UI_BackgroundColor.jpg"
@@ -20,6 +20,11 @@ import QtQuick 1.0
 //TABS  
         VitalsTab {
             id: vitalsTab
+        }
+
+        SymptomsTab {
+            id: symptomsTab
+            z: 1
         }
 
         DiagnosisTab {
@@ -81,7 +86,7 @@ import QtQuick 1.0
             id:loginBack
             source: "images/tabs/UI_Tab1_login_back.png"
             anchors.centerIn: parent
-            visible: true
+            visible: false
 
             Image {
                 id: userNameInput
@@ -413,6 +418,14 @@ import QtQuick 1.0
 //STATES
         states: [
             State {
+                name: 'login'
+                PropertyChanges{
+                    target: loginBack
+                    visible: true
+                }
+
+            },
+            State {
                 name: 'profileState'
                 PropertyChanges {
                     target: backTabs
@@ -467,6 +480,7 @@ import QtQuick 1.0
                     anchors.horizontalCenterOffset: 4
                 }
             },
+
             State {
                 name: 'vitalsTab'
                 PropertyChanges{
@@ -483,6 +497,35 @@ import QtQuick 1.0
                     target: backTabs
                     anchors.topMargin: 0
                     visible: true
+                    z: 0
+                }
+                PropertyChanges {
+                    target: loginBack
+                    visible: false
+                }
+                PropertyChanges {
+                    target: diagnosisTab
+                    visible: false
+                }
+            },
+            State {
+                name: 'symptomsTab'
+                PropertyChanges {
+                    target: symptomsTab
+                    visible: true
+                    z: 50
+                }
+                PropertyChanges {
+                    target: vitalsTab
+                    anchors.bottomMargin: 63
+                    visible: false
+                    z: 0
+                }
+                PropertyChanges{
+                    target: backTabs
+                    anchors.topMargin: 0
+                    visible: true
+                    source: 'images/tab_symptoms/UI_Tab4_tabs.jpg'
                     z: 0
                 }
                 PropertyChanges {

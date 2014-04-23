@@ -40,6 +40,7 @@ Image {
         y: 8
         width: 203
         height: 60
+        onClicked: page.state = "symptomsTab"
     }
 
     MouseArea {
