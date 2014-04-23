@@ -21,18 +21,21 @@ import QtQuick 1.0
 
         PatientTab {
             id: patientsTab
+            z: 0
         }
         VitalsTab {
             id: vitalsTab
+            z: 0
         }
 
         SymptomsTab {
             id: symptomsTab
-            z: 1
+            z: 0
         }
 
         DiagnosisTab {
             id: diagnosisTab
+            z: 0
         }
 
         TopTabs {
@@ -566,14 +569,12 @@ import QtQuick 1.0
                 PropertyChanges {
                     target: vitalsTab
                     visible: false
-                    anchors.bottomMargin: 63
-                    z: 1
                 }
                 PropertyChanges{
                     target: backTabs
                     anchors.topMargin: 0
                     visible: true
-                    z: 0
+                    source: 'images/tab_diagnosis/UI_Tab5_tabs.jpg'
                 }
                 PropertyChanges {
                     target: loginBack
@@ -582,6 +583,7 @@ import QtQuick 1.0
                 PropertyChanges {
                     target: diagnosisTab
                     visible: true
+                    z: 1
                 }
             },
 
