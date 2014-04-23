@@ -29,6 +29,7 @@ import QtQuick 1.0
 	        Text {
 	            id: selectBodyPartText
 	            text: qsTr("Select a Body Part")
+	            font.family: 'DroidSans'
 	            x: 30
 	            y: 45
 	            font.pointSize: 22
@@ -36,6 +37,7 @@ import QtQuick 1.0
 	        Text {
 	            id: symptomsText
 	            text: qsTr("Symptoms")
+	            font.family: 'DroidSans'
 	            x: 700
 	            y: 45
 	            font.pointSize: 22
