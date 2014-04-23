@@ -18,6 +18,10 @@ import QtQuick 1.0
         }
 
 //TABS  
+
+        PatientTab {
+            id: patientsTab
+        }
         VitalsTab {
             id: vitalsTab
         }
@@ -47,7 +51,7 @@ import QtQuick 1.0
                     anchors.fill: parent
                     onPressed: nursePortalPatient.source = "images/nurseportal/UI_NursePortal_Patient_Active_Btn.png"
                     onReleased: nursePortalPatient.source = "images/nurseportal/UI_NursePortal_Patient_Btn.png"
-                    onClicked: page.state = 'profileState'
+                    onClicked: page.state = 'patientsTab'
                 }
             }
             Image {
@@ -423,8 +427,20 @@ import QtQuick 1.0
                     target: loginBack
                     visible: true
                 }
-
             },
+            State {
+                name: 'patientsTab'
+                PropertyChanges{
+                    target: loginBack
+                    visible: false
+                    z: 0
+                }
+                PropertyChanges{
+                    target: patientsTab
+                    visible: true
+                    z: 1
+                }
+            },            
             State {
                 name: 'profileState'
                 PropertyChanges {
@@ -435,6 +451,14 @@ import QtQuick 1.0
                     anchors.topMargin: 0
                     source: "images/tabs/UI_Tab2_tabs.jpg"
                 }
+                PropertyChanges{
+                    target: loginBack
+                    visible: false
+                }
+                PropertyChanges{
+                    target: patientsTab
+                    visible: false
+                }                
                 PropertyChanges {
                     target: profileBack
                     visible: true
