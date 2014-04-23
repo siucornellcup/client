@@ -11,6 +11,7 @@ import QtQuick 1.0
             x: 62
             y: 31
             text: qsTr("Patients")
+            font.family: 'DroidSans'
             font.pointSize: 16
         }
         Text {
@@ -18,6 +19,7 @@ import QtQuick 1.0
             x: 733
             y: 31
             text: qsTr("Search")
+            font.family: 'DroidSans'
             font.pointSize: 16
         }
 
@@ -32,6 +34,7 @@ import QtQuick 1.0
                 y: 10
                 width: 200
                 text: qsTr("Name")
+                font.family: 'DroidSans'
                 visible: true
             }
         }
@@ -47,6 +50,7 @@ import QtQuick 1.0
                 y: 10
                 width: 200
                 text: qsTr("Village")
+                font.family: 'DroidSans'
             }
         }
 
@@ -68,6 +72,7 @@ import QtQuick 1.0
             x: 825
             y: 240
             text: qsTr("OR")
+            font.family: 'DroidSans'
             font.pointSize: 28
         }
 
