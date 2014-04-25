@@ -203,29 +203,15 @@ import QtQuick 1.0
                 font.family:"DroidSans"
                 opacity: 1
             }
-            Image {
+
+            Textfield {
                 id: firstNameInput
                 x: 37
                 y: 81
-                //original width 353
                 width: 200
-                height: 57
-                source: "images/profile/UI_Profile_TextInsert.png"
-              
-                TextInput {
-                    id: txt_profileNameInput
-                    x: 13
-                    y: 17
-                    anchors.fill: parent
-                    anchors.leftMargin: 10
-                    anchors.topMargin: 10
-                    horizontalAlignment: TextInput.AlignLeft
-                    transformOrigin: Item.Center
-                    text: qsTr("First Name")
-                    font.family:"DroidSans"
-                    font.pointSize: 16
-                }
+                text: "First Name"
             }
+
             Textfield {
                 id: lastNameInput
                 anchors.left: firstNameInput.right 
@@ -367,7 +353,7 @@ import QtQuick 1.0
                     anchors.fill: parent
                     onPressed: saveButton.source = "images/profile/UI_Profile_Save_Active_Btn.png"
                     onReleased: saveButton.source = "images/profile/UI_Profile_Save_Btn.png"
-                    onClicked: {patient.p_first_name = txt_profileNameInput.text
+                    onClicked: {patient.p_first_name = firstNameInput.text
                                 patient.p_last_name = lastNameInput.text
                                 patient.p_village = txt_villageInput.text
                                 patient.p_gender = genderSelector.gender
@@ -502,13 +488,6 @@ import QtQuick 1.0
                     height: 34
                     text: qsTr("Village")
                     font.family:"DroidSans"
-                    visible: true
-                    clip: false
-                    selectionColor: "#2f8bc5"
-                }
-
-                PropertyChanges {
-                    target: txt_profileNameInput
                     visible: true
                     clip: false
                     selectionColor: "#2f8bc5"
