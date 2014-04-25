@@ -6,6 +6,8 @@ Image {
     width: 353
     height: 57
 
+    property alias text: txt_input.text
+
     TextInput {
         id: txt_input
         anchors.fill: parent
