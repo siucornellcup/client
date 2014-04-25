@@ -204,10 +204,11 @@ import QtQuick 1.0
                 opacity: 1
             }
             Image {
-                id: profileNameInput
+                id: firstNameInput
                 x: 37
                 y: 81
-                width: 353
+                //original width 353
+                width: 200
                 height: 57
                 source: "images/profile/UI_Profile_TextInsert.png"
               
@@ -220,10 +221,18 @@ import QtQuick 1.0
                     anchors.topMargin: 10
                     horizontalAlignment: TextInput.AlignLeft
                     transformOrigin: Item.Center
-                    text: qsTr("Patient Name")
+                    text: qsTr("First Name")
                     font.family:"DroidSans"
                     font.pointSize: 16
                 }
+            }
+            Textfield {
+                id: lastNameInput
+                anchors.left: firstNameInput.right 
+                x: 90
+                y: 81
+                width: 200
+                text: "Last Name"
             }
             Image {
                 id: villageInput
@@ -358,7 +367,8 @@ import QtQuick 1.0
                     anchors.fill: parent
                     onPressed: saveButton.source = "images/profile/UI_Profile_Save_Active_Btn.png"
                     onReleased: saveButton.source = "images/profile/UI_Profile_Save_Btn.png"
-                    onClicked: {patient.p_name = txt_profileNameInput.text
+                    onClicked: {patient.p_first_name = txt_profileNameInput.text
+                                patient.p_last_name = lastNameInput.text
                                 patient.p_village = txt_villageInput.text
                                 patient.p_gender = genderSelector.gender
                                 patient.create_record()
