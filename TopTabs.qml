@@ -22,7 +22,6 @@ Image {
         width: 201
         height: 60
         onClicked: page.state = "profileState"
-
     }
 
     MouseArea {

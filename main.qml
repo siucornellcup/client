@@ -223,6 +223,7 @@ import QtQuick 1.0
                     horizontalAlignment: TextInput.AlignLeft
                     transformOrigin: Item.Center
                     text: qsTr("Patient Name")
+                    font.family:"DroidSans"
                     font.pointSize: 16
                 }
             }
@@ -242,6 +243,7 @@ import QtQuick 1.0
                     x: 13
                     y: 17
                     text: qsTr("Village")
+                    font.family:"DroidSans"
                     font.pointSize: 16
                     horizontalAlignment: TextInput.AlignLeft
                     transformOrigin: Item.Center
@@ -257,6 +259,7 @@ import QtQuick 1.0
                 width: 61
                 height: 26
                 text: qsTr("Notes")
+                font.family:"DroidSans"
                 font.pointSize: 22
                 opacity: 1
             }
@@ -361,7 +364,9 @@ import QtQuick 1.0
                                 patient.p_village = txt_villageInput.text
                                 patient.p_gender = genderSelector.gender
                                 patient.create_record()
-                                page.state = 'vitalsTab'}
+                                patient.load
+                                page.state = 'vitalsTab'
+                                }
                 }
             }
         }
@@ -396,6 +401,7 @@ import QtQuick 1.0
                 anchors.fill: parent
                 onPressed: parent.source = "images/profile/UI_Profile_Photo_Active_Btn.png"
                 onReleased: parent.source = "images/profile/UI_Profile_Photo_Btn.png"
+                onClicked: patient.p_photo_id = 'test_img.jpg'
             }
         }
 
@@ -487,6 +493,7 @@ import QtQuick 1.0
                     width: 331
                     height: 34
                     text: qsTr("Village")
+                    font.family:"DroidSans"
                     visible: true
                     clip: false
                     selectionColor: "#2f8bc5"
