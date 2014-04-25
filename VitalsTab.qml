@@ -19,12 +19,46 @@ Item {
             id: stepbox
             source: "images/tab_vitals/UI_Vitals_tab1_StepBox.png"
             anchors.top: parent.top
-            anchors.topMargin: 20
+            anchors.topMargin: 50
             anchors.right: parent.right
             anchors.rightMargin: 30
 
-            Textfield{}
-          }
+            Textfield {
+                anchors.top: parent.top
+                anchors.topMargin: 40
+                anchors.left: parent.left
+                anchors.leftMargin: 50
+                Text {
+                    text: 'Enter Height'
+                    anchors.top: parent.top
+                    anchors.topMargin: -20
+                }
+
+
+            }
+
+        }
+ 
+           Image {
+            id: weightStepbox
+            source: "images/tab_vitals/UI_Vitals_tab1_StepBox.png"
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 50
+            anchors.right: parent.right
+            anchors.rightMargin: 30
+
+            Textfield {
+                anchors.top: parent.top
+                anchors.topMargin: 40
+                anchors.left: parent.left
+                anchors.leftMargin: 50
+                Text {
+                    text: 'Enter Weight'
+                    anchors.top: parent.top
+                    anchors.topMargin: -20
+                }
+            }
+        }         
 
          MouseArea {
              id: click_Height
