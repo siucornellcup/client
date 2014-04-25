@@ -100,8 +100,6 @@ import QtQuick 1.0
                 x: 49
                 y: 59
                 source: "images/tabs/UI_Tab1_login_textinput.png"
-
-
             }
 
             Image {
