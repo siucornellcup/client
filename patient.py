@@ -24,7 +24,7 @@ class Patient(QObject):
 
 	@Slot()
 	def create_record(self):
-		create_patient(self.name, self.village, self.gender, self.fingerprint)
+		create_patient(self.first_name, self.last_name, self.village, self.gender, self.fingerprint)
 
 	@Slot()
 	def load_photo_id(self, photo_path):

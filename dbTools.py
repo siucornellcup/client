@@ -124,10 +124,10 @@ def nurse_userpass_lookup(name):
 	else:
 		return None
 
-def create_patient(name, village, gender, fingerprint):
+def create_patient(first_name, last_name, village, gender, fingerprint):
 	conn, cur = dblogin()
-	cur.execute("""INSERT INTO clinic.patients(name, village, gender, fingerprint_hash) 
-					VALUES (%s, %s, %s, %s)""", (name, village, gender, fingerprint,)) 
+	cur.execute("""INSERT INTO clinic.patients(first_name, last_name, village, gender, fingerprint_hash) 
+					VALUES (%s, %s, %s, %s)""", (first_name, last_name, village, gender, fingerprint,)) 
 	conn.commit()
 	cur.close()
 	conn.close()
