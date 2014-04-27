@@ -125,9 +125,9 @@ Item {
 
          Image {
              id: image1
-             x: 23
-             y: 50
-             source: "images/tab_vitals/UI_Vitals_HeightIcon.png"
+             x: 27
+             y: 40
+             source: "images/tab_vitals/UI_Vitals_HeightWeightIcon.png"
          }
 
          Image {
@@ -148,7 +148,7 @@ Item {
              id: image4
              x: 29
              y: 370
-             source: "images/tab_vitals/UI_Vitals_WeightIcon.png"
+             source: "images/tab_vitals/UI_Vitals_BloodPressureIcon.png"
          }
 
          Image {

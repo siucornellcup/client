@@ -224,29 +224,6 @@ import 'colibri'
                 width: 353
                 height: 57
             }
-        /*    Image {
-                id: villageInput
-                source: "images/profile/UI_Profile_TextInsert.png"
-                x: 37
-                y: 144
-                width: 353
-                height: 57
-                z:0
-
-                TextInput {
-                    id: txt_villageInput
-                    anchors.fill: parent
-                    anchors.topMargin: 10
-                    anchors.leftMargin: 10
-                    x: 13
-                    y: 17
-                    text: qsTr("Village")
-                    font.family:"DroidSans"
-                    font.pointSize: 16
-                    horizontalAlignment: TextInput.AlignLeft
-                    transformOrigin: Item.Center
-                }
-            } */
 
             GenderSelect {id: genderSelector
                           z: 50}
