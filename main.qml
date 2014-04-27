@@ -172,7 +172,7 @@ import 'colibri'
                     onReleased: finger.source = "images/UI_fingerprint_Btn.png"
                     onClicked: {nurse.fp_login("00372a6fb1a467b54992df4daf0dfa49")
                                 page.state = 'nursePortal'
-                                name.text = nurse.n_name}
+                                userNameInput.text = nurse.n_name}
                 }
             }
 

@@ -50,46 +50,46 @@ import "gradients"
 
 Item {
     SystemPalette {id: palette}
-    property color colorWhenDefault: "black"
+    property color colorWhenDefault: "transparent"
     property color colorWhenPressed: palette.shadow
     property color colorWhenHovered: palette.mid
-    property color colorWhenSelected: "red"
-    property color textColor: "#D4D0C8"
+    property color colorWhenSelected: "transparent"
+    property color textColor: "#404040"
     property real roundness: 0.5 // 0-1
     property real fontSize: 12
     property string fontFamily: "DroidSans"
     property string fontWeight: "DemiBold"
     property int borderWidth: 0
-    //property color borderColor: "black"
-    property color borderColorWhenHovered: "black"
-    property color borderColorWhenPressed: "black"
-    property color borderColorWhenSelected: "black"
-    property int borderWidthInner: 1
-    property color borderColorInner: "#747275"
-    property color borderColorInnerWhenHovered: "#747275"
-    property color borderColorInnerWhenPressed: "#747275"
+    property color borderColor: "transparent"
+    property color borderColorWhenHovered: "transparent"
+    property color borderColorWhenPressed: "transparent"
+    property color borderColorWhenSelected: "transparent"
+    property int borderWidthInner: 0
+    property color borderColorInner: "transparent"
+    property color borderColorInnerWhenHovered: "transparent"
+    property color borderColorInnerWhenPressed: "transparent"
     property color bgColor: "transparent"
     property real itemRoundness: 0.00001
-    property color selectionColor: "#D4D0C8"
-    //property color selectedTextColor: "black"
-    //property bool gradientActiveOn: true
+    property color selectionColor: "transparent"
+    property color selectedTextColor: "transparent"
+    property bool gradientActiveOn: false
     property bool gradientDefaultOn: true
-    property bool gradientHoveredOn: true
-    property bool gradientPressedOn: true
-    //property bool gradientBgOn: falses
+    property bool gradientHoveredOn: false
+    property bool gradientPressedOn: false
+    property bool gradientBgOn: false
     property bool gradientCheckedOn: true;
     property bool gradientSelectedOn: true;
     property bool activeStateOn: true
-    property bool hoveredStateOn: true
-    property bool pressedStateOn: true
-    property color borderColorWhenChecked: "#3f3b3c"
-    property color colorWhenChecked: "#3f3b3c"
+    property bool hoveredStateOn: false
+    property bool pressedStateOn: false
+    property color borderColorWhenChecked: "transparent"
+    property color colorWhenChecked: "transparent"
     property color borderColorWhenActive: palette.highlight
     property color colorWhenActive: palette.shadow
-    //property Gradient gradientBg: Gradient {
-    //    GradientStop { position: 0; color: "#C2C2C2" }
-    //    GradientStop { position: 1; color: "#E0E0E0" }
-    //}
+    property Gradient gradientBg: Gradient {
+        GradientStop { position: 0; color: "transparent" }
+        GradientStop { position: 1; color: "transparent" }
+    }
     property Gradient gradientWhenDefault: Gradient {
         GradientStop { position: 0; color: "#3f3b3c" }
         GradientStop { position: 1; color: "#010103" }

@@ -84,7 +84,7 @@ Rectangle {
     opacity: 1
     signal itemClicked(int index)
     signal change()
-
+    color: 'transparent'
     /**
      * Gets the values of selected items
      *
@@ -236,7 +236,7 @@ Rectangle {
         structure.change();
     }
 
-    width: 300
+    width: 1024
     height: 400
     clip: true
    // color: bgColor
@@ -248,7 +248,7 @@ Rectangle {
         id: listItem
         Rectangle {
             id: rectis
-
+            color: "transparent"
             property string valuex: value
             property string labelx: label
             property int indexx: index

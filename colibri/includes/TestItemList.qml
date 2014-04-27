@@ -50,27 +50,27 @@ import Qt 4.7
 ListModel {
     id: model
     ListElement {
-        label: "Bob Loblaw"
+        label: "Bob Loblaw Senior (Owner of the Law Blog)"
         value: "Saab"
         selected: false
     }
     ListElement {
-        label: "Bob Loblaw"
+        label: "Bob Loblaw Junior"
         value: "Saab"
         selected: false
     }
     ListElement {
-        label: "Mercedes"
+        label: "Rick"
         value: "Mercedes"
         selected: true
     }
     ListElement {
-        label: "Opel"
+        label: "Morty"
         value: "Opel"
         selected: false
     }
     ListElement {
-        label: "Ford"
+        label: "Chef Bellini Pastafangu"
         value: "Ford"
         selected: true
     }
