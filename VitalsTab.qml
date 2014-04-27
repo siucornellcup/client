@@ -15,19 +15,20 @@ Item {
 
 
 
-          Image {
+        Image {
             id: stepbox
             source: "images/tab_vitals/UI_Vitals_tab1_StepBox.png"
             anchors.top: parent.top
             anchors.topMargin: 50
             anchors.right: parent.right
             anchors.rightMargin: 30
-
+            z: 100
             Textfield {
                 anchors.top: parent.top
                 anchors.topMargin: 40
                 anchors.left: parent.left
                 anchors.leftMargin: 50
+                text: "Enter Height"
                 Text {
                     text: 'Enter Height'
                     anchors.top: parent.top
@@ -39,23 +40,32 @@ Item {
 
         }
  
-           Image {
+        Image {
             id: weightStepbox
             source: "images/tab_vitals/UI_Vitals_tab1_StepBox.png"
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 50
             anchors.right: parent.right
             anchors.rightMargin: 30
-
+            z: 50
             Textfield {
                 anchors.top: parent.top
                 anchors.topMargin: 40
                 anchors.left: parent.left
                 anchors.leftMargin: 50
+                text: "Enter Weight"
                 Text {
                     text: 'Enter Weight'
                     anchors.top: parent.top
                     anchors.topMargin: -20
+                }
+                Text {
+                    text: "kg"
+                    anchors.left: parent.right
+                    anchors.leftMargin: 20
+                    anchors.bottom: parent.bottom
+                    anchors.bottomMargin: 20
+                    font.pointSize: 16
                 }
             }
         }         

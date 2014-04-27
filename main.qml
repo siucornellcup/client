@@ -1,5 +1,5 @@
 import QtQuick 1.0
-
+import 'colibri'
     Rectangle {
         id: page
         width: 1024
@@ -13,8 +13,10 @@ import QtQuick 1.0
             border.right: 5; border.bottom: 5
         }
 
+
         NavBar {
-            z: 100
+            id: navbar
+            z: 99
         }
 
 //TABS  
@@ -134,15 +136,34 @@ import QtQuick 1.0
                 y: 158
                 width: 342
                 height: 46
-                text: qsTr("Password");
+                text: keyboard.text
                 cursorVisible: false
                 font.pointSize: 16
                 font.family:"DroidSans"
                 horizontalAlignment: TextInput.AlignLeft
                 echoMode: TextInput.Password
+                activeFocusOnPress: true
 
+              //  if (!passwordInput.activeFocus){keyboard.visible = false}
+                //    else{ keyboard.visible = true}
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {keyboard.visible = true
+                                //parent.text = keyboard.text
+                                }
+                   //   onExited: {keyboard.visible = false}
+                    /*onExited: {
+                                if (passwordInput.activeFocus){
+                                    keyboard.visible = true;
+                                }
+                                 else {
+                                    passwordInput.focus = false;
+                                    keyboard.visible = false;
+                                }*/                    
+                    
+
+                }
             }
-
             TextInput {
                 id: name
                 x: 67
@@ -210,6 +231,7 @@ import QtQuick 1.0
                 y: 81
                 width: 200
                 text: "First Name"
+                z:100
             }
 
             Textfield {
@@ -219,6 +241,7 @@ import QtQuick 1.0
                 y: 81
                 width: 200
                 text: "Last Name"
+                //z: 100
             }
             Image {
                 id: villageInput
@@ -227,6 +250,7 @@ import QtQuick 1.0
                 y: 144
                 width: 353
                 height: 57
+                z:0
 
                 TextInput {
                     id: txt_villageInput
@@ -243,7 +267,8 @@ import QtQuick 1.0
                 }
             }
 
-            GenderSelect {id: genderSelector}
+            GenderSelect {id: genderSelector
+                          z: 50}
 
             Text {
                 id: notes
