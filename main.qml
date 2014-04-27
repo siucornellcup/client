@@ -215,7 +215,16 @@ import 'colibri'
                 text: "Last Name"
                 //z: 100
             }
-            Image {
+
+            Textfield {
+                id: villageInput
+                text: "Village"
+                x: 37
+                y: 144
+                width: 353
+                height: 57
+            }
+        /*    Image {
                 id: villageInput
                 source: "images/profile/UI_Profile_TextInsert.png"
                 x: 37
@@ -237,7 +246,7 @@ import 'colibri'
                     horizontalAlignment: TextInput.AlignLeft
                     transformOrigin: Item.Center
                 }
-            }
+            } */
 
             GenderSelect {id: genderSelector
                           z: 50}
@@ -352,7 +361,7 @@ import 'colibri'
                     onReleased: saveButton.source = "images/profile/UI_Profile_Save_Btn.png"
                     onClicked: {patient.p_first_name = firstNameInput.text
                                 patient.p_last_name = lastNameInput.text
-                                patient.p_village = txt_villageInput.text
+                                patient.p_village = villageInput.text
                                 patient.p_gender = genderSelector.gender
                                 patient.create_record()
                                 patient.load
