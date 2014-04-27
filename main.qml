@@ -1,3 +1,10 @@
+/*
+Z precedence:
+Keyboard 100
+Navbar 99
+Tabs 99
+*/
+
 import QtQuick 1.0
 import 'colibri'
     Rectangle {
@@ -19,15 +26,21 @@ import 'colibri'
             z: 99
         }
 
-//TABS  
-
+        TopTabs {
+            //Z is 0 even though precedence should be 99 because the tab image covers the entire screen
+            id: backTabs
+            z: 0
+        }
+ 
         PatientTab {
             id: patientsTab
             z: 0
+            visible: false
         }
         VitalsTab {
             id: vitalsTab
             z: 0
+            visible: false
         }
 
         SymptomsTab {
@@ -40,8 +53,10 @@ import 'colibri'
             z: 0
         }
 
-        TopTabs {
-            id: backTabs
+        Messages {
+            id: messages
+            visible: false
+            z: 100
         }
 
             Image {
@@ -87,6 +102,7 @@ import 'colibri'
                     anchors.fill: parent
                     onPressed: nursePortalMail.source = "images/nurseportal/UI_NursePortal_Mail_Active_Btn.png"
                     onReleased: nursePortalMail.source = "images/nurseportal/UI_NursePortal_Mail_Btn.png"
+                    onClicked: page.state = 'messagesState'
                 }
             }
          
@@ -526,7 +542,13 @@ import 'colibri'
                     anchors.horizontalCenterOffset: 4
                 }
             },
-
+            State{
+                name: 'messagesState'
+                PropertyChanges {
+                    target: messages
+                    visible: true
+                }
+            },
             State {
                 name: 'vitalsTab'
                 PropertyChanges{

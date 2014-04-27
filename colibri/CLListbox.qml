@@ -52,7 +52,7 @@ import "gradients"
 Rectangle {
     id: structure
 
-    property real itemHeight: 30
+    property real itemHeight: 90
     property int itemsVisible: 5
     property ListModel items: TestItemList {}
     property bool selectMany: false
@@ -68,7 +68,7 @@ Rectangle {
     property real fontSize: style.fontSize
     property string fontFamily: style.fontFamily
     property string fontWeight: style.fontWeight
-    property color bgColor: style.bgColor
+    //property color bgColor: style.bgColor
     property color sliderColor: colorWhenHovered
     property color sliderBgColor: borderColor
     property bool gradientDefaultOn: style.gradientDefaultOn
@@ -81,7 +81,7 @@ Rectangle {
     property Gradient gradientWhenSelected: style.gradientWhenSelected
     property Gradient nullGradient: Gradient{}
     property bool hoveredStateOn: style.hoveredStateOn
-
+    opacity: 1
     signal itemClicked(int index)
     signal change()
 
@@ -236,11 +236,11 @@ Rectangle {
         structure.change();
     }
 
-    width: 160
+    width: 300
     height: 400
     clip: true
-    color: bgColor
-    gradient: (gradientBgOn)?gradientBg:nullGradient
+   // color: bgColor
+   // gradient: (gradientBgOn)?gradientBg:nullGradient
     border.width: borderWidth
     border.color: borderColor
 
@@ -256,9 +256,14 @@ Rectangle {
 
             width: smallerRect.width
             height: structure.itemHeight
-            color: colorWhenDefault
-            gradient: (gradientDefaultOn)?gradientWhenDefault:nullGradient
-
+           // color: colorWhenDefault
+           // gradient: (gradientDefaultOn)?gradientWhenDefault:nullGradient
+            Image { 
+                id: box0r
+                source: 'images/messages/UI_Messages_UpdateNew_Box.png'
+                anchors.fill: parent
+                opacity: 50
+            }
             MouseArea {
                 id: mousepad
                 anchors.fill: parent
@@ -268,7 +273,7 @@ Rectangle {
 
             Text {
                 anchors.verticalCenter: parent.verticalCenter
-                x: 8
+                x: 50
                 font.pointSize: fontSize
                 font.family: fontFamily
                 font.weight: fontWeight
@@ -279,7 +284,8 @@ Rectangle {
             State {
                 id: stateSelected
                 name: "selectedx"; when: rectis.selectedx
-                PropertyChanges { target: rectis; color: colorWhenSelected; gradient: (gradientSelectedOn)?gradientWhenSelected:nullGradient }
+                PropertyChanges { target: box0r
+                                  source: 'images/messages/UI_SelectedResponse_TitleBoxNew.png'}
             },
             State {
                 id: stateHovered

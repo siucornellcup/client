@@ -57,10 +57,10 @@ Item {
     property color textColor: "#D4D0C8"
     property real roundness: 0.5 // 0-1
     property real fontSize: 12
-    property string fontFamily: "Helvetica"
+    property string fontFamily: "DroidSans"
     property string fontWeight: "DemiBold"
-    property int borderWidth: 1
-    property color borderColor: "black"
+    property int borderWidth: 0
+    //property color borderColor: "black"
     property color borderColorWhenHovered: "black"
     property color borderColorWhenPressed: "black"
     property color borderColorWhenSelected: "black"
@@ -68,15 +68,15 @@ Item {
     property color borderColorInner: "#747275"
     property color borderColorInnerWhenHovered: "#747275"
     property color borderColorInnerWhenPressed: "#747275"
-    property color bgColor: "#E0E0E0"
+    property color bgColor: "transparent"
     property real itemRoundness: 0.00001
     property color selectionColor: "#D4D0C8"
-    property color selectedTextColor: "black"
-    property bool gradientActiveOn: true
+    //property color selectedTextColor: "black"
+    //property bool gradientActiveOn: true
     property bool gradientDefaultOn: true
     property bool gradientHoveredOn: true
     property bool gradientPressedOn: true
-    property bool gradientBgOn: true
+    //property bool gradientBgOn: falses
     property bool gradientCheckedOn: true;
     property bool gradientSelectedOn: true;
     property bool activeStateOn: true
@@ -86,10 +86,10 @@ Item {
     property color colorWhenChecked: "#3f3b3c"
     property color borderColorWhenActive: palette.highlight
     property color colorWhenActive: palette.shadow
-    property Gradient gradientBg: Gradient {
-        GradientStop { position: 0; color: "#C2C2C2" }
-        GradientStop { position: 1; color: "#E0E0E0" }
-    }
+    //property Gradient gradientBg: Gradient {
+    //    GradientStop { position: 0; color: "#C2C2C2" }
+    //    GradientStop { position: 1; color: "#E0E0E0" }
+    //}
     property Gradient gradientWhenDefault: Gradient {
         GradientStop { position: 0; color: "#3f3b3c" }
         GradientStop { position: 1; color: "#010103" }

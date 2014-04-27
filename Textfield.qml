@@ -29,11 +29,11 @@ Image {
             anchors.topMargin: 10
         }
         MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                                keyboard.visible = true
-                                textInput.state = 'keyboardTime'
-                    }                  
+            anchors.fill: parent
+            onClicked: {
+                        keyboard.visible = true
+                        textInput.state = 'keyboardTime'
+            }                  
         }
     }
     states:[

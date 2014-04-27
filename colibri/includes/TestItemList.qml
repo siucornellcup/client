@@ -50,13 +50,13 @@ import Qt 4.7
 ListModel {
     id: model
     ListElement {
-        label: "Saab"
+        label: "Bob Loblaw"
         value: "Saab"
         selected: false
     }
     ListElement {
-        label: "Volvo"
-        value: "Volvo"
+        label: "Bob Loblaw"
+        value: "Saab"
         selected: false
     }
     ListElement {

@@ -28,14 +28,21 @@ Item {
                 anchors.topMargin: 40
                 anchors.left: parent.left
                 anchors.leftMargin: 50
+                width: 125
                 text: "Enter Height"
                 Text {
                     text: 'Enter Height'
                     anchors.top: parent.top
                     anchors.topMargin: -20
                 }
-
-
+                Text {
+                    text: "cm"
+                    anchors.left: parent.right
+                    anchors.leftMargin: 15
+                    anchors.bottom: parent.bottom
+                    anchors.bottomMargin: 20
+                    font.pointSize: 16
+                }                
             }
 
         }
@@ -53,7 +60,8 @@ Item {
                 anchors.topMargin: 40
                 anchors.left: parent.left
                 anchors.leftMargin: 50
-                text: "Enter Weight"
+                width: 125
+                text: "Weight"
                 Text {
                     text: 'Enter Weight'
                     anchors.top: parent.top
@@ -62,7 +70,7 @@ Item {
                 Text {
                     text: "kg"
                     anchors.left: parent.right
-                    anchors.leftMargin: 20
+                    anchors.leftMargin: 15
                     anchors.bottom: parent.bottom
                     anchors.bottomMargin: 20
                     font.pointSize: 16
