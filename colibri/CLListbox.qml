@@ -236,7 +236,7 @@ Rectangle {
         structure.change();
     }
 
-    width: 1024
+    width: 300
     height: 400
     clip: true
    // color: bgColor
