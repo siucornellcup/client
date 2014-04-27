@@ -68,7 +68,7 @@ Rectangle {
     property real fontSize: style.fontSize
     property string fontFamily: style.fontFamily
     property string fontWeight: style.fontWeight
-    //property color bgColor: style.bgColor
+    property color bgColor: style.bgColor
     property color sliderColor: colorWhenHovered
     property color sliderBgColor: borderColor
     property bool gradientDefaultOn: style.gradientDefaultOn

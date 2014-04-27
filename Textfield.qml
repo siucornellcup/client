@@ -5,9 +5,9 @@ Image {
     source: "images/profile/UI_Profile_TextInsert.png"
     width: 353
     height: 57
-    z: 100
+    z: 98
     property alias text: txt_input.text
-
+    property alias echoMode: txt_input.echoMode
 
     TextInput {
         id: txt_input
@@ -22,11 +22,14 @@ Image {
         activeFocusOnPress: true
         CLKeyboard{
             id: keyboard
+            width: 600
             visible: false
             onCancelCLButtonClicked:{keyboard.visible = false}
             onOkCLButtonClicked:{keyboard.visible = false }
             anchors.top: parent.bottom
             anchors.topMargin: 10
+            anchors.left: parent.left
+            anchors.leftMargin: -50
         }
         MouseArea {
             anchors.fill: parent

@@ -112,21 +112,25 @@ import 'colibri'
             source: "images/tabs/UI_Tab1_login_back.png"
             anchors.centerIn: parent
             visible: false
-
-            Image {
+            
+            Textfield {
                 id: userNameInput
-                x: 49
-                y: 59
-                source: "images/tabs/UI_Tab1_login_textinput.png"
+                x: 60
+                y: 75
+                width: 375
+                text: "Name"
             }
 
-            Image {
-                id: password
-                x: 49
+            Textfield {
+                id: passwordInput
+                x: 60
                 y: 143
-                source: "images/tabs/UI_Tab1_login_textinput.png"
-
+                z: 50
+                width: 375 
+                echoMode: TextInput.Password
+                text: "Password"
             }
+
 
             Image {
                 id: enter
@@ -141,59 +145,11 @@ import 'colibri'
                     onPressed: enter.source = "images/UI_Enter_Active_Btn.png"
                     onReleased: enter.source = "images/UI_Enter_Btn.png"
                     onClicked: {
-                                 nurse.userpass_login(name.text)
+                                 nurse.userpass_login(userNameInput.text)
                                  page.state = 'nursePortal'
                     }
                 }
             }
-            TextInput {
-                id: passwordInput
-                x: 67
-                y: 158
-                width: 342
-                height: 46
-                text: keyboard.text
-                cursorVisible: false
-                font.pointSize: 16
-                font.family:"DroidSans"
-                horizontalAlignment: TextInput.AlignLeft
-                echoMode: TextInput.Password
-                activeFocusOnPress: true
-
-              //  if (!passwordInput.activeFocus){keyboard.visible = false}
-                //    else{ keyboard.visible = true}
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {keyboard.visible = true
-                                //parent.text = keyboard.text
-                                }
-                   //   onExited: {keyboard.visible = false}
-                    /*onExited: {
-                                if (passwordInput.activeFocus){
-                                    keyboard.visible = true;
-                                }
-                                 else {
-                                    passwordInput.focus = false;
-                                    keyboard.visible = false;
-                                }*/                    
-                    
-
-                }
-            }
-            TextInput {
-                id: name
-                x: 67
-                y: 74
-                width: 342
-                height: 47
-                text: qsTr("Name")
-                cursorVisible: true
-                font.pointSize: 16
-                font.family:"DroidSans"
-                horizontalAlignment: TextInput.AlignLeft
-                transformOrigin: Item.Center
-            }
-
             Text {
                 id: or
                 x: 229
