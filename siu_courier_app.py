@@ -10,6 +10,7 @@ class Courier(QDeclarativeView):
 	def __init__(self):
 		super(Courier, self).__init__()
 		self.setWindowTitle("SIU Courier Telemedical Solution")
+		self.showFullScreen()
 
 def main():
 	app = QApplication(sys.argv)
