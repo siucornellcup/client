@@ -213,7 +213,7 @@ import 'colibri'
                 y: 81
                 width: 200
                 text: "Last Name"
-                //z: 100
+                z: 99
             }
 
             Textfield {
@@ -461,19 +461,6 @@ import 'colibri'
                 PropertyChanges {
                     target: cameraButtonMouse
                     enabled: true
-                }
-
-                PropertyChanges {
-                    target: txt_villageInput
-                    x: 50
-                    y: 156
-                    width: 331
-                    height: 34
-                    text: qsTr("Village")
-                    font.family:"DroidSans"
-                    visible: true
-                    clip: false
-                    selectionColor: "#2f8bc5"
                 }
 
                 PropertyChanges {

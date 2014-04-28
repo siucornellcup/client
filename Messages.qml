@@ -72,5 +72,8 @@ Image {
 			anchors.rightMargin: 300
 			anchors.leftMargin: 30
 			anchors.topMargin: 60
+			onItemClicked: {
+								
+			}
 		}
 }	
