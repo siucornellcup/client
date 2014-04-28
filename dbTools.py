@@ -10,6 +10,7 @@ Don't forget to conn.close() and cur.close()
 
 from faker import Factory
 import psycopg2
+import patient
 gender = ['Male','Female']
 #These ethnicities are taken from the US Census.
 ethnicity = ['White','Black','American Indian',
@@ -124,6 +125,28 @@ def nurse_userpass_lookup(name):
 	else:
 		return None
 
+def get_all_patients():
+	conn, cur = dblogin()
+	cur.execute("SELECT * FROM clinic.patients")
+	result = cur.fetchall()
+	num_records = cur.rowcount
+	colnames = [description[0] for description in cur.description]
+	patient_list = [patient.Patient() for i in range(num_records)]
+	mt_list = []
+	for r in result:
+		g = zip(colnames, r)
+		mt_list.append(g)
+	i = -1
+	while i < num_records-1:
+		for attrs in mt_list:
+			i += 1
+			for el in attrs:
+				setattr(patient_list[i],el[0],el[1])
+	cur.close()
+	conn.close()
+	return patient_list
+
+
 def create_patient(first_name, last_name, village, gender, fingerprint):
 	conn, cur = dblogin()
 	cur.execute("""INSERT INTO clinic.patients(first_name, last_name, village, gender, fingerprint_hash) 
@@ -133,3 +156,4 @@ def create_patient(first_name, last_name, village, gender, fingerprint):
 	conn.close()
 #Dummy fingerprint: 00372a6fb1a467b54992df4daf0dfa49
 #Dummy username: Dane Haag
+#Dummy pw: 12345     also the same password to my luggage

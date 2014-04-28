@@ -1,20 +1,23 @@
 from PySide.QtCore import QObject, Signal, Property, Slot
 from faker import Factory
-from dbTools import create_patient
-
+#from dbTools import create_patient
+import dbTools
 
 class Patient(QObject):
 	def __init__(self):
-		self.name = None
-		self.first_name = None
-		self.last_name = None
-		self.village = None
-		self.dob = None
-		self.fingerprint = None
-		self.gender = None
-		self.photo_id_path = None
-		self.photo_id = None
+	#	self.name = None
+	#	self.first_name = None
+	#	self.last_name = None
+	#	self.village = None
+	#	self.dob = None
+	#	self.fingerprint = None
+	#	self.gender = None
+	#	self.photo_id_path = None
+	#	self.photo_id = None
 		QObject.__init__(self)
+
+#	def __setattr__(self, name, value):
+#		self[name] = value
 
 	@Slot()
 	def create_patient_fp(self):
@@ -24,7 +27,7 @@ class Patient(QObject):
 
 	@Slot()
 	def create_record(self):
-		create_patient(self.first_name, self.last_name, self.village, self.gender, self.fingerprint)
+		dbTools.create_patient(self.first_name, self.last_name, self.village, self.gender, self.fingerprint)
 
 	@Slot()
 	def load_photo_id(self, photo_path):
