@@ -60,52 +60,61 @@ import 'colibri'
             visible: false
             z: 100
         }
-
-            Image {
-                id: nursePortalPatient
-                //image width is 243
-                x: 122
-                y: 260
-                visible: false
-                source: "images/nurseportal/UI_NursePortal_Patient_Btn.png"
-                MouseArea {
-                    id: nursePortalPatientMouse
-                    anchors.fill: parent
-                    onPressed: nursePortalPatient.source = "images/nurseportal/UI_NursePortal_Patient_Active_Btn.png"
-                    onReleased: nursePortalPatient.source = "images/nurseportal/UI_NursePortal_Patient_Btn.png"
-                    onClicked: page.state = 'patientsTab'
+            Item {
+                id: nursePortalItem
+                opacity: 0
+                Image {
+                    id: nursePortalPatient
+                    //image width is 243
+                    x: 122
+                    y: 260
+                    visible: false
+                    source: "images/nurseportal/UI_NursePortal_Patient_Btn.png"
+                    MouseArea {
+                        id: nursePortalPatientMouse
+                        anchors.fill: parent
+                        onPressed: nursePortalPatient.source = "images/nurseportal/UI_NursePortal_Patient_Active_Btn.png"
+                        onReleased: nursePortalPatient.source = "images/nurseportal/UI_NursePortal_Patient_Btn.png"
+                        onClicked: page.state = 'patientsTab'
+                    }
                 }
+                Image {
+                    id: nursePortalCalendar
+                    //image width is 243
+                    x: 425
+                    y: 260
+                    visible: false
+                    source: "images/nurseportal/UI_NursePortal_Calendar_Btn.png"
+                    MouseArea {
+                        id: nursePortalCalendarMouse
+                        anchors.fill: parent
+                        onPressed: nursePortalCalendar.source = "images/nurseportal/UI_NursePortal_Calendar_Active_Btn.png"
+                        onReleased: nursePortalCalendar.source = "images/nurseportal/UI_NursePortal_Calendar_Btn.png"
+                        onClicked: page.state = 'calendarState'
+                    }
+                }
+
+                Image {
+                    id: nursePortalMail
+                    //image width is 243
+                    x: 728
+                    y: 260
+                    visible: false
+                    source: "images/nurseportal/UI_NursePortal_Mail_Btn.png"
+                    MouseArea {
+                        id: nursePortalMailMouse
+                        anchors.fill: parent
+                        onPressed: nursePortalMail.source = "images/nurseportal/UI_NursePortal_Mail_Active_Btn.png"
+                        onReleased: nursePortalMail.source = "images/nurseportal/UI_NursePortal_Mail_Btn.png"
+                        onClicked: page.state = 'messagesState'
+                    }
+            }
             }
             Image {
-                id: nursePortalCalendar
-                //image width is 243
-                x: 425
-                y: 260
-                visible: false
-                source: "images/nurseportal/UI_NursePortal_Calendar_Btn.png"
-                MouseArea {
-                    id: nursePortalCalendarMouse
-                    anchors.fill: parent
-                    onPressed: nursePortalCalendar.source = "images/nurseportal/UI_NursePortal_Calendar_Active_Btn.png"
-                    onReleased: nursePortalCalendar.source = "images/nurseportal/UI_NursePortal_Calendar_Btn.png"
-                    onClicked: page.state = 'calendarState'
-                }
-            }
-
-            Image {
-                id: nursePortalMail
-                //image width is 243
-                x: 728
-                y: 260
-                visible: false
-                source: "images/nurseportal/UI_NursePortal_Mail_Btn.png"
-                MouseArea {
-                    id: nursePortalMailMouse
-                    anchors.fill: parent
-                    onPressed: nursePortalMail.source = "images/nurseportal/UI_NursePortal_Mail_Active_Btn.png"
-                    onReleased: nursePortalMail.source = "images/nurseportal/UI_NursePortal_Mail_Btn.png"
-                    onClicked: page.state = 'messagesState'
-                }
+                id: logo
+                anchors.centerIn: parent
+                source: 'images/logos/Blue/vertical_black.png'
+                opacity: 0
             }
          
 //LOGIN
@@ -586,4 +595,26 @@ import 'colibri'
                 }
             }
         ]
-    }
+        transitions: 
+        Transition {
+            from: "login"
+            to: "nursePortal"
+            SequentialAnimation {
+                PropertyAnimation {
+                    target: logo
+                    properties: 'opacity'; from: 0; to: 1; easing.type: Easing.InQuint; duration: 1000
+                }
+
+            PropertyAnimation {
+                target: logo
+                properties: 'opacity'; from: 1.0; to: 0; easing.type: Easing.InQuint; duration: 1000
+            }
+            PropertyAnimation {
+                target: nursePortalItem
+                properties: 'opacity'; from: 0; to: 1; easing.type: Easing.Linear; duration: 1000
+            }
+            }
+
+        }
+    
+}
