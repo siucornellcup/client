@@ -87,17 +87,26 @@ def load_doctors(num_records):
 		insertions += 1
 		print "Inserted %s into the database\n"%name
 
-def clear_doctors(conn,cur):
+def clear_doctors():
+	conn, cur = dblogin()
 	cur.execute("DELETE FROM clinic.doctors")
 	conn.commit()
+	cur.close()
+	conn.close()
 
-def clear_patients(conn,cur):
+def clear_patients():
+	conn, cur = dblogin()
 	cur.execute("DELETE FROM clinic.patients")
 	conn.commit()
-
-def clear_nurses(conn,cur):
+	cur.close()
+	conn.close()
+	
+def clear_nurses():
+	conn, cur = dblogin()
 	cur.execute("DELETE FROM clinic.nurses")
 	conn.commit()
+	cur.close()
+	conn.close()
 
 def nurse_lookup_fp(fingerprint):
 	conn, cur = dblogin()
