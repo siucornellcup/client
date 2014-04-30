@@ -91,8 +91,8 @@ Item {
         GradientStop { position: 1; color: "transparent" }
     }
     property Gradient gradientWhenDefault: Gradient {
-        GradientStop { position: 0; color: "#3f3b3c" }
-        GradientStop { position: 1; color: "#010103" }
+        GradientStop { position: 0; color: "white" }
+        GradientStop { position: 1; color: "white" }
     }
     property Gradient gradientWhenHovered:  Gradient {
         GradientStop { position: 0; color: "#4c4849" }

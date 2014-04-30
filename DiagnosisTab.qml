@@ -1,10 +1,13 @@
 import QtQuick 1.0
-
+import 'colibri'
 Image {
     id: diagnosisProgress
     source: 'images/tab_diagnosis/UI_Diagnosis_ProgressShape.png'
     anchors.centerIn: parent
     visible: false
+    CLProgressBar{
+        anchors.fill: parent
+    }
     Image {
         id: diagnosisOkay
         source: 'images/tab_diagnosis/UI_Diagnosis_OkNormal.png'
