@@ -3,6 +3,7 @@ import QtQuick 1.0
 Item{
 	id: checkboxContainer
 	property alias text: checkText.text
+	property bool checked: false
 
 	Image {
 	    id: checkbox
@@ -27,6 +28,10 @@ Item{
 			PropertyChanges {
 				target: checkbox
 				source: "images/profile/UI_Profile_ConditionsSelected_Active.png"
+			}
+			PropertyChanges {
+				target: checkboxContainer
+				checked: true
 			}
 		},
 		State {
