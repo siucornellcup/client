@@ -6,6 +6,53 @@ import QtQuick 1.0
         visible: false
         source: 'images/patientpage/UI_PatientPage_back.png'
 
+   /* Rectangle{
+        color: 'white'
+        anchors.fill: parent
+        anchors.rightMargin: 100
+        anchors.topMargin: 50
+    }*/
+
+        Grid{
+            id: patientGrid
+            anchors.fill: parent
+            anchors.topMargin: 100
+            anchors.leftMargin: 60
+            rows: 2
+            columns: 5
+            spacing: 60
+            z: 98
+            Repeater {
+            model: patientListModel
+            delegate: Component {
+                Rectangle {
+                    width: 100
+                    height: 100
+                    color:'white'
+                    Row{
+                        id: patient_name
+                        spacing: 5
+                        Text {
+                            id: first_name
+                            color: '#857c66'
+                            font.family: 'DroidSans'
+                            font.pointSize: 10
+                            verticalAlignment: Text.AlignVCenter
+                            text: model.patient.p_first_name
+                        }
+                        Text {
+                            id: last_name
+                            color:'#58595b'
+                            font.family: 'DroidSans'
+                            font.pointSize: 10
+                            text: model.patient.p_last_name
+                        }
+                    }
+                }
+            }
+            }
+        }
+
         Text {
             id: patientsText
             x: 62
@@ -13,6 +60,7 @@ import QtQuick 1.0
             text: qsTr("Patients")
             font.family: 'DroidSans'
             font.pointSize: 16
+            color: '#857c66'
         }
         Text {
             id: searchText
