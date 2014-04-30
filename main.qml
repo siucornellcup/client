@@ -353,6 +353,7 @@ import 'colibri'
                                 patient.p_gender = genderSelector.gender
                                 patient.create_record()
                                 patient.load
+                                patientListModel.update()
                                 page.state = 'vitalsTab'
                                 }
                 }

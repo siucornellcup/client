@@ -21,6 +21,10 @@ class PatList(QAbstractListModel):
 		if index.isValid() and role == PatList.COLUMNS.index('patient'):
 			return self._patients[index.row()]
 		return None
+		
+	@Slot()
+	def update(self):
+		self._patients = dbTools.get_all_patients()
 
 class Courier(QDeclarativeView):
 	def __init__(self):
