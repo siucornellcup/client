@@ -6,30 +6,38 @@ import QtQuick 1.0
         visible: false
         source: 'images/patientpage/UI_PatientPage_back.png'
 
-   /* Rectangle{
-        color: 'white'
+    Rectangle{
+        id: patientListBoundingBox
+        color: 'transparent'
+        z: 100
+        opacity: 0.75
         anchors.fill: parent
-        anchors.rightMargin: 100
-        anchors.topMargin: 50
-    }*/
+        anchors.rightMargin: 270
+        anchors.topMargin: 100
+        anchors.leftMargin: 25
+        anchors.bottomMargin: 100
 
-        Grid{
-            id: patientGrid
-            anchors.fill: parent
-            anchors.topMargin: 100
-            anchors.leftMargin: 60
-            rows: 2
-            columns: 5
-            spacing: 60
-            z: 98
-            Repeater {
-            model: patientListModel
-            delegate: Component {
-                Rectangle {
-                    width: 100
-                    height: 100
-                    color:'white'
-                    Row{
+    GridView{
+        id: patientListView
+        clip: true
+        anchors.fill: parent
+        anchors.topMargin: 30
+        width: parent.width
+        height: parent.height
+        cellWidth: 150
+        cellHeight: 150
+        snapMode: GridView.SnapOneRow
+        flow: GridView.TopToBottom
+        model: patientListModel
+        delegate: Component {
+                Column {
+                   Rectangle { 
+                        id: patient_id_picture
+                        color: 'orange'
+                        width: 114
+                        height: 100
+                    }
+                    Flow {
                         id: patient_name
                         spacing: 5
                         Text {
@@ -42,17 +50,24 @@ import QtQuick 1.0
                         }
                         Text {
                             id: last_name
-                            color:'#58595b'
+                            color: '#857c66'
                             font.family: 'DroidSans'
                             font.pointSize: 10
                             text: model.patient.p_last_name
                         }
                     }
+                        Text {
+                            id: village
+                            color: '#58595b'
+                            font.family: 'DroidSans'
+                            font.pointSize: 10
+                            text: model.patient.p_village
+                        }
+                    
                 }
             }
-            }
-        }
-
+            }        
+   }
         Text {
             id: patientsText
             x: 62
@@ -68,6 +83,7 @@ import QtQuick 1.0
             y: 31
             text: qsTr("Search")
             font.family: 'DroidSans'
+            color: '#857c66'
             font.pointSize: 16
         }
 
@@ -82,6 +98,7 @@ import QtQuick 1.0
                 y: 10
                 width: 200
                 text: qsTr("Name")
+                color: '#857c66'
                 font.family: 'DroidSans'
                 visible: true
             }
