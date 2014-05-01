@@ -11,7 +11,7 @@ class Patient(QObject):
 	#	self.village = None
 	#	self.dob = None
 	#	self.fingerprint = None
-	#	self.gender = None
+		self.gender = 'Male'
 	#	self.photo_id_path = None
 	#	self.photo_id = None
 		QObject.__init__(self)

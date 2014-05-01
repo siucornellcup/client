@@ -5,6 +5,8 @@ Image {
     source: "images/tabs/UI_Tab1_tabs.jpg"
     anchors.fill: parent
 
+    Row {
+
     Tabtext {text: "Nurse"; x: 49; y: 25}
 
     Tabtext {text: "Profile"; x: 251; y: 25}
@@ -14,6 +16,8 @@ Image {
     Tabtext {text: "Symptoms"; x: 670; y: 25}
 
     Tabtext {text: "Diagnosis"; x: 870; y: 25}
+
+    }
 
     MouseArea {
         id: profileTabMouse
@@ -39,7 +43,8 @@ Image {
         y: 8
         width: 203
         height: 60
-        onClicked: page.state = "symptomsTab"
+        onClicked: {page.state = "symptomsTab"
+        }
     }
 
     MouseArea {

@@ -18,11 +18,8 @@ import 'colibri'
             anchors.fill: parent
             border.left: 5; border.top: 5
             border.right: 5; border.bottom: 5
+
         }
-       // CLDial{backgroundImage: "tab_symptoms/UI_Symptoms_back.png"
-       //         needleImage: "calendar/UI_Calendar_Left_Btn.png"
-       //         z:100}        
-       //CLDatePicker{z:100}
         NavBar {
             id: navbar
             z: 99
