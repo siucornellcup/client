@@ -3,7 +3,6 @@ import 'colibri'
 Item {
 	id: item_vitalsTab
     anchors.fill: parent
-    //state: 'heightWeight'
 		Image {
           id: sensorTabs
           anchors.right: parent.right
@@ -66,23 +65,50 @@ Item {
             }
         }         
             Item {
-
                 id: pulse
                 anchors.fill: parent
                 visible: false
-                Rectangle {
+                z: 100
+                Image {
+                    id: pulseStepBox
+                    source: "images/tab_vitals/UI_Vitals_tab1_StepBox.png"
+                    anchors.top: parent.top
+                    anchors.topMargin: 50
+                    anchors.right: parent.right
+                    anchors.rightMargin: 30
+                Image {
                     id: get_bp_button
                     anchors.centerIn: parent
-                    width: 200
-                    height: 200
-                    color: 'orange'
+                    source: 'images/UI_Enter_Btn.png'
                     z: 100
                     MouseArea {
                         anchors.fill: parent
-                        onClicked: visit.read_pulse_sensor
-                    }
-                }
+                        onPressed: parent.source = 'images/UI_Enter_Active_Btn.png'
+                        onReleased: parent.source = 'images/UI_Enter_Btn.png'
+                        onClicked: {
+                            visit.read_pulse_sensor()
+                            pulseData.text = visit.v_pulse_rate
+                        }
 
+                    }
+                Text {
+                    id: pulseData
+                    visible: true
+                    anchors.top: get_bp_button.bottom
+                    anchors.topMargin: 10
+                    text: "No measurement"
+                }
+                Text {
+                    id: pulseInstructions
+                    visible: true
+                    anchors.bottom: get_bp_button.top
+                    anchors.bottomMargin: 10
+                    anchors.horizontalCenter: get_bp_button.horizontalCenter
+                    text: "Please place the patients finger on the sensor and wait up to 30 seconds."
+                }
+            }   
+
+                }
             }
             Item {
                 id: temperature

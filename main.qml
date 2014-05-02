@@ -266,32 +266,343 @@ import 'colibri'
             Checkbox {text: "Yellow Fever"; x: 377; y: 515}
 
             Checkbox {text: "Diabetes"; x: 77; y: 435}
+//ETHNICITY DROP DOWN
+    Image {
+        id: ethnicityDrop
+        source: "images/profile/UI_Profile_Ethnicity_Closed.png"
+        x: 250
+        y: 234
+        Text {
+            id: ethnicityText
+            text: qsTr('Ethnicity')
+            font.pointSize: 16
+            x: 15
+            y: 12
+        }
 
-            EthnicityDropDown {}
-
-            Image {
-                id: monthDrop
-                x: 50
-                y: 324
-                source: "images/profile/UI_Profile_MonYearDropdown_Closed.png"
-                MouseArea {
-                    id: monthMouse
-                    anchors.fill: parent
-                    onClicked: {
-                        monthDrop.source = "images/profile/UI_Profile_MonYearDropdown.png"
-                        //monthDrop.height = 176
-                    }
-                Text {
-                    anchors.fill: parent
-                    anchors.rightMargin: 12
-                    text: "Month"
-                    verticalAlignment: Text.AlignVCenter
-                    horizontalAlignment: Text.AlignHCenter
-                    font.family: "DroidSans"
-                    font.pointSize: 12
+        MouseArea {
+            id: ethnicityMouse
+            anchors.fill: parent
+            onClicked: ethnicityDrop.state == 'ethnicityOpen' ? ethnicityDrop.state = 'ethnicityClosed' : ethnicityDrop.state = 'ethnicityOpen'
+        }
+        states: [
+            State {
+                name: 'ethnicityOpen'
+                PropertyChanges {
+                    target: ethnicityDrop
+                    source: 'images/profile/UI_Profile_Ethnicity_Dropdown.png'
+                    z: 3
                 }
+                PropertyChanges {
+                    target: ethnicityOver
+                    visible: true
+                }
+            },
+            State {
+                name: 'ethnicityClosed'
+                PropertyChanges {
+                    target: ethnicityDrop
+                    source: "images/profile/UI_Profile_Ethnicity_Closed.png"
+                    z: 1
+                }
+                PropertyChanges {
+                    target: ethnicityOver
+                    visible: false
                 }
             }
+
+        ]
+        Item {
+            id: ethnicityOver
+            visible: false
+            Image {
+                source: 'images/profile/UI_Profile_Ethnicity_Dropdown_Overlap.png'
+                y: 80
+                x: 3
+            }
+            Text {
+                text: qsTr('White'); verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignHCenter
+                height: 20
+                width: 157
+                y: 40
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        ethnicityDrop.state = 'ethnicityClosed'
+                        ethnicityText.text = qsTr('White')
+                    }
+                }
+            }
+            Text {
+                text: qsTr('Black'); verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignHCenter
+                height: 20
+                width: 157
+                y: 60
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        ethnicityDrop.state = 'ethnicityClosed'
+                        ethnicityText.text = qsTr('Black')
+                    }
+                }
+            }
+            Text {
+                text: qsTr('American Indian'); verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignHCenter
+                height: 20
+                width: 157
+                y: 80
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        ethnicityDrop.state = 'ethnicityClosed'
+                        ethnicityText.text = qsTr('American Indian')
+                    }
+                }
+            }
+            Text {
+                text: qsTr('Chinese'); verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignHCenter
+                height: 20
+                width: 157
+                y: 105
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        ethnicityDrop.state = 'ethnicityClosed'
+                        ethnicityText.text = qsTr('Chinese')
+                    }
+                }
+            }
+            Text {
+                text: qsTr('Asain Indian'); verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignHCenter
+                height: 20
+                width: 157
+                y: 130
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        ethnicityDrop.state = 'ethnicityClosed'
+                        ethnicityText.text = qsTr('Asain Indian')
+                    }
+                }
+            }
+        }
+    }
+
+
+    Image {
+        id: monthDrop
+        x: 50
+        y: 324
+        source: "images/profile/UI_Profile_MonYearDropdown_Closed.png"
+
+        MouseArea {
+            id: monthMouse
+            anchors.fill: parent
+            onClicked: monthDrop.state == 'monthDropOpen' ? monthDrop.state = 'monthDropClosed' : monthDrop.state = 'monthDropOpen'
+            }
+        Text {
+            id: monthText
+            text: qsTr('Month')
+            font.pointSize: 16
+            x: 15
+            y: 12
+            height: 20
+            width: 125
+        }
+
+        states:
+            [
+            State {
+                name: 'monthDropOpen'
+                PropertyChanges {
+                    target: monthItem
+                    visible: true
+                }
+                PropertyChanges {
+                    target: monthDrop
+                    source: 'images/profile/UI_Profile_MonYearDropdown.png'
+                }
+                PropertyChanges {
+                    target: monthItemText
+                    visible: true
+                }
+            },
+            State {
+                name: 'monthDropClosed'
+                PropertyChanges {
+                    target: monthItem
+                    visible: false
+                }
+                PropertyChanges {
+                    target: monthDrop
+                    source: 'images/profile/UI_Profile_MonYearDropdown_Closed.png'
+                }
+                PropertyChanges {
+                    target: monthItemText
+                    visible: false
+                }
+            }
+
+        ]
+        }
+    Item {
+        id: monthItem
+        visible: false
+        Image {
+            id: monthDrop1
+            x: 53
+            y: 467
+            source:"images/profile/UI_Profile_MonYearDropdownOverlap.png"
+        }
+        Image {
+            id: monthDrop2
+            x: 53
+            y: 493
+            source: "images/profile/UI_Profile_MonYearDropdownOverlap.png"
+        }
+        Image {
+            id: monthDrop3
+            x: 53
+            y: 575
+            source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+        }
+    }
+    Item {
+        id: monthItemText
+        visible: false
+        Text {
+            text: qsTr('January'); verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignHCenter
+            x: 53
+            y: 365
+            width: 125
+            height: 20
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {monthText.text = qsTr('January'); monthDrop.state = 'monthDropClosed'}
+            }
+        }
+        Text {
+            text: qsTr('February'); verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignHCenter
+            x: 53
+            y: 392
+            width: 125
+            height: 20
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {monthText.text = qsTr('February'); monthDrop.state = 'monthDropClosed'}
+            }
+        }
+        Text {
+            text: qsTr('March'); verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignHCenter
+            x: 53
+            y: 418
+            width: 125
+            height: 20
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {monthText.text = qsTr('March'); monthDrop.state = 'monthDropClosed'}
+            }
+        }
+        Text {
+            text: qsTr('April'); verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignHCenter
+            x: 53
+            y: 445
+            width: 125
+            height: 20
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {monthText.text = qsTr('April'); monthDrop.state = 'monthDropClosed'}
+            }
+        }
+        Text {
+            text: qsTr('May'); verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignHCenter
+            x: 53
+            y: 472
+            width: 125
+            height: 20
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {monthText.text = qsTr('May'); monthDrop.state = 'monthDropClosed'}
+            }
+        }
+        Text {
+            text: qsTr('June'); verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignHCenter
+            x: 53
+            y: 497
+            width: 125
+            height: 20
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {monthText.text = qsTr('June'); monthDrop.state = 'monthDropClosed'}
+            }
+        }
+        Text {
+            text: qsTr('July'); verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignHCenter
+            x: 53
+            y: 524
+            width: 125
+            height: 20
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {monthText.text = qsTr('July'); monthDrop.state = 'monthDropClosed'}
+            }
+        }
+        Text {
+            text: qsTr('August'); verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignHCenter
+            x: 53
+            y: 551
+            width: 125
+            height: 20
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {monthText.text = qsTr('August'); monthDrop.state = 'monthDropClosed'}
+            }
+        }
+        Text {
+            text: qsTr('September'); verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignHCenter
+            x: 53
+            y: 578
+            width: 125
+            height: 20
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {monthText.text = qsTr('September'); monthDrop.state = 'monthDropClosed'}
+            }
+        }
+        Text {
+            text: qsTr('October'); verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignHCenter
+            x: 53
+            y: 605
+            width: 125
+            height: 20
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {monthText.text = qsTr('October'); monthDrop.state = 'monthDropClosed'}
+            }
+        }
+        Text {
+            text: qsTr('November'); verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignHCenter
+            x: 53
+            y: 632
+            width: 125
+            height: 20
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {monthText.text = qsTr('November'); monthDrop.state = 'monthDropClosed'}
+            }
+        }
+        Text {
+            text: qsTr('December'); verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignHCenter
+            x: 53
+            y: 659
+            width: 125
+            height: 20
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {monthText.text = qsTr('December'); monthDrop.state = 'monthDropClosed'}
+            }
+        }
+    }
 
             Image {
                 id: dayDrop
@@ -313,26 +624,259 @@ import 'colibri'
                     font.pointSize: 12
                 }            
             }
-            Image {
-                id: yearDrop
-                x: 347
-                y: 324
-                source: "images/profile/UI_Profile_MonYearDropdown_Closed.png"
-                MouseArea {
-                    id: yearDropMouse
-                    anchors.fill: parent
-                    onClicked: yearDrop.source = "images/profile/UI_Profile_MonYearDropdown.png"
-                }
-                Text {
-                    anchors.fill: parent
-                    anchors.rightMargin: 12
-                    text: "Year"
-                    verticalAlignment: Text.AlignVCenter
-                    horizontalAlignment: Text.AlignHCenter
-                    font.family: "DroidSans"
-                    font.pointSize: 12
-                }       
+
+    MouseArea {
+        x: 347
+        y: 324
+        height: yearDrop.height
+        width: yearDrop.width
+        onClicked: yearDrop.state == 'yearDropOpen' ? yearDrop.state = 'yearDropClosed' : yearDrop.state = 'yearDropOpen'
+    }
+    Image {
+        id: hiddenYearDrop
+        source: 'images/profile/UI_Profile_MonYearDropdown_Closed.png'
+        x: 347
+        y: 324
+        Text {
+            id: hiddenYearText
+            text: qsTr('Year')
+            x: 15
+            y: 12
+            font.pointSize: 16
+        }
+    }
+    Flickable {
+        id: yearFlick
+        x: 347
+        y: 324
+        height: yearDrop.height
+        width: yearDrop.width
+        contentHeight: yearDrop.height*17
+        flickableDirection: Flickable.VerticalFlick
+        enabled: false
+        z: 2
+        Image {
+            id: yearDrop
+            source: "images/profile/UI_Profile_MonYearDropdown_Closed.png"
+
+
+            Text {
+                id: yearText
+                text: qsTr('Year')
+                x: 15
+                y: 12
+                font.pointSize: 16
             }
+            MouseArea {
+                id: yearDropMouse
+                width: yearDrop.width
+                height: yearDrop.height
+                onClicked: {
+                    yearDrop.state == 'yearDropOpen' ? yearDrop.state = 'yearDropClosed' : yearDrop.state = 'yearDropOpen'
+                }
+            }
+            states:
+                [
+                State {
+                    name: 'yearDropOpen'
+                    PropertyChanges {
+                        target: yearDrop
+                        source: "images/profile/UI_Profile_MonYearDropdown.png"
+                    }
+                    PropertyChanges {
+                        target: yearItem
+                        visible: true
+                    }
+                    PropertyChanges {
+                        target: yearFlick
+                        enabled: true
+                        height: yearDrop.height
+                        z: 2
+                    }
+                    PropertyChanges {
+                        target: yearDropMouse
+                        height: yearDrop.height*20
+                    }
+                    PropertyChanges {
+                        target: yearColumn
+                        visible: true
+                    }
+                    PropertyChanges {
+                        target: hiddenYearDrop
+                        visible: false
+                    }
+                },
+                State {
+                    name: 'yearDropClosed'
+                    PropertyChanges {
+                        target: yearDrop
+                        visible: false
+                    }
+                    PropertyChanges {
+                        target: yearItem
+                        visible: false
+                    }
+                    PropertyChanges {
+                        target: yearFlick
+                        enabled: false
+                        height: yearDrop.height
+                        z: 1
+                    }
+                    PropertyChanges {
+                        target: yearDropMouse
+                        height: yearDrop.height
+                    }
+                    PropertyChanges {
+                        target: yearColumn
+                        visible: false
+                    }
+                    PropertyChanges {
+                        target: hiddenYearDrop
+                        visible: true
+                    }
+                }
+
+            ]
+
+        }
+        Item {
+            id: yearItem
+            visible: false
+            x: 3
+
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 143
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 245
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 347
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 449
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 551
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 653
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 755
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 857
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 959
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 1061
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 1163
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 1265
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 1367
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 1469
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 1571
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 1673
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 1775
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 1877
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 1979
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 2081
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 2183
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 2285
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 2387
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 2489
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 2591
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 2693
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 2795
+            }
+            Image {
+                source: 'images/profile/UI_Profile_MonYearDropdownOverlap.png'
+                y: 2897
+            }
+        }
+        Column {
+            id: yearColumn
+            spacing: 10
+            x: 42.5
+            y: 42.5
+            visible: false
+            Repeater {
+                model: 115
+                Text {
+                    text: (2014 - model.index); verticalAlignment: Text.AlignVCenter; horizontalAlignment: Text.AlignHCenter
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {yearDrop.state = 'yearDropClosed'; hiddenYearText.text = (2014 - model.index)}
+                    }
+                }
+            }
+        }
+}
+
+
 //PATIENT PAGE SAVE BUTTON
             Image {
                 id: saveButton

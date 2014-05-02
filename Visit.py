@@ -1,5 +1,6 @@
 from PySide.QtCore import QObject, Signal, Property, Slot
 import serial
+import io
 
 class Visit(QObject):
 	def __init__(self):
@@ -27,6 +28,9 @@ class Visit(QObject):
 		datum = ser.readline()
 		self.pulse_rate = datum
 		print datum
+
+	def get_pulse(self):
+		return int(self.pulse_rate)
 
 	def set_height(self, height):
 		self.height = height
@@ -60,4 +64,4 @@ class Visit(QObject):
 	v_id = Property(unicode, get_visit_id, set_visit_id, notify=visit_id_changed)
 	v_weight = Property(unicode, get_weight, set_weight, notify=weight_changed)
 	v_height = Property(unicode, get_height, set_height, notify=height_changed)
-	v_pulse_rate = Property(unicode, read_pulse_sensor, notify=pulse_rate_changed)
+	v_pulse_rate = Property(int, get_pulse, read_pulse_sensor, notify=pulse_rate_changed)
