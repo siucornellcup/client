@@ -47,8 +47,9 @@ import QtQuick 1.1
 
             Image{
                 id: pulseMonitor
-                source: 'images/navbar/UI_NavBar_HeartRate_Btn.png'
+                source: sensorIcon.heartRate?'images/navbar/UI_NavBar_HeartRate_Active_Btn.png':'images/navbar/UI_NavBar_HeartRate_Btn.png'
             }
+            
             Image {
                 id: tempMonitor
                 source: "images/navbar/UI_NavBar_Temp_Btn.png"

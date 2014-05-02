@@ -388,7 +388,7 @@ import 'colibri'
         }
     }
 
-
+//MONTH DROPDOWN
     Image {
         id: monthDrop
         x: 50

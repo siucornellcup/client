@@ -8,7 +8,9 @@ import dbTools
 import Visit
 import symptom
 import serial
-
+import SensorIcon
+import time
+import WeightScale
 
 
 class PatList(QAbstractListModel):
@@ -58,6 +60,12 @@ class Courier(QDeclarativeView):
 
 def main():
 	app = QApplication(sys.argv)
+	heartRateIDs = (int("16C0",16),int("0483",16))
+	bloodPressureIDs = (000,000)
+	sensorIcon = SensorIcon.SensorIcon(heartRateIDs,bloodPressureIDs)
+	
+	weightScale = WeightScale.WeightScale()	
+
 	nurse1 = nurse.Nurse()
 	patient1 = patient.Patient()
 	visit1 = Visit.Visit()
@@ -68,12 +76,16 @@ def main():
 	view.rootContext().setContextProperty('patient', patient1)
 	view.rootContext().setContextProperty('nurse', nurse1) #this needs to happen before setsource or errors get thrown
 	view.rootContext().setContextProperty('visit', visit1)
+	view.rootContext().setContextProperty('sensorIcon',sensorIcon)
+	view.rootContext().setContextProperty('weightScale',weightScale)	
 	patientList = dbTools.get_all_patients()
 	patients = PatList(patientList)
 	view.rootContext().setContextProperty('patientListModel', patients)
 	view.setSource('main.qml')
 	view.show()
-	sys.exit(app.exec_())
+	app.exec_()
+	sensorIcon._set_running(False)
+	sys.exit()
 
 if __name__ == '__main__':
 	main()
