@@ -20,7 +20,7 @@ ethnicity = ['White','Black','American Indian',
 			 'Samoan','Other Pacific Islander','Other']
 fake = Factory.create()
 
-num_records = 1000
+num_records = 1
 id_photo = open("test_img.jpg","rb").read()
 
 def dblogin():
@@ -75,21 +75,23 @@ def load_nurses(num_records):
 		
 
 def load_doctors(num_records):
+	conn, cur = dblogin()
 	insertions = 0
 	while insertions < num_records:
 		first_name = fake.first_name()
 		last_name = fake.last_name()
-		city = fake.fake.city_name()
+		city = fake.city()
 		email = fake.company_email()
-		password = fake.md5(raw_output=False)
-		doc_id = fake.md5(raw_output=False)
-		cur.execute("INSERT INTO clinic.doctors(first_name, last_name, location, email) VALUES (%s, %s, %s, %s, %s)", 
-												    (first_name, last_name, city, email 
+		password = 'hi'
+		profession = 'Doctor'
+
+		cur.execute("INSERT INTO clinic.doctors(first_name, last_name, location, email, profession) VALUES (%s, %s, %s, %s, %s)", 
+												    (first_name, last_name, city, email, profession 
 												     ,))
 		print "Status: " + cur.statusmessage
 		conn.commit()
 		insertions += 1
-		print "Inserted %s into the database\n"%name
+		print "Inserted %s into the database\n"%first_name
 
 def clear_doctors():
 	conn, cur = dblogin()

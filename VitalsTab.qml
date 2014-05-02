@@ -25,12 +25,13 @@ Item {
                 anchors.right: parent.right
                 anchors.rightMargin: 30
                 z: 100
-            DataInput
-                {
-                anchors.verticalCenter: parent
-                x: 100
-                y: 100
-            }
+      //      DataInput
+      //          {
+      //          anchors.verticalCenter: parent
+      //          x: 100
+      //          y: 100
+
+      //      }
             }
             Image {
                 id: weightStepbox
@@ -39,31 +40,32 @@ Item {
                 anchors.bottomMargin: 50
                 anchors.right: parent.right
                 anchors.rightMargin: 30
-                z: 50
+                z: 100
                 Textfield {
                     anchors.top: parent.top
                     anchors.topMargin: 40
                     anchors.left: parent.left
                     anchors.leftMargin: 50
                     width: 125
-                    visible: false
+                    visible: true
                     text: "Weight"
-                    Text {
-                        text: 'Enter Weight'
-                        anchors.top: parent.top
-                        anchors.topMargin: -20
-                    }
-                    Text {
-                        text: "kg"
-                        anchors.left: parent.right
-                        anchors.leftMargin: 15
-                        anchors.bottom: parent.bottom
-                        anchors.bottomMargin: 20
-                        font.pointSize: 16
+                    Rectangle {
+                            id: weightButton
+                            x: 50
+                            y: 50
+                            z: 100
+                            color: (weightScale.hasrun ? (weightScale.running ? '#D7853D' : '#6AA535') : '#FF0000')
+                            border.color: '#666666'
+                            height: 100
+                            width: 100
+                            Text {
+                                x: 130
+                                y: 35
+                                text: 'Red: Step on scale\nOrange: Stay on scale\nGreen: Weight has been recorded'
+                            }
                     }
                 }
             }
-        }         
             Item {
                 id: pulse
                 anchors.fill: parent
@@ -365,5 +367,6 @@ Item {
                 }
             }
     ]
+}
 }
 

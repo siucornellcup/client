@@ -90,6 +90,13 @@ import 'colibri'
                         onClicked: page.state = 'calendarState'
                     }
                 }
+                Text{
+                    text: "Log Off"
+                    color: 'orange'
+                    anchors.bottom: parent.bottom
+                    anchors.right: parent.right
+                    
+                }
 
                 Image {
                     id: nursePortalMail
