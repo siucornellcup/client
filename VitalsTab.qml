@@ -1,8 +1,9 @@
 import QtQuick 1.0
-
+import 'colibri'
 Item {
 	id: item_vitalsTab
     anchors.fill: parent
+    //state: 'heightWeight'
 		Image {
           id: sensorTabs
           anchors.right: parent.right
@@ -12,110 +13,180 @@ Item {
           anchors.bottom: parent.bottom
           anchors.bottomMargin: 34
           source: "images/tab_vitals/UI_Vitals_Tab1.png"
-
-
-
-        Image {
-            id: stepbox
-            source: "images/tab_vitals/UI_Vitals_tab1_StepBox.png"
-            anchors.top: parent.top
-            anchors.topMargin: 50
-            anchors.right: parent.right
-            anchors.rightMargin: 30
-            z: 100
-            Textfield {
+        Item {
+            id: heightWeight
+            anchors.fill: parent
+            visible: true
+            z: 100        
+            Image {
+                id: heightStepbox
+                source: "images/tab_vitals/UI_Vitals_tab1_StepBox.png"
                 anchors.top: parent.top
-                anchors.topMargin: 40
-                anchors.left: parent.left
-                anchors.leftMargin: 50
-                width: 125
-                text: "Enter Height"
-                Text {
-                    text: 'Enter Height'
-                    anchors.top: parent.top
-                    anchors.topMargin: -20
-                }
-                Text {
-                    text: "cm"
-                    anchors.left: parent.right
-                    anchors.leftMargin: 15
-                    anchors.bottom: parent.bottom
-                    anchors.bottomMargin: 20
-                    font.pointSize: 16
-                }                
+                anchors.topMargin: 50
+                anchors.right: parent.right
+                anchors.rightMargin: 30
+                z: 100
+            DataInput
+                {
+                anchors.verticalCenter: parent
+                x: 100
+                y: 100
             }
-
-        }
- 
-        Image {
-            id: weightStepbox
-            source: "images/tab_vitals/UI_Vitals_tab1_StepBox.png"
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 50
-            anchors.right: parent.right
-            anchors.rightMargin: 30
-            z: 50
-            Textfield {
-                anchors.top: parent.top
-                anchors.topMargin: 40
-                anchors.left: parent.left
-                anchors.leftMargin: 50
-                width: 125
-                text: "Weight"
-                Text {
-                    text: 'Enter Weight'
+            }
+            Image {
+                id: weightStepbox
+                source: "images/tab_vitals/UI_Vitals_tab1_StepBox.png"
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 50
+                anchors.right: parent.right
+                anchors.rightMargin: 30
+                z: 50
+                Textfield {
                     anchors.top: parent.top
-                    anchors.topMargin: -20
-                }
-                Text {
-                    text: "kg"
-                    anchors.left: parent.right
-                    anchors.leftMargin: 15
-                    anchors.bottom: parent.bottom
-                    anchors.bottomMargin: 20
-                    font.pointSize: 16
+                    anchors.topMargin: 40
+                    anchors.left: parent.left
+                    anchors.leftMargin: 50
+                    width: 125
+                    visible: false
+                    text: "Weight"
+                    Text {
+                        text: 'Enter Weight'
+                        anchors.top: parent.top
+                        anchors.topMargin: -20
+                    }
+                    Text {
+                        text: "kg"
+                        anchors.left: parent.right
+                        anchors.leftMargin: 15
+                        anchors.bottom: parent.bottom
+                        anchors.bottomMargin: 20
+                        font.pointSize: 16
+                    }
                 }
             }
         }         
+            Item {
+
+                id: pulse
+                anchors.fill: parent
+                visible: false
+                Rectangle {
+                    id: get_bp_button
+                    anchors.centerIn: parent
+                    width: 200
+                    height: 200
+                    color: 'orange'
+                    z: 100
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: visit.read_pulse_sensor
+                    }
+                }
+
+            }
+            Item {
+                id: temperature
+                visible: false
+                anchors.fill: parent
+                z: 100
+                Image {
+                    id: temperatureStepBox
+                    source: "images/tab_vitals/UI_Vitals_tab1_StepBox.png"
+                    anchors.top: parent.top
+                    anchors.topMargin: 50
+                    anchors.right: parent.right
+                    anchors.rightMargin: 30
+                    Textfield {
+                        anchors.centerIn: parent
+                        width: 125
+                        text: ""
+                        Text {
+                            text: 'Enter Temperature'
+                            anchors.top: parent.top
+                            anchors.topMargin: -20
+                        }
+                        Text {
+                            text: "Celsius"
+                            anchors.left: parent.right
+                            anchors.leftMargin: 15
+                            anchors.bottom: parent.bottom
+                            anchors.bottomMargin: 20
+                            font.pointSize: 16
+                        }
+                    }
+                }
+            }
+            Item {
+                id: bloodPressure
+                visible: false
+                anchors.fill:parent
+     //           anchors.bottom: parent.bottom
+     //           anchors.bottomMargin: 50
+     //           anchors.right: parent.right
+     //           anchors.rightMargin: 30
+                Column{
+                    anchors.fill: parent
+                    Image {
+                        id: bloodPressureInstructionBox
+                        source: "images/tab_vitals/UI_Vitals_tab1_StepBox.png"
+                        anchors.top: parent.top
+                        anchors.topMargin: 50
+                        anchors.right: parent.right
+                        anchors.rightMargin: 30
+                    }
+
+
+            }
+            }
+            Item {
+                id: stethoscope
+                visible: false
+            }
 
          MouseArea {
-             id: click_Height
+             id: click_HeightWeight
              x: 8
              y: 8
              width: 86
              height: 103
-             onClicked: parent.source = "images/tab_vitals/UI_Vitals_Tab1.png"
+             onClicked:{ 
+                item_vitalsTab.state = 'heightWeight'             
+            }
          }
 
          MouseArea {
-             id: mouseArea2
+             id: clickPulse
              x: 8
              y: 117
              width: 86
              height: 106
-             onClicked: parent.source = "images/tab_vitals/UI_Vitals_Tab2.png"
-         }
-
+             onClicked: {
+                 item_vitalsTab.state = 'pulse'   
+            }
+        }
          MouseArea {
-             id: mouseArea3
+             id: clickTemperature
              x: 8
              y: 229
              width: 86
              height: 105
-             onClicked: parent.source = "images/tab_vitals/UI_Vitals_Tab3.png"
-         }
-
+             onClicked: {
+                item_vitalsTab.state = 'temperature'
+            }  
+        }
          MouseArea {
-             id: mouseArea4
+             id: clickBloodPressure
              x: 8
              y: 340
              width: 86
              height: 105
-             onClicked: parent.source = "images/tab_vitals/UI_Vitals_Tab4.png"
+             onClicked: {
+                item_vitalsTab.state = 'bloodPressure'
+            }
          }
 
          MouseArea {
-             id: mouseArea5
+             id: clickStethoscope
              x: 8
              y: 451
              width: 86
@@ -124,40 +195,149 @@ Item {
          }
 
          Image {
-             id: image1
+             id: imgHeightWeight
              x: 27
              y: 40
              source: "images/tab_vitals/UI_Vitals_HeightWeightIcon.png"
          }
 
          Image {
-             id: image2
+             id: imgPulse
              x: 27
              y: 147
              source: "images/tab_vitals/UI_Vitals_BloodPressIcon.png"
          }
 
          Image {
-             id: image3
+             id: imgTemperature
              x: 41
              y: 259
              source: "images/tab_vitals/UI_Vitals_TempIcon.png"
          }
 
          Image {
-             id: image4
+             id: imgBloodPressure
              x: 29
              y: 370
              source: "images/tab_vitals/UI_Vitals_BloodPressureIcon.png"
          }
 
          Image {
-             id: image5
+             id: imgStethoscope
              x: 33
              y: 482
              source: "images/tab_vitals/UI_Vitals_StethoIcon.png"
          }
 		}
-
+        states: [
+            State {
+                name: 'heightWeight'
+                PropertyChanges {
+                    target: heightWeight
+                    visible: true
+                }
+                PropertyChanges {
+                    target: pulse
+                    visible: false
+                }
+                PropertyChanges {
+                    target: temperature
+                    visible: false
+                }
+                PropertyChanges {
+                    target: bloodPressure
+                    visible: false
+                }
+                PropertyChanges {
+                    target: stethoscope
+                    visible: false
+                }            
+                PropertyChanges {
+                    target: sensorTabs
+                    source: "images/tab_vitals/UI_Vitals_Tab1.png"
+                }
+            },
+            State {
+                name: 'pulse'
+                PropertyChanges {
+                    target: heightWeight
+                    visible: false
+                }
+                PropertyChanges {
+                    target: pulse
+                    visible: true
+                }
+                PropertyChanges {
+                    target: temperature
+                    visible: false
+                }
+                PropertyChanges {
+                    target: bloodPressure
+                    visible: false
+                }
+                PropertyChanges {
+                    target: stethoscope
+                    visible: false
+                }
+                PropertyChanges {
+                    target: sensorTabs
+                    source: "images/tab_vitals/UI_Vitals_Tab2.png"
+                }
+            },
+            State {
+                name: 'temperature'
+                PropertyChanges {
+                    target: heightWeight
+                    visible: false
+                }
+                PropertyChanges {
+                    target: pulse
+                    visible: false
+                }
+                PropertyChanges {
+                    target: temperature
+                    visible: true
+                }
+                PropertyChanges {
+                    target: bloodPressure
+                    visible: false
+                }
+                PropertyChanges {
+                    target: stethoscope
+                    visible: false
+                }
+                PropertyChanges {
+                    target: sensorTabs
+                    source: "images/tab_vitals/UI_Vitals_Tab3.png"
+                }
+            },
+            State {
+                name: "bloodPressure" 
+               PropertyChanges {
+                    target: heightWeight
+                    visible: false
+                }
+                PropertyChanges {
+                    target: pulse
+                    visible: false
+                }
+                PropertyChanges {
+                    target: temperature
+                    visible: false
+                }
+                PropertyChanges {
+                    target: bloodPressure
+                    visible: true
+                }
+                PropertyChanges {
+                    target: stethoscope
+                    visible: false
+                }
+                PropertyChanges {
+                    target: sensorTabs
+                    source: "images/tab_vitals/UI_Vitals_Tab4.png"
+                }
+            }
+    ]
 }
 

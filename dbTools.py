@@ -77,11 +77,15 @@ def load_nurses(num_records):
 def load_doctors(num_records):
 	insertions = 0
 	while insertions < num_records:
-		name = fake.name()
+		first_name = fake.first_name()
+		last_name = fake.last_name()
+		city = fake.fake.city_name()
+		email = fake.company_email()
+		password = fake.md5(raw_output=False)
 		doc_id = fake.md5(raw_output=False)
-		cur.execute("INSERT INTO clinic.doctors(name, doc_id) VALUES (%s, %s)", 
-												    (name,
-												     doc_id,))
+		cur.execute("INSERT INTO clinic.doctors(first_name, last_name, location, email) VALUES (%s, %s, %s, %s, %s)", 
+												    (first_name, last_name, city, email 
+												     ,))
 		print "Status: " + cur.statusmessage
 		conn.commit()
 		insertions += 1
@@ -156,10 +160,10 @@ def get_all_patients():
 	return patient_list
 
 
-def create_patient(first_name, last_name, village, gender, fingerprint):
+def create_patient(first_name, last_name, village, gender, fingerprint, pending_visit):
 	conn, cur = dblogin()
-	cur.execute("""INSERT INTO clinic.patients(first_name, last_name, village, gender, fingerprint_hash) 
-					VALUES (%s, %s, %s, %s, %s)""", (first_name, last_name, village, gender, fingerprint,)) 
+	cur.execute("""INSERT INTO clinic.patients(first_name, last_name, village, gender, fingerprint_hash, pending_visit) 
+					VALUES (%s, %s, %s, %s, %s, %s)""", (first_name, last_name, village, gender, fingerprint, pending_visit)) 
 	conn.commit()
 	cur.close()
 	conn.close()

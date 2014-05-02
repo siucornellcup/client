@@ -3,6 +3,7 @@ import QtQuick 1.0
 Item {
     id: genderSelectItem
     property string gender: "Male"
+    signal sendGender(string gender)
     Image {
         id: genderSelection
         x: 37
@@ -16,7 +17,11 @@ Item {
             id: maleSelect
             width: 69
             height: 63
-            onClicked: genderSelectItem.state = 'maleSelected'
+            onClicked: {
+                genderSelectItem.state = 'maleSelected'
+                symptomsTab.genderImg = 'images/tab_symptoms/UI_Symptoms_MaleFrontLarge.png'
+                symptomsTab.genderSmlImg = 'images/tab_symptoms/UI_Symptoms_MaleFrontSmall.png'
+            }
         }
 
         MouseArea {
@@ -25,7 +30,12 @@ Item {
             height: 63
             anchors.top: parent.top
             anchors.left: maleSelect.right
-            onClicked: genderSelectItem.state = 'femaleSelected'
+            onClicked: {
+                genderSelectItem.state = 'femaleSelected'
+                symptomsTab.genderImg = 'images/tab_symptoms/UI_Symptoms_FemaleFrontLarge.png'
+                symptomsTab.genderSmlImg = 'images/tab_symptoms/UI_Symptoms_FemaleFrontSmall.png'
+            }
+
         }
     }
     Image {

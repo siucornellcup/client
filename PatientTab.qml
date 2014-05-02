@@ -174,6 +174,11 @@ import QtQuick 1.0
             x: 500
             source: 'images/patientpage/UI_PatientPage_DropDown_Closed.png'
             state: 'closed'
+            Text {
+                text: 'Sort by'
+                x: 15
+                y: 12
+            }
             MouseArea {
                 id: sortByDropMouse
                 anchors.fill: parent

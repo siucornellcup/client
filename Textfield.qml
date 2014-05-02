@@ -20,6 +20,7 @@ Image {
         horizontalAlignment: TextInput.AlignLeft
         transformOrigin: Item.Center
         activeFocusOnPress: true
+        cursorVisible: false
         CLKeyboard{
             id: keyboard
             width: 600

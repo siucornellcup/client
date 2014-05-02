@@ -27,7 +27,6 @@ Image {
                   onPressed: headSelect.source = 'images/tab_symptoms/UI_Symptoms_BodyPart_Selected.png'
                   onReleased: headSelect.source = 'images/tab_symptoms/UI_Symptoms_BodyPart_Select.png'
                   onClicked: {symptomsDropText.text = qsTr('Head'); symptomsDrop.state = 'symptomsDropClosed'}
-
               }
            }
            Image {
@@ -64,6 +63,7 @@ Image {
                x: 182.5
                y: 235
                z: 1
+               
                MouseArea {
                    anchors.fill: parent
                    onPressed: handSelect.source = 'images/tab_symptoms/UI_Symptoms_BodyPart_Selected.png'
@@ -78,6 +78,7 @@ Image {
                x: 102.5
                y: 220
                z: 1
+               
                MouseArea {
                    anchors.fill: parent
                    onPressed: genitalSelect.source = 'images/tab_symptoms/UI_Symptoms_BodyPart_Selected.png'
@@ -92,6 +93,7 @@ Image {
                x: 85
                y: 320
                z: 1
+               
                MouseArea {
                    anchors.fill: parent
                    onPressed: kneeSelect.source = 'images/tab_symptoms/UI_Symptoms_BodyPart_Selected.png'
@@ -106,6 +108,7 @@ Image {
                x: 78.5
                y: 405
                z: 1
+               
                MouseArea {
                    anchors.fill: parent
                    onPressed: footSelect.source = 'images/tab_symptoms/UI_Symptoms_BodyPart_Selected.png'
@@ -846,6 +849,16 @@ Image {
         source: 'images/tab_symptoms/UI_Symptoms_AddCurrentBtn_Normal.png'
         x: 740
         y: 480
+        MouseArea{
+          anchors.fill: parent
+          onClicked: {
+            symptom.s_location = symptomsDropText.text
+            symptom.s_intensity = painText.text
+            symptom.s_painType = symptomsDrop2Text.text
+            symptom.s_duration = durationText.text
+              
+          }
+        }
     }
 
 

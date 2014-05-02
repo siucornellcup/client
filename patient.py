@@ -16,7 +16,7 @@ class Patient(QObject):
 	#	self.photo_id_path = None
 	#	self.photo_id = None
 		self.pending_visit = True
-		self.last_visit
+		self.last_visit = time.time()
 		QObject.__init__(self)
 
 #	def __setattr__(self, name, value):

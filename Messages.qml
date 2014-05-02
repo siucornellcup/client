@@ -67,13 +67,22 @@ Image {
 			anchors.rightMargin: 20
 		}
 
+	/*	ListView {
+			id: patientListModel
+			model: patientListModel
+			delegate: Component{
+				Image{
+					
+				}
+			}
+		}
+*/
 		CLListbox {
 			anchors.fill: parent
 			anchors.rightMargin: 300
 			anchors.leftMargin: 30
 			anchors.topMargin: 60
-			onItemClicked: {
-								
-			}
+			
 		}
+
 }	
