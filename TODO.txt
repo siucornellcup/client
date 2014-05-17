@@ -1,7 +1,7 @@
 TODO
 
 [] Clean-up and organize application directory
-	[]	Move QML files into their own folder
+	[x]	Move QML files into their own folder
 		[]	Update relevant paths in all code.
 	[]	Move python stuff (excluding main application file) into their own folder
 		[]	Update relevant paths in all code.
