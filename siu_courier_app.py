@@ -81,7 +81,7 @@ def main():
 	patientList = dbTools.get_all_patients()
 	patients = PatList(patientList)
 	view.rootContext().setContextProperty('patientListModel', patients)
-	view.setSource('main.qml')
+	view.setSource('QML/main.qml')
 	view.show()
 	app.exec_()
 	sensorIcon._set_running(False)
