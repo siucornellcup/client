@@ -10,6 +10,13 @@ SET check_function_bodies = false;
 SET client_min_messages = warning;
 
 --
+-- Name: postgres; Type: COMMENT; Schema: -; Owner: postgres
+--
+
+COMMENT ON DATABASE postgres IS 'default administrative connection database';
+
+
+--
 -- Name: clinic; Type: SCHEMA; Schema: -; Owner: postgres
 --
 
@@ -17,6 +24,86 @@ CREATE SCHEMA clinic;
 
 
 ALTER SCHEMA clinic OWNER TO postgres;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+--
+-- Name: adminpack; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS adminpack WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION adminpack; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION adminpack IS 'administrative functions for PostgreSQL';
+
+
+SET search_path = public, pg_catalog;
+
+--
+-- Name: ethinicity; Type: TYPE; Schema: public; Owner: postgres
+--
+
+CREATE TYPE ethinicity AS ENUM (
+    'White',
+    'Black',
+    'American Indian',
+    'Asian Indian',
+    'Chinese',
+    'Filipino',
+    'Other Asian',
+    'Japanese',
+    'Korean',
+    'Vietnamese',
+    'Native Hawaiian',
+    'Guamanian',
+    'Samoan',
+    'Other Pacific Islander',
+    'Other'
+);
+
+
+ALTER TYPE public.ethinicity OWNER TO postgres;
+
+--
+-- Name: gender; Type: TYPE; Schema: public; Owner: postgres
+--
+
+CREATE TYPE gender AS ENUM (
+    'Female',
+    'Male'
+);
+
+
+ALTER TYPE public.gender OWNER TO postgres;
+
+--
+-- Name: pex_condition; Type: TYPE; Schema: public; Owner: postgres
+--
+
+CREATE TYPE pex_condition AS ENUM (
+    'Diabetic',
+    'Asthmatic',
+    'Peanut Allergy'
+);
+
+
+ALTER TYPE public.pex_condition OWNER TO postgres;
 
 SET search_path = clinic, pg_catalog;
 
@@ -315,6 +402,16 @@ ALTER TABLE ONLY nurses
 
 ALTER TABLE ONLY resp_sounds
     ADD CONSTRAINT respiratorsounds_pkey PRIMARY KEY (resp_id);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
 --
