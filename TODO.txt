@@ -8,6 +8,6 @@ TODO
 
 []	Set dbTools.py to work with a local database instead of a remote one
 []	Create a database dump for testing purposes with prepopulated fields for all tables
-[x]	Write and test application setup procedure on a VM
 
 COMPLETED
+[x]	Write and test application setup procedure on a VM
