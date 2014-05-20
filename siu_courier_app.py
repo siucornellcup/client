@@ -63,9 +63,7 @@ def main():
 	heartRateIDs = (int("16C0",16),int("0483",16))
 	bloodPressureIDs = (000,000)
 	sensorIcon = SensorIcon.SensorIcon(heartRateIDs,bloodPressureIDs)
-	
 	weightScale = WeightScale.WeightScale()	
-
 	nurse1 = nurse.Nurse()
 	patient1 = patient.Patient()
 	visit1 = Visit.Visit()
