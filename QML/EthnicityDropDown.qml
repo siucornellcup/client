@@ -38,7 +38,7 @@ Rectangle {
 				model: ethnicityDropDownContainer.ethnicity
 				delegate: Text {
 					text: modelData
-					}	
+				}	
 			}  
 		}     
 	}	

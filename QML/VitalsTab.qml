@@ -14,7 +14,8 @@ Image {
         id: heightWeight
         anchors.fill: parent
         visible: true
-        z: 100        
+        z: 100
+
         Image {
             id: heightStepbox
             source: "images/tab_vitals/UI_Vitals_tab1_StepBox.png"
@@ -23,7 +24,17 @@ Image {
             anchors.right: parent.right
             anchors.rightMargin: 30
             z: 100
-            Textfield {
+
+        DataInput {
+            //anchors.right: parent.right
+            //anchors.rightMargin: 20
+            anchors.verticalCenter: heightStepbox.verticalCenter
+            anchors.verticalCenterOffset: -30
+            anchors.horizontalCenter: heightStepbox.horizontalCenter
+            anchors.horizontalCenterOffset: -70
+        }
+
+/*          Textfield {
                 id: heightInput
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
@@ -31,13 +42,16 @@ Image {
                 visible: true
                 text: "Height"
             }
+
             Image {
                 source: "images/buttons/Save_Btn.png"
                 anchors.left: heightInput.right
                 anchors.leftMargin: 20
                 anchors.verticalCenter: heightInput.verticalCenter
-            }
+            }*/
+
         }
+
     Image {
         id: weightStepbox
         source: "images/tab_vitals/UI_Vitals_tab1_StepBox.png"
@@ -46,6 +60,7 @@ Image {
         anchors.right: parent.right
         anchors.rightMargin: 30
         z: 100
+
         Textfield {
             id: weightInput
             anchors.horizontalCenter: parent.horizontalCenter
@@ -71,14 +86,17 @@ Image {
                     } 
             }*/
         }
+
         Image {
             source: "images/buttons/Save_Btn.png"
             anchors.left: weightInput.right
             anchors.leftMargin: 20
             anchors.verticalCenter: weightInput.verticalCenter
         }
+
     }
-}
+
+    }
     Item {
         id: pulse
         anchors.fill: parent

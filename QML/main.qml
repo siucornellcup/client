@@ -7,6 +7,7 @@ Tabs 99
 
 import QtQuick 1.0
 import 'colibri'
+
     Rectangle {
         id: page
         width: 1024
