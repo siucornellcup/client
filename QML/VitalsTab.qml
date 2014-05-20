@@ -25,76 +25,37 @@ Image {
             anchors.rightMargin: 30
             z: 100
 
-        DataInput {
-            //anchors.right: parent.right
-            //anchors.rightMargin: 20
-            anchors.verticalCenter: heightStepbox.verticalCenter
-            anchors.verticalCenterOffset: -30
-            anchors.horizontalCenter: heightStepbox.horizontalCenter
-            anchors.horizontalCenterOffset: -70
-        }
-
-/*          Textfield {
-                id: heightInput
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.verticalCenter: parent.verticalCenter
-                width: 125
-                visible: true
-                text: "Height"
+            DataInput {
+                //anchors.right: parent.right
+                //anchors.rightMargin: 20
+                instructions: "Input height"
+                units: "cm"
+                anchors.verticalCenter: heightStepbox.verticalCenter
+                anchors.verticalCenterOffset: -30
+                anchors.horizontalCenter: heightStepbox.horizontalCenter
+                anchors.horizontalCenterOffset: -70
             }
-
-            Image {
-                source: "images/buttons/Save_Btn.png"
-                anchors.left: heightInput.right
-                anchors.leftMargin: 20
-                anchors.verticalCenter: heightInput.verticalCenter
-            }*/
-
-        }
-
-    Image {
-        id: weightStepbox
-        source: "images/tab_vitals/UI_Vitals_tab1_StepBox.png"
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 50
-        anchors.right: parent.right
-        anchors.rightMargin: 30
-        z: 100
-
-        Textfield {
-            id: weightInput
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.verticalCenter: parent.verticalCenter
-            width: 125
-            visible: true
-            text: "Weight"
-         /* Old code for the withings scale 
-
-            Rectangle {
-                    id: weightButton
-                    x: 50
-                    y: 50
-                    z: 100
-                    color: (weightScale.hasrun ? (weightScale.running ? '#D7853D' : '#6AA535') : '#FF0000')
-                    border.color: '#666666'
-                    height: 100
-                    width: 100
-                    Text {
-                        x: 130
-                        y: 35
-                        text: 'Red: Step on scale\nOrange: Stay on scale\nGreen: Weight has been recorded'
-                    } 
-            }*/
         }
 
         Image {
-            source: "images/buttons/Save_Btn.png"
-            anchors.left: weightInput.right
-            anchors.leftMargin: 20
-            anchors.verticalCenter: weightInput.verticalCenter
-        }
+            id: weightStepbox
+            source: "images/tab_vitals/UI_Vitals_tab1_StepBox.png"
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 50
+            anchors.right: parent.right
+            anchors.rightMargin: 30
+            z: 100
 
-    }
+            DataInput {
+                instructions: "Input weight"
+                units: "kg"
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.verticalCenterOffset: -30
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.horizontalCenterOffset: -70
+            }
+
+        }
 
     }
     Item {
@@ -111,7 +72,7 @@ Image {
             anchors.rightMargin: 30
             visible: true
 
-/*  Old code for the SpO2 sensor              
+/*  Old code for the SpO2 sensor. It works.             
 
         Image {
             id: get_bp_button
@@ -145,19 +106,13 @@ Image {
             text: "Please place the patients finger on the sensor and wait up to 30 seconds."
         }
     } */  
-            Textfield {
-                id: pulseInput
-                anchors.horizontalCenter: parent.horizontalCenter
+            DataInput {
+                instructions: "Input pulse"
+                units: "?"
                 anchors.verticalCenter: parent.verticalCenter
-                width: 125
-                visible: true
-                text: "Pulse"
-            }
-            Image {
-                source: "images/buttons/Save_Btn.png"
-                anchors.left: pulseInput.right
-                anchors.leftMargin: 20
-                anchors.verticalCenter: pulseInput.verticalCenter
+                anchors.verticalCenterOffset: -30
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.horizontalCenterOffset: -70
             }
         }
     }
@@ -173,7 +128,16 @@ Image {
             anchors.topMargin: 50
             anchors.right: parent.right
             anchors.rightMargin: 30
-            Textfield {
+
+            DataInput {
+                instructions: "Input temperature"
+                units: "Celsius"
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.verticalCenterOffset: -30
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.horizontalCenterOffset: -70
+            }
+/*            Textfield {
                 anchors.centerIn: parent
                 width: 125
                 text: ""
@@ -190,7 +154,7 @@ Image {
                     anchors.bottomMargin: 20
                     font.pointSize: 16
                 }
-            }
+            }*/
         }
     }
     Item {
@@ -207,20 +171,13 @@ Image {
                 anchors.right: parent.right
                 anchors.rightMargin: 30
 
-
-                Textfield {
-                    id: bpInput
-                    anchors.horizontalCenter: parent.horizontalCenter
+                DataInput {
+                    instructions: "Input blood pressure"
+                    units: "?"
                     anchors.verticalCenter: parent.verticalCenter
-                    width: 125
-                    visible: true
-                    text: "Blood Pressure"
-                }
-                Image {
-                    source: "images/buttons/Save_Btn.png"
-                    anchors.left: bpInput.right
-                    anchors.leftMargin: 20
-                    anchors.verticalCenter: bpInput.verticalCenter
+                    anchors.verticalCenterOffset: -30
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.horizontalCenterOffset: -70
                 }
             }
         }   

@@ -1,5 +1,7 @@
 import QtQuick 1.0
 Item {
+    property alias units: units.text
+    property alias instructions: instructions.text
 
     Textfield {
         id: heightTextField
@@ -7,15 +9,15 @@ Item {
         text: ""
 
         Text {
-        	id: instruction
-            text: 'Enter Height'
+        	id: instructions
+            text: 'Instructions'
             anchors.top: parent.top
             anchors.topMargin: -20
         }
 
         Text {
         	id: units
-            text: "cm"
+            text: "units"
             anchors.left: parent.right
             anchors.leftMargin: 15
             anchors.bottom: parent.bottom
