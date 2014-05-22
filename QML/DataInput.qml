@@ -33,6 +33,12 @@ Item {
         anchors.leftMargin: 60
         anchors.verticalCenter: heightTextField.verticalCenter
         anchors.verticalCenterOffset: -4
+        MouseArea {
+            id: save_click
+            anchors.fill: parent
+            onPressed: parent.source = "images/buttons/Save_Active_Btn.png"
+            onReleased: parent.source = "images/buttons/Save_Btn.png"
+        }
     }
 
 }
