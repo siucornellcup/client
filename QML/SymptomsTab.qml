@@ -843,7 +843,98 @@ Image {
                 }
             }
         }
+
     }
+
+    Image {
+        source: 'images/tab_symptoms/UI_Profile_Ethnicity_Closed.png'
+
+        id:criticalBox
+        property variant items: ["Low", "Medium", "High"]
+        property alias selectedItem: chosenItemText.text;
+        property alias selectedIndex: listView.currentIndex;
+        signal comboClicked;
+
+        x: 345;
+        y: 440;
+        z: 1;
+        smooth:true;
+        Item {
+            id:chosenItem
+            width:parent.width
+            height:criticalBox.height
+            smooth:true;
+            Text {
+                anchors.top: parent.top;
+                anchors.left: parent.left;
+                anchors.margins: 8;
+                id:chosenItemText
+                text:"Criticality";
+                font.family: "Arial"
+                font.pointSize: 14;
+                smooth:true
+            }
+
+            MouseArea {
+                anchors.fill: parent;
+                onClicked: {
+                    criticalBox.state = criticalBox.state==="dropDown"?"":"dropDown"
+                }
+            }
+        }
+
+        Image {
+            id:dropDown
+            width:criticalBox.width;
+            source: 'images/tab_symptoms/UI_Profile_Ethnicity_Dropdown_Overlap.png'
+            height:0;
+            clip:true;
+            anchors.top: chosenItem.bottom;
+            anchors.margins: -4
+            ListView {
+                id:listView
+                height:500;
+                model: criticalBox.items
+                currentIndex: 0
+                delegate: Item{
+                    width:criticalBox.width;
+                    height: criticalBox.height;
+
+                    Text {
+                        text: modelData
+                        anchors.top: parent.top;
+                        anchors.left: parent.left;
+                        anchors.margins: 5;
+
+                    }
+                    MouseArea {
+                        anchors.fill: parent;
+                        onClicked: {
+                            criticalBox.state = ""
+                            var prevSelection = chosenItemText.text
+                            chosenItemText.text = modelData
+                            if(chosenItemText.text != prevSelection){
+                                criticalBox.comboClicked();
+                            }
+                            listView.currentIndex = index;
+                        }
+                    }
+                }
+            }
+        }
+
+        states: State {
+            name: "dropDown";
+            PropertyChanges { target: dropDown; height:40*criticalBox.items.length }
+        }
+
+        transitions: Transition {
+            NumberAnimation { target: dropDown; properties: "height"; easing.type: Easing.OutExpo; duration: 1000 }
+        }
+    }
+
+
+
     Image {
         id: addCurrentButton
         source: 'images/tab_symptoms/UI_Symptoms_AddCurrentBtn_Normal.png'
