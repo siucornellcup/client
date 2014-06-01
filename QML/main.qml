@@ -886,25 +886,24 @@ import 'colibri'
 
 
 //PATIENT PAGE SAVE BUTTON
-            Image {
-                id: saveButton
+            Button {
+                id:saveButton
                 x: 630
                 y: 470
-                source: "images/profile/UI_Profile_Save_Btn.png"
-                MouseArea {
-                    id: saveButtonMouse
-                    anchors.fill: parent
-                    onPressed: saveButton.source = "images/profile/UI_Profile_Save_Active_Btn.png"
-                    onReleased: saveButton.source = "images/profile/UI_Profile_Save_Btn.png"
-                    onClicked: {patient.p_first_name = firstNameInput.text
-                                patient.p_last_name = lastNameInput.text
-                                patient.p_village = villageInput.text
-                                patient.p_gender = genderSelector.gender
-                                patient.create_record()
-                                patient.load
-                                patientListModel.update()
-                                page.state = 'vitalsTab'
-                                }
+
+                function clickHandler() {
+                    patient.p_first_name = firstNameInput.text
+                    patient.p_last_name = lastNameInput.text
+                    patient.p_village = villageInput.text
+                    patient.p_gender = genderSelector.gender
+                    patient.create_record()
+                    patient.load
+                    patientListModel.update()
+                    page.state = 'vitalsTab'
+                }
+
+                Component.onCompleted: {
+                    saveButton.clicked.connect(clickHandler)
                 }
             }
         }
