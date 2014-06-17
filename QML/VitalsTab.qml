@@ -1,5 +1,5 @@
-import QtQuick 1.0
-import 'colibri'
+import QtQuick 2.2
+
 Image {
     id: sensorTabs
     anchors.right: parent.right
@@ -161,26 +161,24 @@ Image {
         id: bloodPressure
         visible: false
         anchors.fill:parent
-        Column{
-            anchors.fill: parent
-            Image {
-                id: bloodPressureInstructionBox
-                source: "images/tab_vitals/UI_Vitals_tab1_StepBox.png"
-                anchors.top: parent.top
-                anchors.topMargin: 50
-                anchors.right: parent.right
-                anchors.rightMargin: 30
 
-                DataInput {
-                    instructions: "Input blood pressure"
-                    units: "?"
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.verticalCenterOffset: -30
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.horizontalCenterOffset: -70
-                }
+        Image {
+            id: bloodPressureInstructionBox
+            source: "images/tab_vitals/UI_Vitals_tab1_StepBox.png"
+            anchors.top: parent.top
+            anchors.topMargin: 50
+            anchors.right: parent.right
+            anchors.rightMargin: 30
+
+            DataInput {
+                instructions: "Input blood pressure"
+                units: "?"
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.verticalCenterOffset: -30
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.horizontalCenterOffset: -70
             }
-        }   
+        }
     }
     Item {
         id: stethoscope

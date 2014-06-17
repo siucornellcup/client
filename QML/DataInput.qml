@@ -1,4 +1,4 @@
-import QtQuick 1.0
+import QtQuick 2.2
 Item {
     property alias units: units.text
     property alias instructions: instructions.text

@@ -5,9 +5,12 @@ Navbar 99
 Tabs 99
 */
 
-import QtQuick 1.0
-import 'colibri'
-
+import QtQuick 2.2
+import QtQuick.Window 2.0
+Window {
+    width: 1024
+    height: 768
+    visible: true
     Rectangle {
         id: page
         width: 1024
@@ -1166,4 +1169,5 @@ import 'colibri'
 
         }
     
+}
 }

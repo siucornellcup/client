@@ -1,4 +1,4 @@
-import QtQuick 1.0
+import QtQuick 2.2
 
 // Clicked should act as the signal for when the button is pressed
 Image {

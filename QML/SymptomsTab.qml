@@ -1,4 +1,4 @@
-import QtQuick 1.0
+import QtQuick 2.2
 
 Image {
     id: symptomsBack
@@ -120,14 +120,14 @@ Image {
 
            Image {
                id: bodyImage
-               source: {patient.p_gender == 'Male' ?  'images/tab_symptoms/UI_Symptoms_MaleFrontLarge.png' : 'images/tab_symptoms/UI_Symptoms_FemaleFrontLarge.png' }
+               //source: {patient.p_gender == 'Male' ?  'images/tab_symptoms/UI_Symptoms_MaleFrontLarge.png' : 'images/tab_symptoms/UI_Symptoms_FemaleFrontLarge.png' }
                x: 10
                y: 25
 
            }
            Image {
                id: smallBodyImage
-               source: {patient.p_gender == 'Male' ? 'images/tab_symptoms/UI_Symptoms_MaleBackSmall.png' : 'images/tab_symptoms/UI_Symptoms_FemaleBackSmall.png' }
+               //source: {patient.p_gender == 'Male' ? 'images/tab_symptoms/UI_Symptoms_MaleBackSmall.png' : 'images/tab_symptoms/UI_Symptoms_FemaleBackSmall.png' }
                x: 175
                y: 12
            }

@@ -1,4 +1,4 @@
-import QtQuick 1.0
+import QtQuick 2.2
 
     Image {
         id: patientPageBack
@@ -28,6 +28,7 @@ import QtQuick 1.0
         cellHeight: 150
         snapMode: GridView.SnapOneRow
         flow: GridView.TopToBottom
+        /*
         model: patientListModel
         delegate: Component {
                 Column {
@@ -56,17 +57,17 @@ import QtQuick 1.0
                             text: model.patient.p_last_name
                         }
                     }
-                        Text {
-                            id: village
-                            color: '#58595b'
-                            font.family: 'DroidSans'
-                            font.pointSize: 10
-                            text: model.patient.p_village
-                        }
+                    Text {
+                        id: village
+                        color: '#58595b'
+                        font.family: 'DroidSans'
+                        font.pointSize: 10
+                        text: model.patient.p_village
+                    }
                     
                 }
+            }*/
             }
-            }        
    }
         Text {
             id: patientsText

@@ -1,5 +1,5 @@
-import QtQuick 1.0
-import 'colibri'
+import QtQuick 2.2
+
 Image {
 		id: messagesBackground
 		source: 'images/messages/UI_Messages_back.png'
@@ -76,7 +76,7 @@ Image {
 				}
 			}
 		}
-*/
+
 		CLListbox {
 			anchors.fill: parent
 			anchors.rightMargin: 300
@@ -84,5 +84,5 @@ Image {
 			anchors.topMargin: 60
 			
 		}
-
+*/
 }	
