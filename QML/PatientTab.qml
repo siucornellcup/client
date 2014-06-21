@@ -1,5 +1,17 @@
 import QtQuick 2.2
 
+
+Image {
+    id: patientPageBack
+    anchors.centerIn: parent
+    source: 'images/patientpage/UI_PatientPage_back.png'
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {pageLoader.source = "SymptomsTab.qml"}
+    }
+}
+
+/*
     Image {
         id: patientPageBack
         anchors.centerIn: parent
@@ -67,6 +79,7 @@ import QtQuick 2.2
                     
                 }
             }*/
+/*
             }
    }
         Text {
@@ -186,4 +199,4 @@ import QtQuick 2.2
                 //onClicked: page.state == 'sortByOpen' ? page.state = 'sortByClosed' : page.state = 'sortByOpen';
             }
         }
-    }
+    }*/

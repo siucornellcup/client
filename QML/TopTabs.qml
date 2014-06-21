@@ -5,17 +5,21 @@ Image {
     source: "images/tabs/UI_Tab1_tabs.jpg"
     anchors.fill: parent
 
+
+
+
+
     Row {
 
-    Tabtext {text: "Nurse"; x: 49; y: 25}
+        Tabtext {text: "Nurse"; x: 49; y: 25}
 
-    Tabtext {text: "Profile"; x: 251; y: 25}
+        Tabtext {text: "Profile"; x: 251; y: 25}
 
-    Tabtext {text: "Vitals"; x: 470; y: 25}
+        Tabtext {text: "Vitals"; x: 470; y: 25}
 
-    Tabtext {text: "Symptoms"; x: 670; y: 25}
+        Tabtext {text: "Symptoms"; x: 670; y: 25}
 
-    Tabtext {text: "Diagnosis"; x: 870; y: 25}
+        Tabtext {text: "Diagnosis"; x: 870; y: 25}
 
     }
 
@@ -25,7 +29,10 @@ Image {
         y: 8
         width: 201
         height: 60
-        onClicked: page.state = "profileState"
+        onClicked: {
+            pageLoader.source = "PatientTab.qml"
+            backTabs.source = "images/tabs/UI_Tab2_tabs.jpg"
+        }
     }
 
     MouseArea {
@@ -34,7 +41,10 @@ Image {
         y: 8
         width: 202
         height: 60
-        onClicked: page.state = "vitalsTab"
+        onClicked: {
+            backTabs.source = "images/tab_vitals/UI_Tab3_tabs.jpg"
+            //pageLoader.source = "VitalsTab.qml"
+        }
     }
 
     MouseArea {
@@ -43,7 +53,9 @@ Image {
         y: 8
         width: 203
         height: 60
-        onClicked: {page.state = "symptomsTab"
+        onClicked: {
+            backTabs.source = "images/tab_symptoms/UI_Tab4_tabs.jpg"
+            //pageLoader.source = "Symptoms.qml"
         }
     }
 
@@ -53,7 +65,10 @@ Image {
         y: 8
         width: 189
         height: 60
-        onClicked: page.state = "diagnosisTab"
+        onClicked: {
+            backTabs.source = "images/tab_diagnosis/UI_Tab5_tabs.jpg"
+            //pageLoader.source = "DiagnosisTab.qml"
+        }
     }
 
     MouseArea {
@@ -62,7 +77,18 @@ Image {
         y: 8
         width: 197
         height: 60
-        onClicked: page.state = "nursePortal"
+        onClicked: {
+            backTabs.source = "images/tabs/UI_Tab1_tabs.jpg"
+            //pageLoader.source = "nursePortal"
+        }
     }
+
+    Loader {
+        id: pageLoader
+        x: 50
+        y: 100
+    }
+
+
 }
 
