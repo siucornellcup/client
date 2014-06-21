@@ -25,8 +25,7 @@ Image {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                        keyboard.visible = true
-                        textInput.state = 'keyboardTime'
+
             }                  
         }
     }

@@ -8,8 +8,6 @@ Item {
         id: genderSelection
         x: 37
         y: 222
-        width: 138
-        height: 63
         opacity: 1
         source: "images/profile/UI_Profile_Gender_Btn.png"
 
